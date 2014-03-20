@@ -6,10 +6,10 @@ class CreateGoals < ActiveRecord::Migration
       t.integer :bet_amount, default: 0
       t.datetime :start_date, null: false
       t.datetime :end_date, null: false
+      t.integer :owner_id
       t.integer :buddy_id
-      t.belongs_to :user
     end
-    add_index :goals, :user_id
+    add_index :goals, :owner_id
     add_index :goals, :buddy_id
   end
 end
