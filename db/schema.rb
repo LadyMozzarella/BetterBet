@@ -27,12 +27,12 @@ ActiveRecord::Schema.define(:version => 20140320213143) do
     t.integer  "bet_amount",  :default => 0
     t.datetime "start_date",                 :null => false
     t.datetime "end_date",                   :null => false
+    t.integer  "owner_id"
     t.integer  "buddy_id"
-    t.integer  "user_id"
   end
 
   add_index "goals", ["buddy_id"], :name => "index_goals_on_buddy_id"
-  add_index "goals", ["user_id"], :name => "index_goals_on_user_id"
+  add_index "goals", ["owner_id"], :name => "index_goals_on_owner_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",           :null => false

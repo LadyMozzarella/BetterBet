@@ -1,0 +1,18 @@
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "goals" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (2.2ms)[0m  select table_name from information_schema.views where table_schema = 'better_bet_test'
+  [1m[36m (9.0ms)[0m  [1mTRUNCATE TABLE "friendships", "goals", "users" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "goals" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "goals" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL[0m
+  [1m[35m (10.1ms)[0m  TRUNCATE TABLE "friendships", "goals", "users" RESTART IDENTITY CASCADE;
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "goals" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "goals" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL
+  [1m[36m (41.3ms)[0m  [1mTRUNCATE TABLE "friendships", "goals", "users" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "goals" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "goals" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL[0m
+  [1m[35m (10.4ms)[0m  TRUNCATE TABLE "friendships", "goals", "users" RESTART IDENTITY CASCADE;
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "goals" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "friendships" DISABLE TRIGGER ALL;ALTER TABLE "goals" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL
+  [1m[36m (10.9ms)[0m  [1mTRUNCATE TABLE "friendships", "goals", "users" RESTART IDENTITY CASCADE;[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "friendships" ENABLE TRIGGER ALL;ALTER TABLE "goals" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL
