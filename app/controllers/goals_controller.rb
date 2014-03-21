@@ -7,7 +7,6 @@ class GoalsController < ApplicationController
   end
 
   def show
-    @goal = Goal.find(params[:id])
     @time_left = @goal.time_left
   end
 
