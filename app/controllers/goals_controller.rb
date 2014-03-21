@@ -1,6 +1,6 @@
 class GoalsController < ApplicationController
   include ApplicationHelper
-  before_filter :goal, only: [:edit, :delete]
+  before_filter :goal, only: [:edit, :update, :destroy]
 
   def goal
     @goal = Goal.find(params[:id])
