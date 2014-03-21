@@ -1,0 +1,9 @@
+<img src="<%= @user.image %>">
+<h1><%= @user.name %></h1>
+<label><%= @user.email %></label>
+<label><%= @user.name %></label>
+<label><%= @user.bio %></label>
+<label>Goals</label>
+<% @user.goals.each do |goal| %>
+  <%= render partial: 'goals', :locals => {:goal => goal} %>
+<% end %>
