@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe UsersController do
   let(:user) { create :user }
-  let!(:goals) { create_list(:goal, 3) }
+  let(:goals) { create_list(:goal, 3) }
   context '#show' do
     it 'should be a success' do
       get :show, id: user.id
