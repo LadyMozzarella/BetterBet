@@ -4,7 +4,10 @@ describe GoalsController do
   let(:goal) { create :goal }
   let(:goals) { create_list(:goal, 3) }
   let(:attribs) { attributes_for :goal }
-  let(:user)
+  let(:user) { create :user }
+  before(:each) do
+    session[:user_id] = user.id
+  end
 
   context '#new' do
     it 'should be a success' do
@@ -25,9 +28,10 @@ describe GoalsController do
         expect(response).to be_redirect
       end
     end
+
     context 'with invalid attributes' do
       it 'should be redirect' do
-        get :create goal: {title: 'invalid goal'}
+        get :create, goal: {title: 'invalid goal'}
         expect(response).to be_redirect
       end
     end

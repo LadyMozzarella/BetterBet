@@ -1,4 +1,5 @@
 class GoalsController < ActionController::Base
+include ApplicationHelper
 
   def new
     @goal = Goal.new
@@ -11,6 +12,7 @@ class GoalsController < ActionController::Base
       redirect_to '/'
     else
       flash[:error] = "Invalid goal"
-      redirect to '/'
+      redirect_to '/'
+    end
   end
 end
