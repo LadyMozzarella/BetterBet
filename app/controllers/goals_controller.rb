@@ -1,5 +1,10 @@
-class GoalsController < ActionController::Base
+class GoalsController < ApplicationController
   include ApplicationHelper
+  before_filter :goal, only: [:edit, :update, :destroy]
+
+  def goal
+    @goal = Goal.find(params[:id])
+  end
 
   def new
     @goal = Goal.new
@@ -17,6 +22,15 @@ class GoalsController < ActionController::Base
   end
 
   def edit
-    @goal = Goal.find(params[:id])
+  end
+
+  def update
+    @goal.update_attributes(params[:goal])
+    redirect_to goal_path(@goal)
+  end
+
+  def destroy
+    @goal.destroy
+    redirect_to goals_path
   end
 end
