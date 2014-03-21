@@ -16,7 +16,7 @@ class GoalsController < ApplicationController
       redirect_to '/'
     else
       flash[:error] = "Invalid goal"
-      redirect_to '/goals/new'
+      redirect_to new_goal_path
     end
   end
 
