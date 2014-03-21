@@ -35,11 +35,15 @@ ActiveRecord::Schema.define(:version => 20140320213143) do
   add_index "goals", ["owner_id"], :name => "index_goals_on_owner_id"
 
   create_table "users", :force => true do |t|
-    t.string   "email",           :null => false
-    t.string   "password_digest", :null => false
+    t.string   "provider"
+    t.string   "uid"
     t.string   "name",            :null => false
+    t.string   "email",           :null => false
+    t.string   "image"
+    t.string   "token"
     t.text     "bio"
-    t.string   "picture"
+    t.string   "password_digest"
+    t.datetime "expires_at"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
