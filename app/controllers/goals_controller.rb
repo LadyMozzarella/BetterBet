@@ -1,13 +1,13 @@
 class GoalsController < ApplicationController
   include ApplicationHelper
-  before_filter :goal, only: [:edit, :update, :destroy]
-
-  def goal
-    @goal = Goal.find(params[:id])
-  end
+  before_filter :goal, except: [:new, :create, :goal]
 
   def new
     @goal = Goal.new
+  end
+
+  def show
+    @time_left = @goal.time_left
   end
 
   def create
@@ -33,4 +33,11 @@ class GoalsController < ApplicationController
     @goal.destroy
     redirect_to goals_path
   end
+
+  private
+
+  def goal
+    @goal = Goal.find(params[:id])
+  end
+
 end
