@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :password_digest, :bio, :picture
+  has_secure_password
+  attr_accessible :email, :name, :password, :password_confirmation, :bio, :picture
   has_many :goals, foreign_key: "owner_id"
   has_many :friendships
   has_many :friends, through: :friendships
@@ -11,7 +12,7 @@ class User < ActiveRecord::Base
     self.friends + self.inverse_friends
   end
 
-  def self.omniauth(auth)    
+  def self.omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
       user.provider = auth.provider
       user.uid = auth.uid
