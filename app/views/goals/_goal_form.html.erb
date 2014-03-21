@@ -1,0 +1,14 @@
+<%= form_for goal do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title, :required => true %>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  <%= f.label :bet %>
+  <%= f.integer :bet_amount %>
+  <%= f.label :start_date %>
+  <%= f.date_select :start_date %>
+  <%= f.label :end_date %>
+  <%= f.date_select :end_date %>
+  <%= f.label :buddy %>
+  <%= f.collection_select :buddy_id, current_user.friends, :id, :name %>
+<% end %>
