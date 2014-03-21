@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Betterbet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="wireframe">
+    <div id="page">
+        <a href="#nav" class="menu">Nav</a>
+        
+        <section id="ongoing-goals">
+            <article class="ongoing-goal">
+                <h1 class="ongoing-goal_goal-name">Goal Name</h1>
+                 <p class="ongoing-goal_goal-description">Lorem ipsum dolor sit amet, nonummy ligula volutpat hac integer nonummy. Suspendisse ultricies, congue etiam tellus, erat libero, nulla eleifend, mauris pellentesque. Suspendisse integer praesent vel, integer gravida mauris, fringilla vehicula lacinia non</p>
+                 <div class="ongoing-goal_goal-money_box">
+                    <p class="ongoing-goal_goal-money_label">You are betting:</p>
+                    <h3 class="ongoing-goal_goal-money">$345</h3>
+                </div>
+                <div class="ongoing-goal_goal-buddy_box">
+                    <p class="ongoing-goal_goal-buddy_label">Against:</p>
+                    <h2 class="ongoing-goal_goal-buddy">Buddy</h2>
+                </div>
+                <div class="ongoing-goal_goal-date_box">
+                    <h2 class="ongoing-goal_goal-date">25 Mar 14</h2>
+                    <p><a href="" class="ongoing-goal_goal-edit">edit</a> - <a class="ongoing-goal_goal-delete" href="">delete</a></p>
+                </div>
+            </article>
+        </section>
+
+        <section id="create_goal">
+            <h1>2.Create Goal</h1>
+        </section>
+        <section id="friends_timeline">
+            <h1>3.Friends Timeline</h1>
+        </section>
+        <section id="friend_list">
+            <h1>4.Friend List</h1>
+        </section>
+        <section id="past_goals">
+            <h1>5.Past Goals</h1>
+        </section>
+        <nav>
+            <h1 id="nav">Navigation links</h1>
+        </nav>
+    </div>
+</body>

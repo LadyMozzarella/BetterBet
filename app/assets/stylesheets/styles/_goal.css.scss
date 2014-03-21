@@ -1,0 +1,40 @@
+.ongoing-goal {
+    @include row;
+    border: 1px solid $dark-gray;
+    padding: 1em;
+}
+
+.ongoing-goal_goal-name {
+    border-bottom: 1px solid $dark-gray;
+}
+
+.ongoing-goal_goal-description {
+    padding-top: 1em;
+}
+.ongoing-goal_goal-money_label,
+.ongoing-goal_goal-buddy_label {
+    font-size: .8em;
+    line-height: 1em;
+    margin-bottom: 0.3em;
+}
+
+.ongoing-goal_goal-money_box {
+    @include span-columns(3);
+}
+
+.ongoing-goal_goal-money {
+    height: 60px;
+    background: $light-green;
+    padding: .5em 0;
+    text-align: center;
+}
+
+.ongoing-goal_goal-buddy_box {
+    @include span-columns(6);
+}
+
+.ongoing-goal_goal-buddy {
+    height: 60px;
+    background: $light-blue;
+    padding: .5em 0;
+}
