@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_secure_password
-  attr_accessible :email, :name, :password, :password_confirmation, :bio, :picture
+  attr_accessible :email, :name, :password, :password_confirmation, :bio, :image
   has_many :goals, foreign_key: "owner_id"
   has_many :friendships
   has_many :friends, through: :friendships
