@@ -24,4 +24,8 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
+
+  def has_friends?
+    (self.friends + self.inverse_friends).length > 0
+  end
 end
