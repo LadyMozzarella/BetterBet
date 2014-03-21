@@ -1,7 +1,12 @@
 class GoalsController < ApplicationController
+  before_filter :goal
+
+  def goal
+    @goal = Goal.find(params[:id])
+  end
+
   def destroy
-    goal = Goal.find(params[:id])
-    goal.destroy
+    @goal.destroy
   end
 
 end
