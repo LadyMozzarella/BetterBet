@@ -3,4 +3,12 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @goals = @user.goals
   end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+
+  end
 end
