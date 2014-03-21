@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @goals = @user.goals
   end
-
+git
   def edit
     @user = User.find(params[:id])
   end
