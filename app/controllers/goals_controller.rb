@@ -7,6 +7,7 @@ class GoalsController < ApplicationController
 
   def destroy
     @goal.destroy
+    redirect_to goals_path
   end
 
 end
