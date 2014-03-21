@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
     render(:new) && return unless @user.save
 
-    session[:id] = @user.id
+    session[:user_id] = @user.id
     redirect_to user_path(@user)
   end
 
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @goals = @user.goals
   end
-git
+
   def edit
     @user = User.find(params[:id])
   end
