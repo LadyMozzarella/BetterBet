@@ -15,4 +15,8 @@ class GoalsController < ActionController::Base
       redirect_to '/'
     end
   end
+
+  def edit
+    @goal = Goal.find(params[:id])
+  end
 end

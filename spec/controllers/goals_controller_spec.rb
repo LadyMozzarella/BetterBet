@@ -36,4 +36,16 @@ describe GoalsController do
       end
     end
   end
+
+  context '#edit' do
+    it 'should be a success' do
+      get :edit, id: goal
+      expect(response).to be_success
+    end
+
+    it 'should assign @goal to new goal' do
+      get :edit, id: goal
+      expect(assigns(:goal)).to eq goal
+    end
+  end
 end
