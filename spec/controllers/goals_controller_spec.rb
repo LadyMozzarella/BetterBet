@@ -2,7 +2,6 @@ require 'spec_helper'
 
 describe GoalsController do
   let!(:goal) { create :goal }
-  let(:update_goal) { double("goal", title: "My title", description: "My desc", bet_amount: 50) }
   let(:goals) { create_list(:goal, 3) }
   let(:attribs) { attributes_for :goal }
 
@@ -21,7 +20,13 @@ describe GoalsController do
   context '#update' do
     context 'with valid attributes' do
       it 'should redirect' do
-        post :update, id: goal, goal: update_goal
+        post :update, id: goal, goal: {title: "My title", description: "My desc", bet_amount: 50}
+        expect(response).to be_redirect
+      end
+    end
+    context 'with invalid attributes' do
+      it 'should redirect' do
+        post :update, id: goal, goal: {title: ""}
         expect(response).to be_redirect
       end
     end

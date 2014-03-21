@@ -7,6 +7,7 @@ class GoalsController < ApplicationController
 
   def update
     @goal.update_attributes(params[:goal])
+    redirect_to goal_path(@goal)
   end
 
   def destroy
