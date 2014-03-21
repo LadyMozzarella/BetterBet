@@ -1,6 +1,9 @@
 <div>
-  <%= link_to "Sign out", logout_path %>
-  <%= render 'shared/flash_errors', :flash => flash %>
-  <%= render 'loginform' %>
-  <%= link_to "Sign in with Facebook", "/auth/facebook" %>
+  <% if logged_in? %>
+    <%= link_to "Sign out", logout_path %>
+  <% else %>
+    <%= render 'shared/flash_errors' %>
+    <%= render 'loginform' %>
+    <%= link_to "Sign in with Facebook", "/auth/facebook" %>
+  <% end %>
 </div>
