@@ -6,6 +6,7 @@ class GoalsController < ApplicationController
   end
 
   def update
+    @goal.update_attributes(params[:goal])
   end
 
   def destroy

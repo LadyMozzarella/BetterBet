@@ -21,7 +21,7 @@ describe GoalsController do
   context '#update' do
     context 'with valid attributes' do
       it 'should redirect' do
-        post :update, id: goal: update_goal
+        post :update, id: goal, goal: update_goal
         expect(response).to be_redirect
       end
     end
