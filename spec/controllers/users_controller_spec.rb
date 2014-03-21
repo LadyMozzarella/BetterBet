@@ -35,6 +35,10 @@ describe UsersController do
   end
 
   context '#update' do
-    it 'should update a user\'s information'
+    it 'should update a user\'s information' do
+      expect {
+          put :update, :id => user.id, :user => { :bio => "New Bio"}
+        }.to change{ user.reload.bio }.to ("New Bio")
+    end
   end
 end
