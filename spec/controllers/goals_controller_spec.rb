@@ -24,14 +24,14 @@ describe GoalsController do
   context '#create' do
     context 'with valid attributes' do
       it 'should be redirect' do
-        get :create, goal: attribs
+        post :create, goal: attribs
         expect(response).to be_redirect
       end
     end
 
     context 'with invalid attributes' do
       it 'should be redirect' do
-        get :create, goal: {title: 'invalid goal'}
+        post :create, goal: {title: 'invalid goal'}
         expect(response).to be_redirect
       end
     end
