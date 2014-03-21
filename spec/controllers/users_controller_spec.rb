@@ -35,10 +35,20 @@ describe UsersController do
   end
 
   context '#update' do
-    it 'should update a user\'s information' do
-      expect {
-          put :update, :id => user.id, :user => { :bio => "New Bio"}
-        }.to change{ user.reload.bio }.to ("New Bio")
+    context 'valid attributes' do
+      it 'should update a user\'s information' do
+        expect {
+            put :update, :id => user.id, :user => { :bio => "New Bio"}
+          }.to change{ user.reload.bio }.to ("New Bio")
+      end
+    end
+
+    context 'invalid attributes' do
+      it "shouldn\'t update a user\'s information" do
+        expect {
+            put :update, :id => user.id, :user => { :name => ""}
+          }.to_not change{ user.reload.name }.to ("")
+      end
     end
   end
 end
