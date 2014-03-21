@@ -3,9 +3,6 @@ postgresql: &postgresql
   database: betterbet_<%= Rails.env %>
   min_messages: ERROR
 
-defaults: &defaults
-  host: localhost
-  <<: *<%= ENV['DB'] || "postgresql" %>
-
 test:
-  <<: *defaults
+  adapter: postgresql
+  database: betterbet_test
