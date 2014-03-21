@@ -5,5 +5,5 @@
 <label><%= @user.bio %></label>
 <label>Goals</label>
 <% @user.goals.each do |goal| %>
-  <%= render partial: 'goals', :locals => {:goal => goal} %>
+  <%= render partial: 'shared/goals', :locals => {:goal => goal} %>
 <% end %>
