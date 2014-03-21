@@ -7,7 +7,7 @@ module ApplicationHelper
   end
 
   def logged_in?
-    !!session[:id]
+    !!session[:user_id]
   end
 
 end

@@ -1,5 +1,4 @@
 class GoalsController < ApplicationController
-  include ApplicationHelper
   before_filter :goal, except: [:new, :create, :goal]
 
   def new
@@ -31,7 +30,7 @@ class GoalsController < ApplicationController
 
   def destroy
     @goal.destroy
-    redirect_to goals_path
+    redirect_to '/'
   end
 
   private
