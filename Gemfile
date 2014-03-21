@@ -13,6 +13,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'simplecov', :require => false
   gem 'shoulda-matchers'
   gem 'faker'
   gem 'factory_girl_rails'
@@ -27,7 +28,7 @@ group :assets do
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
-   
+
   # Style Stuff
   gem 'bourbon'
   gem 'neat'
