@@ -1,4 +1,5 @@
 /config/database.yml
+/config/facebook.yml
 *.rbc
 *.sassc
 .sass-cache
@@ -18,3 +19,4 @@ rerun.txt
 pickle-email-*.html
 .project
 config/initializers/secret_token.rb
+Gemfile.lock
