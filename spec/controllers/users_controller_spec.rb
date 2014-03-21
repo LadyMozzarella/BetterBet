@@ -10,6 +10,16 @@ describe UsersController do
       get :show, id: user.id
       expect(response).to be_success
     end
+
+    it 'should find a specific user' do
+      get :show, id: user.id
+      expect(assigns(:user)).to eq user
+    end
+
+    it 'should find goals for a specific user' do
+       get :show, id: user.id
+       expect(assigns(:goals)).to eq user.goals
+    end
   end
 
   context '#edit' do
