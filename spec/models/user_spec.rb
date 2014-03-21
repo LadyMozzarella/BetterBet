@@ -8,7 +8,7 @@ describe User do
   end
 
   context "associations" do
-    it { should have_many(:friendships) }
-    it { should have_many(:goals) }
+    it { should have_many :friendships  }
+    it { should have_many :goals }
   end
 end
