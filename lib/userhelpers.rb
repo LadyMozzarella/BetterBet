@@ -1,4 +1,4 @@
-module ApplicationHelper
+module UserHelpers
 
   def current_user
     if session[:id]
