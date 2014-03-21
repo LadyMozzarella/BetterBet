@@ -58,7 +58,8 @@ Betterbet::Application.routes.draw do
 
   get 'auth/:provider/callback', to: 'sessions#facebook_signup'
   get 'logout', to: 'sessions#destroy'
-  resources :sessions, only: [:new, :create]
+  get 'login', to: 'sessions#new'
+  resources :sessions, only: [:create]
 
   resources :users
   resources :goals
