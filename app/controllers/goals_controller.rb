@@ -1,8 +1,27 @@
 class GoalsController < ApplicationController
-  before_filter :goal
+  include ApplicationHelper
+  before_filter :goal, only: [:edit, :delete]
 
   def goal
     @goal = Goal.find(params[:id])
+  end
+
+  def new
+    @goal = Goal.new
+  end
+
+  def create
+    user = current_user
+    goal = user.goals.new(params[:goal])
+    if goal.save
+      redirect_to '/'
+    else
+      flash[:error] = "Invalid goal"
+      redirect_to '/'
+    end
+  end
+
+  def edit
   end
 
   def update
@@ -14,5 +33,4 @@ class GoalsController < ApplicationController
     @goal.destroy
     redirect_to goals_path
   end
-
 end

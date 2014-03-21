@@ -1,0 +1,10 @@
+postgresql: &postgresql
+  adapter: postgresql
+  username: postgres
+  password:
+  database: betterbet_<%= Rails.env %>
+  min_messages: ERROR
+
+test:
+  adapter: postgresql
+  database: betterbet_test
