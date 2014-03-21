@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe UsersController do
   let(:user) { create :user }
-  let(:goals) { create_list(:goal, 3) }
+  let(:attribs) { attributes_for :user }
   render_views
 
   context '#show' do
@@ -11,14 +11,14 @@ describe UsersController do
       expect(response).to be_success
     end
 
-    it 'should assign @user to user' do
+    it 'should find a specific user' do
       get :show, id: user.id
       expect(assigns(:user)).to eq user
     end
 
-    it 'should assign @goals to goal' do
-      get :show, id: user.id
-      expect(assigns(:goals)).to eq user.goals
+    it 'should find goals for a specific user' do
+       get :show, id: user.id
+       expect(assigns(:goals)).to eq user.goals
     end
   end
 
@@ -48,6 +48,36 @@ describe UsersController do
         expect {
             put :update, :id => user.id, :user => { :name => ""}
           }.to_not change{ user.reload.name }.to ("")
+      end
+    end
+  end
+
+  context '#new' do
+    it 'should be a success' do
+      get :new
+      expect(response).to be_success
+    end
+
+    it 'should assign @user to new user' do
+      get :new
+      expect(assigns(:user)).to be_a_new User
+    end
+  end
+
+  context '#create' do
+    context 'with valid attributes' do
+      it 'should be redirect' do
+        expect {
+          post :create, user: attribs
+        }.to change{ User.count }.by(1)
+      end
+    end
+
+    context 'with invalid attributes' do
+      it 'should be redirect' do
+        expect {
+          post :create, :user => {email: ''}
+        }.to_not change{ User.count }
       end
     end
   end

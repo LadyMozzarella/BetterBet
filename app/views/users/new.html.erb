@@ -4,7 +4,9 @@
   <%= f.label :email %>
   <%= f.text_field :email, :required => true %>
   <%= f.label :password %>
-  <%= f.text_field :password_hash, :required => true%>
+  <%= f.password_field :password, :required => true  %>
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation, :required => true  %>
   <%= f.label :bio %>
   <%= f.text_area :bio %>
   <%= f.submit %>
