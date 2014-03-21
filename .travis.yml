@@ -11,3 +11,4 @@ script: #bundle exec rspec spec
 
 before_script:
   - cp config/database.travis.yml config/database.yml
+  - psql -c 'create database betterbet_test' -U postgres
