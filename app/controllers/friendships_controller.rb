@@ -1,6 +1,7 @@
 class FriendshipsController < ApplicationController
   def create
-    if current_user.friends << User.find(params[:friend_id])
+    binding.pry
+    if current_user.friends << User.find(params[:format])
       flash[:notice] = "Added friend"
       redirect_to users_path
     else
