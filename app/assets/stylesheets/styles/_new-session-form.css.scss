@@ -1,0 +1,17 @@
+.new-session-form {
+    @include row;
+    padding: 1em;
+}
+
+.new-session-form h3 {
+    margin-bottom: $base-line-height/4 ;
+}
+
+.new-session-form input[type=submit] {
+    @include span-columns(6);
+}
+
+.facebook_signin_link {
+  @include span-columns(4);
+  @include shift(1);
+}
