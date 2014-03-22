@@ -33,4 +33,8 @@ class User < ActiveRecord::Base
   def latest_goal
     self.goals.last
   end
+
+  def is_current_user?(current_user)
+    self.id == current_user.id
+  end
 end

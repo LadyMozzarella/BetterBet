@@ -1,0 +1,14 @@
+.new-user-form {
+    @include row;
+    padding: 1em;
+}
+
+.new-user-form h1 {
+    font-weight: 100;
+    margin-bottom: $base-line-height/4 ;
+}
+
+.new-user-form input[type=submit] {
+    @include span-columns(10);
+    @include shift(1);
+}
