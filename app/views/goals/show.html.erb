@@ -3,29 +3,27 @@
    <p class="ongoing-goal_description"><%= @goal.description %></p>
 
    <div class="ongoing-goal_money_box">
-      <p class="ongoing-goal_label">
-          You are betting:
-          <h3 class="ongoing-goal_money"><%= @goal.bet_amount %></h3>
-      </p>
+    <p class="ongoing-goal_label">
+      You are betting:
+      <h3 class="ongoing-goal_money">$<%= @goal.bet_amount %></h3>
+    </p>
   </div>
 
   <div class="ongoing-goal_date_box">
-      <p class="ongoing-goal_label">
-          Countdown:
-          <% if @goal.started? %>
-            <h3 class="ongoing-goal_date"><%= @goal.time_remaining %></h3>
-          <% else  %>
-            <h3 class="ongoing-goal_date"><%= @goal.time_left %></h3>
-          <% end  %>
-      </p>
+    <p class="ongoing-goal_label">
+      Countdown:
+      <h3 class="ongoing-goal_date"><%= format_days(@goal.countdown) %> days</h3>
+    </p>
   </div>
 
-      <p class="ongoing-goal_label">
-          Against:
-      </p>
-   <div class="ongoing-goal_buddy_box">
-      <img src="#" alt="placeholder" class="ongoing-goal_buddy_image">
-      <h3 class="ongoing-goal_buddy">Jacinto de la Orza</h3>
+  <p class="ongoing-goal_label">
+    Against:
+  </p>
+  <div class="ongoing-goal_buddy_box">
+    <% if @goal.buddy.image %>
+      <img src="<%= @goal.buddy.image %>" alt="placeholder" class="ongoing-goal_buddy_image">
+    <% end %>
+    <h3 class="ongoing-goal_buddy"><%= link_to @goal.buddy.name, user_path(@goal.buddy) %></h3>
   </div>
 
   <%= link_to "Edit", edit_goal_path(@goal), class: "ongoing-goal_edit-button" %>

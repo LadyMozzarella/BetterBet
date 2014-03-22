@@ -1,7 +1,7 @@
 class Goal < ActiveRecord::Base
   attr_accessible :title, :description, :bet_amount, :start_date, :end_date, :owner_id, :buddy_id
   belongs_to :owner, foreign_key: "owner_id", class_name: "User"
-  belongs_to :buddy, foreign_key: "friend_id", class_name: "User"
+  belongs_to :buddy, foreign_key: "buddy_id", class_name: "User"
   validates_presence_of :title, :bet_amount, :start_date, :end_date, :owner_id
 
   def duration
@@ -17,17 +17,8 @@ class Goal < ActiveRecord::Base
   end
 
   def countdown
-    # return 0 if time_remaining <= 0
-    # if started?
-
-
-    # # ########################################################
-    # duration unless started?
-    # if started? && ( time_remaining > 0 )
-    #   time_remaining
-    # else #started? && time_remaining <= 0
-    #   0
-    # end
+    return 0 if self.time_remaining <= 0
+    self.started? ? self.time_remaining : self.duration
   end
 
 end
