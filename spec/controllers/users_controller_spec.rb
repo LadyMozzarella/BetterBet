@@ -71,8 +71,23 @@ describe UsersController do
   end
 
   context '#create' do
+
     context 'with valid attributes' do
       it 'should be redirect' do
+        post :create, user: attribs
+        expect(response).to be_redirect
+      end
+    end
+
+    context 'with invalid attributes' do
+      it 'should be redirect' do
+        post :create
+        expect(response).to be_redirect
+      end
+    end
+
+    context 'with valid attributes' do
+      it 'should increase User count by one' do
         expect {
           post :create, user: attribs
         }.to change{ User.count }.by(1)
@@ -80,11 +95,26 @@ describe UsersController do
     end
 
     context 'with invalid attributes' do
-      it 'should be redirect' do
+      it 'should not increase User count' do
         expect {
           post :create, :user => {email: ''}
         }.to_not change{ User.count }
       end
+    end
+  end
+
+  context "#destroy" do
+    before(:each) { session[:user_id] = user.id }
+
+    it 'should be redirect' do
+      delete :destroy, id: user
+      expect(response).to be_redirect
+    end
+
+    it 'should decrease User count by one' do
+      expect {
+        delete :destroy, id: user
+        }.to change { User.count }.by(-1)
     end
   end
 end

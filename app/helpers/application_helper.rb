@@ -10,4 +10,11 @@ module ApplicationHelper
     !!session[:user_id]
   end
 
+  def format_days(seconds)
+    mins, secs = seconds.divmod(60)
+    hours, mins = mins.divmod(60)
+    days, hours = hours.divmod(24)
+    days
+  end
+
 end

@@ -13,5 +13,6 @@ FactoryGirl.define do
     start_date Time.now
     end_date Time.now + 2.weeks
     association :owner, factory: :user
+    association :buddy, factory: :user
    end
 end

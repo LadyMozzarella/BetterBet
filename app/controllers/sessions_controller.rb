@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     @user = User.find_by_email(params[:email])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to user_path(@user)
+      redirect_to dashboard_path
     else
       flash[:error] = "Invalid email or password"
       redirect_to login_path
@@ -21,6 +21,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session.clear
+    flash[:notice] = "You have successfully logged out"
     redirect_to login_path
   end
 end

@@ -5,6 +5,9 @@ class ApplicationController < ActionController::Base
   private
 
   def authorize
-    redirect_to login_path unless logged_in?
+    unless logged_in?
+      flash[:error] = "Please login to continue."
+      redirect_to login_path
+    end
   end
 end

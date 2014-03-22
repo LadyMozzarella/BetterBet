@@ -1,13 +1,21 @@
 require 'spec_helper'
 
 describe GoalsController do
+  let(:user) { create :user }
   let!(:goal) { create :goal }
   let(:goals) { create_list(:goal, 3) }
   let(:attribs) { attributes_for :goal }
-  let(:user) { create :user }
+  render_views
 
   before(:each) do
     session[:user_id] = user.id
+  end
+
+  context '#index' do
+    it 'should be a success' do
+      get :index
+      expect(response).to be_success
+    end
   end
 
   context '#new' do

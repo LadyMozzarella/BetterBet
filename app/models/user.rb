@@ -29,4 +29,19 @@ class User < ActiveRecord::Base
   def has_friends?
     (self.friends + self.inverse_friends).length > 0
   end
+
+  def latest_goal
+    self.goals.last
+  end
+
+  def is_current_user?(current_user)
+    self.id == current_user.id
+  end
+
+  def self.search(name)
+    name = name.downcase
+    name = "%" + name + "%"
+    result = self.find(:all, :conditions => ['name LIKE ? OR email LIKE ?', name, name])
+  end
+
 end

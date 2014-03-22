@@ -8,68 +8,72 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="wireframe">
+<div id="page">
+  <a href="#nav" class="menu">Nav</a>
     <div id="page">
-        <a href="#nav" class="menu">Nav</a>
-        
+      <a href="#nav" class="menu">Nav</a>
+
+      <%= render partial: '/shared/search' %>
+
+      <% if @goal %>
         <section id="ongoing-goals">
-            <article class="ongoing-goal">
-                <h3 class="ongoing-goal_name">Goal Name</h3>
-                 <p class="ongoing-goal_description">Lorem ipsum dolor sit amet, nonummy ligula volutpat hac integer nonummy. Suspendisse ultricies, congue etiam tellus, erat libero, nulla eleifend, mauris pellentesque. Suspendisse integer praesent vel, integer gravida mauris, fringilla vehicula lacinia non</p>
+          <article class="ongoing-goal">
+            <h3 class="ongoing-goal_name"><%= @goal.title %></h3>
+            <p class="ongoing-goal_description"><%= @goal.description %></p>
 
-                 <div class="ongoing-goal_money_box">
-                    <p class="ongoing-goal_label">
-                        You are betting:
-                        <h3 class="ongoing-goal_money">$345</h3>
-                    </p>
-                </div>
-                
-                <div class="ongoing-goal_date_box">
-                    <p class="ongoing-goal_label">
-                        Countdown:
-                        <h3 class="ongoing-goal_date">3 days left</h3>
-                    </p>
-                </div>
-                
-                    <p class="ongoing-goal_label">
-                        Against:
-                    </p>
-                 <div class="ongoing-goal_buddy_box">
-                    <img src="#" alt="placeholder" class="ongoing-goal_buddy_image">
-                    <h3 class="ongoing-goal_buddy">Jacinto de la Orza</h3>
-                </div>
+            <div class="ongoing-goal_money_box">
+              <p class="ongoing-goal_label">
+                You are betting:
+                <h3 class="ongoing-goal_money">$345</h3>
+              </p>
+            </div>
 
-                    <p><a href="" class="ongoing-goal_edit-button">edit</a> - <a class="ongoing-goal_delete-button" href="">delete</a></p>
-    
-                </div>
-            </article>
-        </section>
+            <div class="ongoing-goal_date_box">
+              <p class="ongoing-goal_label">
+                Countdown:
+                <h3 class="ongoing-goal_date"><%= format_days(@goal.countdown) %> days left</h3>
+              </p>
+            </div>
 
-        <section id="create-goal">
-            <a href="#" class="create-goal_submit_button">Create a new goal</a>
+            <p class="ongoing-goal_label">
+              Against:
+            </p>
+           <div class="ongoing-goal_buddy_box">
+              <img src="<%= @goal.buddy.image %>" alt="placeholder" class="ongoing-goal_buddy_image">
+              <h3 class="ongoing-goal_buddy"><%= link_to @goal.buddy.name, user_path(@goal.buddy) %></h3>
+            </div>
+              <p><%= link_to "edit", edit_goal_path(@goal), class: "ongoing-goal_edit-button" %> -  <%= link_to "delete", goal_path(@goal), method: :delete, class: "ongoing-goal_delete-button" %></p>
+            </div>
+          </article>
         </section>
+    <% end %>
 
-        <section id="friends-timeline">
-            <h2 class="friends-timeline_header">Friends Timeline</h2>
-                <article class="friends-timeline_friend-activity">
-                    <img src="#" alt="placeholder" class="friends-timeline_buddy_image">
-                    <p class="friends-timeline_action">
-                        <h4 class="friends-timeline_buddy-name">
-                            Genares Genaril
-                        </h4>
-                        created a new goal  
-                    </p>
-                </article>
-            Friend completed a new goal
-            Friend betted on a goal?
-        </section>
-        <section id="friend_list">
-            <h1>4.Friend List</h1>
-        </section>
-        <section id="past_goals">
-            <h1>5.Past Goals</h1>
-        </section>
-        <nav>
-            <h1 id="nav">Navigation links</h1>
-        </nav>
-    </div>
+    <section id="create-goal">
+      <%= link_to "Create a new goal", new_goal_path, class: "create-goal_submit_button" %>
+    </section>
+
+    <section id="friends-timeline">
+      <h2 class="friends-timeline_header">Friends Timeline</h2>
+        <article class="friends-timeline_friend-activity">
+          <img src="#" alt="placeholder" class="friends-timeline_buddy_image">
+          <p class="friends-timeline_action">
+            <h4 class="friends-timeline_buddy-name">
+              Genares Genaril
+            </h4>
+            created a new goal
+          </p>
+        </article>
+      Friend completed a new goal
+      Friend betted on a goal?
+    </section>
+    <section id="friend_list">
+      <h1>4.Friend List</h1>
+    </section>
+    <section id="past_goals">
+      <h1>5.Past Goals</h1>
+    </section>
+    <nav>
+      <h1 id="nav">Navigation links</h1>
+    </nav>
+  </div>
 </body>
