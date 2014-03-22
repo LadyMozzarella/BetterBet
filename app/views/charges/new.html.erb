@@ -1,9 +1,8 @@
-<form id="stripe-form" action="/charges" method="POST">
-  <input type="hidden" name="amount" value="<%= @amount %>">
+<form action="/charges/create" method="POST">
   <script
     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-amount= '<%= @amount %>'
-    data-key = "<%= ENV['PUBLISHABLE_KEY']%>"
+    data-key= '<%= ENV["publishable_key"] %>'
+    data-amount= '2000'
     data-name="Demo Site"
     data-description="2 widgets ($20.00)"
     data-image="/128x128.png">
