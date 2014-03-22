@@ -29,4 +29,9 @@ class User < ActiveRecord::Base
   def has_friends?
     (self.friends + self.inverse_friends).length > 0
   end
+
+  def is_current_user?(current_user)
+    binding.pry
+    self.id != current_user.id
+  end
 end
