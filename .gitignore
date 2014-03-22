@@ -1,6 +1,7 @@
 /config/database.yml
 /config/facebook.yml
 /config/email.yml
+/config/stripe.yml
 *.rbc
 *.sassc
 .sass-cache
