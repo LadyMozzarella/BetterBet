@@ -1,5 +1,4 @@
 class GoalsController < ApplicationController
-  include ApplicationHelper
   before_filter :goal, except: [:new, :create, :goal]
 
   def new
@@ -17,7 +16,7 @@ class GoalsController < ApplicationController
       redirect_to '/'
     else
       flash[:error] = "Invalid goal"
-      redirect_to '/'
+      redirect_to new_goal_path
     end
   end
 
@@ -31,7 +30,7 @@ class GoalsController < ApplicationController
 
   def destroy
     @goal.destroy
-    redirect_to goals_path
+    redirect_to '/'
   end
 
   private

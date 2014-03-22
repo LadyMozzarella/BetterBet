@@ -3,3 +3,6 @@
 Description: <%= @goal.description %>
 Bet: <%= @goal.bet_amount %>
 Time left: <%= @time_left %>
+
+<%= link_to "Edit", edit_goal_path(@goal) %>
+<%= link_to "Delete", goal_path(@goal), method: :delete %>

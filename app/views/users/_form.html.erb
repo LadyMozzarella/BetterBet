@@ -1,9 +1,9 @@
 <div>
   <%= form_for @user do |f| %>
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :required => true  %>
     <%= f.label :email %>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, :required => true  %>
     <%= f.label :bio %>
     <%= f.text_area :bio %>
     <%= f.submit 'Submit' %>
