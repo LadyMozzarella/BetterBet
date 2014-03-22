@@ -6,6 +6,8 @@ describe UsersController do
   render_views
 
   context '#show' do
+    before(:each) { session[:user_id] = user.id }
+
     it 'should be a success' do
       get :show, id: user.id
       expect(response).to be_success
@@ -23,6 +25,8 @@ describe UsersController do
   end
 
   context '#edit' do
+    before(:each) { session[:user_id] = user.id }
+
     it 'should be a success' do
       get :edit, id: user.id
       expect(response).to be_success
@@ -35,6 +39,8 @@ describe UsersController do
   end
 
   context '#update' do
+    before(:each) { session[:user_id] = user.id }
+
     context 'valid attributes' do
       it "should update a user's information" do
         expect {
