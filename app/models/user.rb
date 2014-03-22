@@ -37,4 +37,11 @@ class User < ActiveRecord::Base
   def is_current_user?(current_user)
     self.id == current_user.id
   end
+
+  def self.search(name)
+    name = name.downcase
+    name = "%" + name + "%"
+    result = self.find(:all, :conditions => ['name LIKE ? OR email LIKE ?', name, name])
+  end
+
 end

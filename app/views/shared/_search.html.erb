@@ -1,0 +1,5 @@
+<%= form_tag("/search", method: "get") do %>
+  <%= label_tag(:friends, "Find Friends:") %>
+  <%= text_field_tag(:friend) %>
+  <%= submit_tag("Search") %>
+<% end %>

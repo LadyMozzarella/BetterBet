@@ -1,0 +1,6 @@
+<h1> results </h1>
+<% @users.each do |user| %>
+  <%= link_to user.name, user_path(user) %>
+  <%= link_to "Add Friend", friendships_path(user), :method => :post %>
+  <%= link_to "Delete Friend", friendship_path(user), :method => :delete %><br>
+<% end %>
