@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authorized, except: [:new, :create]
+  before_filter :authorize, except: [:new, :create]
 
   def new
     @user = User.new
