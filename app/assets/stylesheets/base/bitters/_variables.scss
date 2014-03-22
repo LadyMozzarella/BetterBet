@@ -1,6 +1,6 @@
 // Typography
 ///////////////////////////////////////////////////////////////////////////////
-$sans-serif: $helvetica;
+$sans-serif: 'OpenSans', $helvetica;
 $serif: $georgia;
 
 $base-font-family: $sans-serif;
@@ -16,7 +16,8 @@ $base-border-radius: em(3);
 ///////////////////////////////////////////////////////////////////////////////
 
 $blue: #477DCA;
-$dark-gray: #333;
+$light-blue: hsla(200,50,85,1);
+$dark-gray: #555;
 $medium-gray: #999;
 $light-gray: #DDD;
 $light-red: #FBE3E4;
@@ -24,7 +25,7 @@ $light-yellow: #FFF6BF;
 $light-green: #E6EFC2;
 
 // Body Color
-$base-body-color: white;
+$base-body-color: $light-blue;
 
 //  Font Colors
 $base-font-color: $dark-gray;

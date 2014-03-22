@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Betterbet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="wireframe">
+    <div id="page">
+        <a href="#nav" class="menu">Nav</a>
+        
+        <section id="ongoing-goals">
+            <article class="ongoing-goal">
+                <h1 class="ongoing-goal_name">Goal Name</h1>
+                 <p class="ongoing-goal_description">Lorem ipsum dolor sit amet, nonummy ligula volutpat hac integer nonummy. Suspendisse ultricies, congue etiam tellus, erat libero, nulla eleifend, mauris pellentesque. Suspendisse integer praesent vel, integer gravida mauris, fringilla vehicula lacinia non</p>
+
+                 <div class="ongoing-goal_money_box">
+                    <p class="ongoing-goal_label">
+                        You are betting:
+                        <h3 class="ongoing-goal_money">$345</h3>
+                    </p>
+                </div>
+                
+                <div class="ongoing-goal_date_box">
+                    <p class="ongoing-goal_label">
+                        Countdown:
+                        <h3 class="ongoing-goal_date">3 days left</h3>
+                    </p>
+                </div>
+                
+                    <p class="ongoing-goal_label">
+                        Against:
+                    </p>
+                 <div class="ongoing-goal_buddy_box">
+                    <img src="#" alt="placeholder" class="ongoing-goal_buddy_image">
+                    <h3 class="ongoing-goal_buddy">Jacinto de la Orza</h3>
+                </div>
+
+                    <p><a href="" class="ongoing-goal_edit-button">edit</a> - <a class="ongoing-goal_delete-button" href="">delete</a></p>
+    
+                </div>
+            </article>
+        </section>
+
+        <section id="create_goal">
+            <h1>2.Create Goal</h1>
+        </section>
+        <section id="friends_timeline">
+            <h1>3.Friends Timeline</h1>
+        </section>
+        <section id="friend_list">
+            <h1>4.Friend List</h1>
+        </section>
+        <section id="past_goals">
+            <h1>5.Past Goals</h1>
+        </section>
+        <nav>
+            <h1 id="nav">Navigation links</h1>
+        </nav>
+    </div>
+</body>

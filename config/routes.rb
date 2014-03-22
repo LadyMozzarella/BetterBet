@@ -56,6 +56,12 @@ Betterbet::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
 
+
+  # These routes are just for testing stylesheets temporary.
+  get '/dashboard', to: 'pages#dashboard'
+  get '/stylemaster', to: 'pages#stylemaster'
+
+  get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/:provider/callback', to: 'sessions#facebook_signup'
   get 'logout', to: 'sessions#destroy'
   get 'login', to: 'sessions#new'
@@ -63,4 +69,5 @@ Betterbet::Application.routes.draw do
 
   resources :users
   resources :goals
+
 end
