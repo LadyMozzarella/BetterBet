@@ -1,5 +1,6 @@
 class GoalsController < ApplicationController
   before_filter :goal, except: [:new, :create, :goal]
+  before_filter :authorize
 
   def new
     @goal = Goal.new
