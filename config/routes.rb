@@ -70,4 +70,5 @@ Betterbet::Application.routes.draw do
   resources :users
   resources :goals
 
+  get '/search', to: 'users#search', as: 'search'
 end

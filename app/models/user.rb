@@ -29,4 +29,10 @@ class User < ActiveRecord::Base
   def has_friends?
     (self.friends + self.inverse_friends).length > 0
   end
+
+  def self.search(name)
+    name = name.downcase
+    name = "%" + name + "%"
+    result = self.find(:all, :conditions => ['name LIKE ? OR email LIKE ?', name, name])
+  end
 end

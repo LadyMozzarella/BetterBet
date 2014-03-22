@@ -28,4 +28,10 @@ class UsersController < ApplicationController
     render(:edit) && return unless @user.update_attributes(params[:user])
     redirect_to user_path(@user)
   end
+
+  def search
+    @users = User.search(params[:friend])
+    render partial: '/shared/friend_results'
+  end
+
 end
