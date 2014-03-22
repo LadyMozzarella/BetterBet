@@ -7,14 +7,13 @@ class GoalsController < ApplicationController
   end
 
   def show
-    @time_left = @goal.time_left
   end
 
   def create
     user = current_user
     goal = user.goals.new(params[:goal])
     if goal.save
-      redirect_to '/'
+      redirect_to goal_path(goal)
     else
       flash[:error] = "Invalid goal"
       redirect_to new_goal_path

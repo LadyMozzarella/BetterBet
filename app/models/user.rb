@@ -29,4 +29,8 @@ class User < ActiveRecord::Base
   def has_friends?
     (self.friends + self.inverse_friends).length > 0
   end
+
+  def latest_goal
+    self.goals.last
+  end
 end
