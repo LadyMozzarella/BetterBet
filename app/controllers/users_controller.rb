@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authorize, except: [:new, :create]
-  before_filter :user, except: [:new, :create, :user]
+  before_filter :user, except: [:new, :create, :user, :search, :index]
 
   def index
     @users = User.all

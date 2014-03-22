@@ -1,5 +1,5 @@
 <% @users.each do |user| %>
-  <% if user.is_current_user?(current_user) %>
+  <% unless user.is_current_user?(current_user) %>
     <%= user.name %>
     <%= link_to "Add Friend", friendships_path(user), :method => :post %><br>
     <%= link_to "Delete Friend", friendship_path(user), :method => :delete %><br><br>
