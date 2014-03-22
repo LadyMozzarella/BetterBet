@@ -7,7 +7,6 @@ class UserMailer < ActionMailer::Base
   end
 
    def new_friend(user, friend)
-    binding.pry
     @user = user
     @friend = friend
     @url  = 'http://localhost:3000/login'
