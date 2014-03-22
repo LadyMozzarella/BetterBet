@@ -4,37 +4,58 @@
     padding: 1em;
 }
 
-.ongoing-goal_goal-name {
+.ongoing-goal_name {
     border-bottom: 1px solid $dark-gray;
 }
 
-.ongoing-goal_goal-description {
+.ongoing-goal_description {
     padding-top: 1em;
 }
-.ongoing-goal_goal-money_label,
-.ongoing-goal_goal-buddy_label {
+.ongoing-goal_label {
     font-size: .8em;
     line-height: 1em;
     margin-bottom: 0.3em;
 }
 
-.ongoing-goal_goal-money_box {
-    @include span-columns(3);
+.ongoing-goal_money_box,
+.ongoing-goal_date_box {
+    @include span-columns(6);
 }
 
-.ongoing-goal_goal-money {
+.ongoing-goal_money,
+.ongoing-goal_date {
     height: 60px;
-    background: $light-green;
     padding: .5em 0;
     text-align: center;
 }
 
-.ongoing-goal_goal-buddy_box {
-    @include span-columns(6);
+.ongoing-goal_money {
+    background: $light-green;
 }
 
-.ongoing-goal_goal-buddy {
-    height: 60px;
+.ongoing-goal_date_box {
+    @include omega;
+}
+
+.ongoing-goal_date {
+    background: $light-blue;
+}
+
+.ongoing-goal_buddy_box {
+    @include span-columns(12);
     background: $light-blue;
     padding: .5em 0;
+}
+
+.ongoing-goal_buddy {
+    margin: 0 3em;
+}
+
+.ongoing-goal_buddy_image {
+    float: left;
+    vertical-align: center;
+    margin: 0;
+    padding-left: .5em;
+    width: 60px;
+    height: 60px;
 }
