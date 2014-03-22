@@ -1,8 +1,30 @@
-<h1><%= @goal.title %></h1>
+<article class="ongoing-goal">
+    <h2 class="ongoing-goal_name"><%= @goal.title %></h2>
+     <p class="ongoing-goal_description"><%= @goal.description %></p>
 
-Description: <%= @goal.description %>
-Bet: <%= @goal.bet_amount %>
-Time left: <%= @time_left %>
+     <div class="ongoing-goal_money_box">
+        <p class="ongoing-goal_label">
+            You are betting:
+            <h3 class="ongoing-goal_money"><%= @goal.bet_amount %></h3>
+        </p>
+    </div>
+    
+    <div class="ongoing-goal_date_box">
+        <p class="ongoing-goal_label">
+            Countdown:
+            <h3 class="ongoing-goal_date"><%= @time_left %></h3>
+        </p>
+    </div>
+    
+        <p class="ongoing-goal_label">
+            Against:
+        </p>
+     <div class="ongoing-goal_buddy_box">
+        <img src="#" alt="placeholder" class="ongoing-goal_buddy_image">
+        <h3 class="ongoing-goal_buddy">Jacinto de la Orza</h3>
+    </div>
 
-<%= link_to "Edit", edit_goal_path(@goal) %>
-<%= link_to "Delete", goal_path(@goal), method: :delete %>
+    <%= link_to "Edit", edit_goal_path(@goal), class: "ongoing-goal_edit-button" %>
+    <%= link_to "Delete", goal_path(@goal), method: :delete, class: "ongoing-goal_delete-button" %>
+
+</article>

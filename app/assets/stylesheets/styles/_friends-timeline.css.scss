@@ -1,0 +1,39 @@
+#friends-timeline {
+    padding-top: 1em;
+}
+
+.friends-timeline_header {
+    @include row;
+    font-size: 1em;
+    line-height: 2em;
+    background: $light-gray;
+    font-weight: 100;
+    padding-left: 1em;
+}
+
+.friends-timeline_friend-activity {
+    margin-top: 1em;
+}
+
+.friends-timeline_buddy_image {
+    float: left;
+    vertical-align: center;
+    margin: 0;
+    padding-left: .5em;
+    width: 60px;
+    height: 60px;
+}
+
+.friends-timeline_buddy-name {
+    font-weight: 100;
+    font-size: 1.2em;
+}
+
+.friends-timeline_action {
+    padding-left: 1em;
+    border-bottom: 1px solid $light-gray;
+}
+
+.friends-timeline_friend-activity {
+}
+
