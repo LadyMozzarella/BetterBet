@@ -12,12 +12,12 @@ gem 'omniauth-facebook'
 group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
+  gem 'faker'
 end
 
 group :test do
   gem 'simplecov', :require => false
   gem 'shoulda-matchers'
-  gem 'faker'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
 end
