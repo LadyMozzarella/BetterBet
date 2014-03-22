@@ -34,9 +34,16 @@ class UsersController < ApplicationController
     redirect_to login_path
   end
 
+  def search
+    @users = User.search(params[:friend])
+    render partial: '/shared/friend_results'
+  end
+
   private
 
   def user
     @user = User.find(params[:id])
   end
+
+
 end
