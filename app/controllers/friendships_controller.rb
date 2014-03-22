@@ -1,6 +1,5 @@
 class FriendshipsController < ApplicationController
   def create
-    binding.pry
     if current_user.friends << User.find(params[:format])
       flash[:notice] = "Added friend"
       redirect_to users_path
@@ -12,7 +11,7 @@ class FriendshipsController < ApplicationController
 
   def destroy
     current_user.friends.delete(User.find(params[:id]))
-    flash[:notice] = "successfully deleted friendship!"
+    flash[:notice] = "Removed friend"
     redirect_to users_path
   end
 end
