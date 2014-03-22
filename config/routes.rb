@@ -62,4 +62,5 @@ Betterbet::Application.routes.draw do
 
   resources :users
   resources :goals
+  resources :charges
 end
