@@ -30,6 +30,10 @@ class User < ActiveRecord::Base
     (self.friends + self.inverse_friends).length > 0
   end
 
+  def latest_goal
+    self.goals.last
+  end
+
   def is_current_user?(current_user)
     self.id == current_user.id
   end
