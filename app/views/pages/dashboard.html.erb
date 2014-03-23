@@ -1,19 +1,20 @@
  <div id="page">
     
-    <section id="create-goal">
+    <section class="create-goal">
       <%= link_to "Create a new goal", new_goal_path, class: "create-goal_submit_button" %>
     </section>
 
-    <section id="ongoing-goals">
+    <section class="ongoing-goals">
       <h2 class="goals_header">Ongoing Goals</h2>
       <% current_user.goals.each do |goal| %>
         <%= render partial: 'shared/goal', :locals => {:goal => goal} %>
       <% end %>
     </section>
-
+    
     <%= render partial: '/shared/search' %>
+    
 
-    <section id="friends-timeline">
+    <section class="friends-timeline">
       <h2 class="friends-timeline_header">Friends Timeline</h2>
         <article class="friends-timeline_friend-activity">
           <img src="#" alt="placeholder" class="friends-timeline_buddy_image">
@@ -27,13 +28,10 @@
       Friend completed a new goal
       Friend betted on a goal?
     </section>
-    <section id="friend_list">
+    <section class="friend_list">
       <h1>4.Friend List</h1>
     </section>
-    <section id="past_goals">
+    <section class="past_goals">
       <h1>5.Past Goals</h1>
     </section>
-    <nav>
-      <h1 id="nav">Navigation links</h1>
-    </nav>
   </div>
