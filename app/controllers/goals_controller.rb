@@ -1,5 +1,5 @@
 class GoalsController < ApplicationController
-  before_filter :goal, except: [:new, :create, :goal, :index]
+  before_filter :goal, except: [:new, :create, :goal, :index, :complete]
   before_filter :authorize
 
   def index
@@ -37,10 +37,16 @@ class GoalsController < ApplicationController
     redirect_to goals_path
   end
 
+
+  def complete
+    goal = Goal.find(params[:format])
+    goal.toggle!(:completed)
+    redirect_to goal_path(goal)
+  end
+
   private
 
   def goal
     @goal = Goal.find(params[:id])
   end
-
 end
