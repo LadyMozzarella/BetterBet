@@ -29,6 +29,6 @@
   <%= link_to "Edit", edit_goal_path(@goal), class: "goal_edit-button" %>
   <%= link_to "Delete", goal_path(@goal), method: :delete, class: "goal_delete-button" %>
 
-  <%= link_to "Completed", complete_path(@goal), method: 'put' %>
+  <%= link_to "Completed", complete_goal_path(@goal), method: 'put' %>
 
 </article>
