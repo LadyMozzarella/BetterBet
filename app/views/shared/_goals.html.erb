@@ -1,5 +1,5 @@
-<div class= "<%= goal.id %>" >
-  <label>Title:</label> <%= goal.title %>
+<div data-id = "<%= goal.id %>" >
+  <label>Title:</label><%= goal.title %>
   <label>Description:</label> <%= goal.description %>
   <label>Bet Amount:</label> <%= goal.bet_amount %>
   <label>Start Date: </label> <%= format_date(goal.start_date) %>

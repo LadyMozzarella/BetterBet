@@ -15,5 +15,4 @@ Goals.Controller.prototype = {
       this.view.goalErrorAlert(xhr, goalId)
     });
   }
-
 }

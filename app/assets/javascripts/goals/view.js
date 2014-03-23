@@ -4,10 +4,10 @@ Goals.View = function(selectors){
 
 Goals.View.prototype = {
   removeGoal: function(goalId){
-    $("." + goalId).remove()
+    $("div").data("id", goalId).remove();
   },
 
   goalErrorAlert: function(xhr, goalId){
-    $("." + goalId).append(xhr.responseText)
+    $("div").data("id", goalId).append(xhr.responseText);
   }
 }

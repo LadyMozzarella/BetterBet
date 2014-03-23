@@ -1,4 +1,4 @@
-var Goals = {}
+var Goals = {};
 
 Goals.Binder = function(controller, selectors){
   this.controller = controller
