@@ -13,7 +13,7 @@ Friends.Controller.prototype = {
       this.view.updateFriendDiv("Added friend")
     }).fail(function(xhr){
       this.view.friendErrorAlert(xhr)
-    })
+    });
   },
 
   deleteFriend: function(friendId, userId){
@@ -26,7 +26,7 @@ Friends.Controller.prototype = {
       this.view.updateFriendDiv("Deleted friend")
     }).fail(function(xhr){
       this.view.friendErrorAlert()
-    })
+    });
   }
 
 }

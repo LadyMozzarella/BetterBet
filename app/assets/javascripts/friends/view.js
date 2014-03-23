@@ -1,12 +1,14 @@
-Friends.View = function(){}
+Friends.View = function(selectors){
+  this.selectors = selectors
+}
 
 Friends.View.prototype = {
 
   updateFriendDiv: function(text){
-    $('.friend_status').html(text)
+    $(this.selectors.friendStatus).html(text);
   },
 
   friendErrorAlert: function(xhr){
-    $('.friend_status').html(xhr.responseText)
+    $(this.selectors.friendStatus).html(xhr.responseText);
   },
 }
