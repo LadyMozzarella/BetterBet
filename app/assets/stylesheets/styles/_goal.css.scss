@@ -3,8 +3,38 @@
     padding: 1em;
 }
 
-.goal h2 {
+.goal_header {
+    @include span-columns(12);
     border-bottom: 1px solid $dark-gray;
+    margin-bottom: $base-line-height/4;
+}
+.goal_header h2{
+    @include span-columns(10);
+}
+
+.goal_edit-button,
+.goal_delete-button {
+    @include span-columns(1);
+    margin-top: .4em;
+}
+
+.goal_edit-button img{
+  height: 40px;
+  opacity: 0.3;
+}
+
+.goal_delete-button:hover img,
+.goal_edit-button:hover img {
+    opacity: 0.6;
+}
+
+.goal_delete-button {
+    @include omega;
+}
+
+.goal_delete-button img {
+    height: 40px;
+    opacity: 0.3;
 }
 
 .goal_description {

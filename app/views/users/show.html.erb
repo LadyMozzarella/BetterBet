@@ -1,15 +1,33 @@
-<%= link_to "Edit", edit_user_path(@user) %>
-<%= link_to "Delete", user_path(@user), method: :delete %>
-<% if @user.image  %>
-  <img src="<%= @user.image %>">
-<% else %>
-  <img src="/assets/default_user_image.svg">
-<% end %>
-<h1><%= @user.name %></h1>
-<label><%= @user.email %></label>
-<label><%= @user.name %></label>
-<label><%= @user.bio %></label>
-<label>Goals</label>
+<article class="user_profile">
+    <header class="user_profile_header">
+        <h2><%= @user.name %></h2>
+          <ul class="user_profile_buttons">
+            <li class="user_edit-button">
+              <%= link_to image_tag('pencil.svg'), edit_user_path(@user) %>
+            </li>
+            <li class="user_delete-button" >
+              <%= link_to image_tag('times.svg'), user_path(@user), method: :delete %>
+            </li>
+        </ul>
+    </header>
+
+    <% if @user.image  %>
+      <img class="user_profile_img" src="<%= @user.image %>" >
+    <% else %>
+      <img class="user_profile_img-default" src="/assets/default_user_image.svg">
+    <% end %>
+    <!-- <div class="user_profile_contact-info">
+        <h1></h1>
+        <p></p>
+    </div> -->
+
+    <p class="user_profile_bio">
+        <%= @user.bio %></label>
+    </p>
+
+    <h2 class="goals_header">Goals</h2>
+</article>
+
 <% @user.goals.each do |goal| %>
-  <%= render partial: 'shared/goals', :locals => {:goal => goal} %>
+  <%= render partial: 'shared/goal', :locals => {:goal => goal} %>
 <% end %>
