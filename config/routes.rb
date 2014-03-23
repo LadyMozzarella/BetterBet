@@ -7,7 +7,7 @@ Betterbet::Application.routes.draw do
   get 'logout', to: 'sessions#destroy'
   get 'login', to: 'sessions#new'
   resources :sessions, only: [:create]
-  resources :friendships
+  resources :friendships, only: [:create, :destroy]
   resources :users
   resources :goals
 

@@ -38,7 +38,7 @@ class UsersController < ApplicationController
 
   def search
     @users = User.search(params[:friend])
-    render partial: '/shared/friend_results'
+    render '/shared/friend_results'
   end
 
   private

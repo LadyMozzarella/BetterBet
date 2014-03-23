@@ -1,18 +1,20 @@
 class FriendshipsController < ApplicationController
+  before_filter :friend
+
   def create
-    if current_user.friends << User.find(params[:format])
-      UserMailer.new_friend(current_user, User.find(params[:format])).deliver
-      flash[:notice] = "Added friend"
-      redirect_to users_path
-    else
-      flash[:error] = "Error occured when adding friend."
-      redirect_to users_path
-    end
+    current_user.friends << @friend
+    UserMailer.new_friend(current_user, User.find(params[:friend_id])).deliver
+    render :nothing => true, :status => 200
   end
 
   def destroy
-    current_user.friends.delete(User.find(params[:id]))
-    flash[:notice] = "Removed friend"
-    redirect_to users_path
+    current_user.friends.delete(@friend)
+    render :nothing => true, :status => 200
+  end
+
+  private
+
+  def friend
+    @friend = User.find(params[:friend_id])
   end
 end
