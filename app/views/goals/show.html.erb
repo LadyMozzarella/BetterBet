@@ -1,32 +1,32 @@
-<article class="ongoing-goal">
-  <h2 class="ongoing-goal_name"><%= @goal.title %></h2>
-   <p class="ongoing-goal_description"><%= @goal.description %></p>
+<article class="goal goal-state_failed">
+  <h2><%= @goal.title %></h2>
+   <p class="goal_description"><%= @goal.description %></p>
 
-   <div class="ongoing-goal_money_box">
-    <p class="ongoing-goal_label">
+   <div class="goal_money_box">
+    <p class="goal_label">
       You are betting:
-      <h3 class="ongoing-goal_money">$<%= @goal.bet_amount %></h3>
+      <h3 class="goal_money">$<%= @goal.bet_amount %></h3>
     </p>
   </div>
 
-  <div class="ongoing-goal_date_box">
-    <p class="ongoing-goal_label">
+  <div class="goal_date_box">
+    <p class="goal_label">
       Countdown:
-      <h3 class="ongoing-goal_date"><%= format_days(@goal.countdown) %> days</h3>
+      <h3 class="goal_date"><%= format_days(@goal.countdown) %> days</h3>
     </p>
   </div>
 
-  <p class="ongoing-goal_label">
+  <p class="goal_label">
     Against:
   </p>
-  <div class="ongoing-goal_buddy_box">
+  <div class="goal_buddy_box">
     <% if @goal.buddy.image %>
-      <img src="<%= @goal.buddy.image %>" alt="placeholder" class="ongoing-goal_buddy_image">
+      <img src="<%= @goal.buddy.image %>" alt="placeholder" class="goal_buddy_image">
     <% end %>
-    <h3 class="ongoing-goal_buddy"><%= link_to @goal.buddy.name, user_path(@goal.buddy) %></h3>
+    <h3 class="goal_buddy"><%= link_to @goal.buddy.name, user_path(@goal.buddy) %></h3>
   </div>
 
-  <%= link_to "Edit", edit_goal_path(@goal), class: "ongoing-goal_edit-button" %>
-  <%= link_to "Delete", goal_path(@goal), method: :delete, class: "ongoing-goal_delete-button" %>
+  <%= link_to "Edit", edit_goal_path(@goal), class: "goal_edit-button" %>
+  <%= link_to "Delete", goal_path(@goal), method: :delete, class: "goal_delete-button" %>
 
 </article>
