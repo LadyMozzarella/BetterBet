@@ -19,6 +19,10 @@ class UsersController < ApplicationController
     redirect_to user_path(@user)
   end
 
+  def autocomplete
+    render :json => User.search(params[:name])
+  end
+
   def show
     @goals = @user.goals
   end
@@ -37,10 +41,10 @@ class UsersController < ApplicationController
     redirect_to login_path
   end
 
-  def search
-    @users = User.search(params[:friend])
-    render '/shared/friend_results'
-  end
+  # def search
+  #   @users = User.search(params[:friend])
+  #   render '/shared/friend_results'
+  # end
 
   private
 

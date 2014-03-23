@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   has_many :inverse_friends, :through => :inverse_friendships, :source => :user
   validates_presence_of :name, :email, :password_digest
   validates :email, uniqueness: true
+  after_save :add_to_soulmate
+  before_destroy :remove_from_soulmate
 
   def all_friends
     self.friends + self.inverse_friends
@@ -40,9 +42,20 @@ class User < ActiveRecord::Base
   end
 
   def self.search(name)
-    name = name.downcase
-    name = "%" + name + "%"
-    result = self.find(:all, :conditions => ['name LIKE ? OR email LIKE ?', name, name])
+    users = Soulmate::Matcher.new("user").matches_for_term(name)
+    users.collect{ |c| {"id" => c["id"], "name" => c["term"], "email" => c["data"]["email"] } }
+  end
+
+  private
+
+  def add_to_soulmate
+    loader = Soulmate::Loader.new("user")
+    loader.add("term" => name, "id" => self.id, "data" => {"email" => email})
+  end
+
+  def remove_from_soulmate
+    loader = Soulmate::Loader.new("user")
+    loader.remove("id" => self.id)
   end
 
 end
