@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @friends = current_user.friends
     @goal = current_user.latest_goal
   end
 
