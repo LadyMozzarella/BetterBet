@@ -52,6 +52,13 @@
     margin-top: $base-line-height/4;
 }
 
+.goals_header {
+    @include span-columns(12);
+    background: $light-gray;
+    margin-top: $base-line-height/2;
+    text-align: center;
+    line-height: $base-line-height *1.5 ;
+}
 
 
 

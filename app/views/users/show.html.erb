@@ -25,8 +25,9 @@
         <%= @user.bio %></label>
     </p>
 
-    <h2>Goals</h2>
-    <% @user.goals.each do |goal| %>
-      <%= render partial: 'shared/goal', :locals => {:goal => goal} %>
-    <% end %>
+    <h2 class="goals_header">Goals</h2>
 </article>
+
+<% @user.goals.each do |goal| %>
+  <%= render partial: 'shared/goal', :locals => {:goal => goal} %>
+<% end %>
