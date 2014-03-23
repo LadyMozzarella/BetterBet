@@ -1,3 +1,12 @@
 section {
     padding: 0 1em;
 }
+
+.goals_header {
+    @include span-columns(12);
+    font-size: $base-font-size;
+    background: $light-gray;
+    margin-top: $base-line-height/2;
+    text-align: center;
+    line-height: $base-line-height *1.5 ;
+}
