@@ -14,24 +14,14 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     redirect_to new_user_path and return unless @user.save
 
-    token = params[:stripeToken]
- #   UserMailer.welcome_email(@user).deliver
     session[:user_id] = @user.id
+    UserMailer.welcome_email(@user).deliver
 
-    customer = Stripe::Customer.create(
-      card: token,
-      description: @user.email
-    )
-
-    Stripe::Charge.create(
-      amount: 50, # in cents
-      currency: "usd",
-      customer: customer.id
-    )
-
+    customer = Customer.create(@user, params[:stripeToken])
+    Payment.create(customer.id)
     @user.update_attribute(:stripe_id, customer.id)
 
-    redirect_to user_path(@user)
+    redirect_to dashboard_path
   end
 
   def show

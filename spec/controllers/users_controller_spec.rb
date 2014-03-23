@@ -71,10 +71,13 @@ describe UsersController do
   end
 
   context '#create' do
+    let(:token) { StripeMock.generate_card_token(last4: "4242", exp_year: 2014) }
+    before { StripeMock.start }
+    after { StripeMock.stop }
 
     context 'with valid attributes' do
       it 'should be redirect' do
-        post :create, user: attribs
+        post :create, user: attribs, stripeToken: token
         expect(response).to be_redirect
       end
     end
@@ -89,7 +92,7 @@ describe UsersController do
     context 'with valid attributes' do
       it 'should increase User count by one' do
         expect {
-          post :create, user: attribs
+          post :create, user: attribs, stripeToken: token
         }.to change{ User.count }.by(1)
       end
     end
@@ -97,7 +100,7 @@ describe UsersController do
     context 'with invalid attributes' do
       it 'should not increase User count' do
         expect {
-          post :create, :user => {email: ''}
+          post :create, :user => {email: ''}, stripeToken: token
         }.to_not change{ User.count }
       end
     end
