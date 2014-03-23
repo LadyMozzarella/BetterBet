@@ -22,4 +22,4 @@ irene.goals.create(title: "Be successful",
                   bet_amount: 100,
                   start_date: Time.now,
                   end_date: Time.now + 20000,
-                  buddy_id: irene.friends.find(jose).id)
+                  buddy_id: irene.friends.find_by_name("Jose").id)
