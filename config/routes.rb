@@ -3,8 +3,8 @@ Betterbet::Application.routes.draw do
   get '/stylemaster', to: 'pages#stylemaster'
 
   get 'auth/:provider/callback', to: 'sessions#facebook_signup'
-  get 'logout', to: 'sessions#destroy'
-  get 'login', to: 'sessions#new'
+  get '/logout', to: 'sessions#destroy'
+  get '/login', to: 'sessions#new'
   resources :sessions, only: [:create]
   resources :friendships, only: [:create, :destroy]
   resources :users
