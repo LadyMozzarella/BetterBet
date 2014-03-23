@@ -15,8 +15,10 @@ Goals.Binder.prototype = {
     $(this.selectors.deleteGoal).on('click', function(e){
       e.preventDefault();
       var goalId = $(this).data('goal');
-      var userId = $(this).data('user');
-      controller.deleteGoal(goalId, userId);
+      var confirmation = confirm("Are you sure?");
+      if (confirmation == true){
+        controller.deleteGoal(goalId);
+      }
     });
 
 
