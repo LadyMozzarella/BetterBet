@@ -34,7 +34,11 @@ class GoalsController < ApplicationController
 
   def destroy
     @goal.destroy
-    render :nothing => true, :status => 200
+    if request.xhr?
+      render :nothing => true, :status => 200
+    else
+      redirect_to goals_path
+    end
   end
 
   private
