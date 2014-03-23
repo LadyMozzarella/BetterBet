@@ -1,5 +1,6 @@
 /config/database.yml
 /config/facebook.yml
+/config/email.yml
 *.rbc
 *.sassc
 .sass-cache

@@ -1,8 +1,8 @@
 <label>Title:</label> <%= goal.title %>
 <label>Description:</label> <%= goal.description %>
 <label>Bet Amount:</label> <%= goal.bet_amount %>
-<label>Start Date: </label> <%= goal.start_date %>
-<label>End Date:</label> <%= goal.end_date %>
+<label>Start Date: </label> <%= format_date(goal.start_date) %>
+<label>End Date:</label> <%= format_date(goal.end_date) %>
 <% if goal.buddy %>
   <label>Accountability Buddy:</label> <%= goal.buddy.name %>
 <% end %>

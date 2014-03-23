@@ -13,6 +13,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     redirect_to new_user_path and return unless @user.save
+
+    UserMailer.welcome_email(@user).deliver
     session[:user_id] = @user.id
     redirect_to user_path(@user)
   end
