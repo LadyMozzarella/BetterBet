@@ -1,5 +1,5 @@
 Goals.Controller = function(view){
-  this.view = view
+  this.view = view;
 }
 
 Goals.Controller.prototype = {
@@ -10,9 +10,9 @@ Goals.Controller.prototype = {
       context: this,
       data: {id: goalId}
     }).done(function(){
-      this.view.removeGoal(goalId)
+      this.view.removeGoal(goalId);
     }).fail(function(xhr){
-      this.view.goalErrorAlert(xhr, goalId)
+      this.view.goalErrorAlert(xhr, goalId);
     });
   }
 }

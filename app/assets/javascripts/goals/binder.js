@@ -1,8 +1,8 @@
 var Goals = {};
 
 Goals.Binder = function(controller, selectors){
-  this.controller = controller
-  this.selectors = selectors
+  this.controller = controller;
+  this.selectors = selectors;
 }
 
 Goals.Binder.prototype = {
@@ -11,11 +11,11 @@ Goals.Binder.prototype = {
   },
 
   bindDelete: function(){
-    var controller = this.controller
+    var controller = this.controller;
     $(this.selectors.deleteGoal).on('click', function(e){
       e.preventDefault();
-      var goalId = $(this).data('goal')
-      var userId = $(this).data('user')
+      var goalId = $(this).data('goal');
+      var userId = $(this).data('user');
       controller.deleteGoal(goalId, userId);
     });
 

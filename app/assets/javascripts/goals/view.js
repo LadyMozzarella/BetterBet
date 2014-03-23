@@ -1,5 +1,5 @@
 Goals.View = function(selectors){
-  this.selectors = selectors
+  this.selectors = selectors;
 }
 
 Goals.View.prototype = {
