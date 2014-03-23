@@ -1,11 +1,13 @@
-<label>Title:</label> <%= goal.title %>
-<label>Description:</label> <%= goal.description %>
-<label>Bet Amount:</label> <%= goal.bet_amount %>
-<label>Start Date: </label> <%= format_date(goal.start_date) %>
-<label>End Date:</label> <%= format_date(goal.end_date) %>
-<% if goal.buddy %>
-  <label>Accountability Buddy:</label> <%= goal.buddy.name %>
-<% end %>
+<div data-id = "<%= goal.id %>" >
+  <label>Title:</label><%= goal.title %>
+  <label>Description:</label> <%= goal.description %>
+  <label>Bet Amount:</label> <%= goal.bet_amount %>
+  <label>Start Date: </label> <%= format_date(goal.start_date) %>
+  <label>End Date:</label> <%= format_date(goal.end_date) %>
+  <% if goal.buddy %>
+    <label>Accountability Buddy:</label> <%= goal.buddy.name %>
+  <% end %>
 
-<%= link_to "Edit", edit_goal_path(goal) %>
-<%= link_to "Delete", goal_path(goal), method: :delete %>
+  <%= link_to "Edit", edit_goal_path(goal) %>
+  <%= link_to "Delete", "#", class: 'delete_goal', data: {goal: goal.id, user: current_user.id}%>
+</div>
