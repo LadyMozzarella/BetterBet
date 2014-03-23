@@ -1,9 +1,9 @@
-.user {
+.user_profile {
     @include row;
     padding: 1em;
 }
 
-.user__profile_header {
+.user_profile_header {
     @include span-columns(12);
     border-bottom: 1px solid $dark-gray;
     margin-bottom: $base-line-height/4;
@@ -12,8 +12,51 @@
     @include span-columns(10);
 }
 
-.user_profile-button {
+.user_edit-button,
+.user_delete-button {
     @include span-columns(1);
     margin-top: .4em;
 }
+
+.user_edit-button img{
+  height: 40px;
+  opacity: 0.3;
+}
+
+.user_delete-button:hover img,
+.user_edit-button:hover img {
+    opacity: 0.6;
+}
+
+.user_delete-button {
+    @include omega;
+}
+
+.user_delete-button img {
+    height: 40px;
+    opacity: 0.3;
+}
+
+.user_profile_img,
+.user_profile_img-default {
+    @include span-columns(4);
+}
+
+.user_profile_img-default {
+    opacity: 0.6;
+}
+
+.user_profile_bio {
+    @include span-columns(8);
+    @include omega;
+    margin-top: $base-line-height/4;
+}
+
+
+
+
+
+
+
+
 
