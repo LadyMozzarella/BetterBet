@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authorize, except: [:new, :create]
-  before_filter :user, except: [:new, :create, :user, :search, :index]
+  before_filter :user, only: [:show, :edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
 
   def search
     @users = User.search(params[:friend])
-    render partial: '/shared/friend_results'
+    render '/shared/friend_results'
   end
 
   private
