@@ -1,0 +1,11 @@
+<nav>
+    <h1 class="logo">betterBet!</h1>
+    <div class="log_buttons">
+        <% if logged_in? %>
+            logged in as  <%= link_to current_user.name, user_path(current_user), class: "profile_link" %> | 
+            <%= link_to "Signout", logout_path, class: "signout_link" %>
+        <% else %>
+            <%= link_to "Login/Signup", login_path, class: "login_link" %>
+        <% end %>
+    </div>
+</nav>
