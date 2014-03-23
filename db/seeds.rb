@@ -15,11 +15,11 @@ ivan.goals.create(title: "Finish",
                   bet_amount: 30,
                   start_date: Time.now,
                   end_date: Time.now + 20000,
-                  buddy_id: ivan.friends.find(brittany).id)
+                  buddy_id: ivan.friends.find(brittany).id
 
 irene.goals.create(title: "Be successful",
                   description: "I will graduated dbc",
                   bet_amount: 100,
                   start_date: Time.now,
                   end_date: Time.now + 20000,
-                  buddy_id: irene.friends.find(jose).id)
+                  buddy_id: irene.friends.find(jose).id
