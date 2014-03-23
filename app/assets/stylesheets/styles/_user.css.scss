@@ -1,0 +1,19 @@
+.user {
+    @include row;
+    padding: 1em;
+}
+
+.user__profile_header {
+    @include span-columns(12);
+    border-bottom: 1px solid $dark-gray;
+    margin-bottom: $base-line-height/4;
+}
+.user_profile_header h2{
+    @include span-columns(10);
+}
+
+.user_profile-button {
+    @include span-columns(1);
+    margin-top: .4em;
+}
+
