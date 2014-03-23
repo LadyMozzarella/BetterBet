@@ -28,6 +28,8 @@
     <h2 class="goals_header">Goals</h2>
 </article>
 
-<% @user.goals.each do |goal| %>
-  <%= render partial: 'shared/goal', :locals => {:goal => goal} %>
-<% end %>
+<section class="goals">
+  <% @user.goals.each do |goal| %>
+    <%= render partial: 'shared/goal', :locals => {:goal => goal} %>
+  <% end %>
+</section>
