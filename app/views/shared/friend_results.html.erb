@@ -1,0 +1,7 @@
+<div class="friend_status"></div>
+<h1> results </h1>
+<% @users.each do |user| %>
+  <%= link_to user.name, user_path(user) %>
+  <%= link_to "Add Friend", "#", class: 'add_friend', data: {id: "#{user.id}"} %>
+  <%= link_to "Delete Friend", "#", class: 'delete_friend', data: {friend: "#{user.id}", user: current_user.id}%><br>
+<% end %>
