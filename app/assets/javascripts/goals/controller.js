@@ -5,7 +5,7 @@ Goals.Controller = function(view){
 Goals.Controller.prototype = {
   deleteGoal: function(goalId, userId){
     $.ajax({
-      url: '/goals/' + userId,
+      url: '/goals/' + goalId,
       type: 'DELETE',
       context: this,
       data: {id: goalId}
