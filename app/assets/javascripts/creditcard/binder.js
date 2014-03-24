@@ -14,9 +14,9 @@ CreditCard.Binder.prototype = {
   },
   bindSubmit: function() {
     var self = this;
-    $(this.selectors.ccForm).on('submit', function() {
-      event.preventDefault();
-      this.controller.validate($(this), $(self.selectors.ccNum).val());
+    $(this.selectors.ccForm).on('submit', function(e) {
+      e.preventDefault();
+      self.controller.validate($(this), $(self.selectors.ccNum).val());
     });
   }
 }

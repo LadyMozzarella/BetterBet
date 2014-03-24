@@ -1,6 +1,6 @@
 $(document).ready(function() {
   var selectors = {
-    ccform: 'form',
+    ccForm: 'form',
     ccNum: 'input.cc-num',
     ccExp: 'input.cc-exp',
     ccCVC: 'input.cc-cvc',

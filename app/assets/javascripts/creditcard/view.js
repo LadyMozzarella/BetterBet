@@ -17,6 +17,7 @@ CreditCard.View.prototype = {
     $(this.selectors.ccForm).append($(this.selectors.stripeInput).val(token));
   },
   submitForm: function() {
-    $(this.selectors.ccForm).submit();
+    $form = $(this.selectors.ccForm).off();
+    $form.submit();
   }
 };
