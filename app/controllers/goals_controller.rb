@@ -37,14 +37,14 @@ class GoalsController < ApplicationController
     if request.xhr?
       render :nothing => true, :status => 200
     else
-      redirect_to goals_path
+      redirect_to users_goals_path(current_user)
     end
   end
 
 
   def complete
     @goal.toggle!(:completed)
-    redirect_to goal_path(@goal)
+    redirect_to users_goals_path(current_user)
   end
 
   private

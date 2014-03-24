@@ -34,11 +34,11 @@ class User < ActiveRecord::Base
   end
 
   def latest_goal
-    self.goals.last
+    self.goals.where('completed = false').order("updated_at DESC").limit(1)
   end
 
-  def is_current_user?(current_user)
-    self.id == current_user.id
+  def is_user?(user)
+    self.id == user.id
   end
 
   def self.search(name)
@@ -54,6 +54,14 @@ class User < ActiveRecord::Base
       end
     end
     friends_info
+  end
+
+  def has_friend?(friend)
+    self.friends.exists?(friend)
+  end
+
+  def active_goals
+    self.goals.where("completed = false").order("updated_at DESC")
   end
 
   private

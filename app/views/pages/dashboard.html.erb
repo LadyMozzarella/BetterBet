@@ -6,7 +6,7 @@
 
     <section class="ongoing-goals">
       <h2 class="goals_header">Ongoing Goals</h2>
-      <% current_user.goals.each do |goal| %>
+      <% current_user.active_goals.each do |goal| %>
         <%= render partial: 'shared/goal', :locals => {:goal => goal} %>
       <% end %>
     </section>
