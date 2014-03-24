@@ -29,6 +29,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @image_url = @user.get_image_url
   end
 
   def edit
