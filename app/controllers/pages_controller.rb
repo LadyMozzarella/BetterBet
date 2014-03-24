@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  before_filter :authorize
 
   def stylemaster
   end
