@@ -10,7 +10,6 @@ Search.Controller.prototype = {
       context: this,
       data: {name: searchTerm}
     }).done(function(response){
-      console.log(response)
       var results = []
       for (var i = 0; i < response.length; i++){
         results[i] = {
