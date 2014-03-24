@@ -46,6 +46,16 @@ class User < ActiveRecord::Base
     users.collect{ |c| {"id" => c["id"], "name" => c["term"], "email" => c["data"]["email"] } }
   end
 
+  def friend_goals
+    friends_info = {}
+    self.friends.each do |friend|
+      unless friend.goals.empty?
+        friends_info[friend.name] = friend.goals.order("updated_at DESC")
+      end
+    end
+    friends_info
+  end
+
   private
 
   def add_to_soulmate
@@ -58,13 +68,4 @@ class User < ActiveRecord::Base
     loader.remove("id" => self.id)
   end
 
-  def friend_goals
-    friends_info = {}
-    self.friends.each do |friend|
-      unless friend.goals.empty?
-        friends_info[friend.name] =friend.goals.order("updated_at DESC")
-      end
-    end
-    return friends_info
-  end
 end
