@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authorize, except: [:new, :create]
-  before_filter :user, only: [:show, :edit, :update, :destroy]
+  before_filter :user, only: [:show, :edit, :update, :destroy, :goals]
 
   def index
     @users = User.all
@@ -49,6 +49,10 @@ class UsersController < ApplicationController
   def search
     user = User.find_by_name(params[:user])
     render :json => user
+  end
+
+  def goals
+    @goals = @user.goals
   end
 
   private
