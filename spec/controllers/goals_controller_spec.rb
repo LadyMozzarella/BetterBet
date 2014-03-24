@@ -8,13 +8,6 @@ describe GoalsController do
   before(:each) { session[:user_id] = user.id }
   render_views
 
-  context '#index' do
-    it 'should be a success' do
-      get :index
-      expect(response).to be_success
-    end
-  end
-
   context '#new' do
     it 'should be a success' do
       get :new

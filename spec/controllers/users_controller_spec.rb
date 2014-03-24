@@ -5,58 +5,7 @@ describe UsersController do
   let(:attribs) { attributes_for :user }
   render_views
 
-  context '#show' do
-    before(:each) { session[:user_id] = user.id }
 
-    it 'should be a success' do
-      get :show, id: user.id
-      expect(response).to be_success
-    end
-
-    it 'should find a specific user' do
-      get :show, id: user.id
-      expect(assigns(:user)).to eq user
-    end
-
-    it 'should find goals for a specific user' do
-       get :show, id: user.id
-       expect(assigns(:goals)).to eq user.goals
-    end
-  end
-
-  context '#edit' do
-    before(:each) { session[:user_id] = user.id }
-
-    it 'should be a success' do
-      get :edit, id: user.id
-      expect(response).to be_success
-    end
-
-    it 'should have a form' do
-      get :edit, id: user.id
-      expect(response.body).to include('form')
-    end
-  end
-
-  context '#update' do
-    before(:each) { session[:user_id] = user.id }
-
-    context 'valid attributes' do
-      it "should update a user's information" do
-        expect {
-            put :update, :id => user.id, :user => { :bio => "New Bio"}
-          }.to change{ user.reload.bio }.to ("New Bio")
-      end
-    end
-
-    context 'invalid attributes' do
-      it "shouldn't update a user's information" do
-        expect {
-            put :update, :id => user.id, :user => { :name => ""}
-          }.to_not change{ user.reload.name }.to ("")
-      end
-    end
-  end
 
   context '#new' do
     it 'should be a success' do
@@ -106,18 +55,74 @@ describe UsersController do
     end
   end
 
-  context "#destroy" do
+  context "logged in" do
     before(:each) { session[:user_id] = user.id }
 
-    it 'should be redirect' do
-      delete :destroy, id: user
-      expect(response).to be_redirect
+    context '#show' do
+      it 'should be a success' do
+        get :show, id: user.id
+        expect(response).to be_success
+      end
+
+      it 'should find a specific user' do
+        get :show, id: user.id
+        expect(assigns(:user)).to eq user
+      end
+
+      it 'should find goals for a specific user' do
+         get :show, id: user.id
+         expect(assigns(:goals)).to eq user.goals
+      end
     end
 
-    it 'should decrease User count by one' do
-      expect {
+    context '#edit' do
+      it 'should be a success' do
+        get :edit, id: user.id
+        expect(response).to be_success
+      end
+
+      it 'should have a form' do
+        get :edit, id: user.id
+        expect(response.body).to include('form')
+      end
+    end
+
+    context '#update' do
+      context 'valid attributes' do
+        it "should update a user's information" do
+          expect {
+              put :update, :id => user.id, :user => { :bio => "New Bio"}
+            }.to change{ user.reload.bio }.to ("New Bio")
+        end
+      end
+
+      context 'invalid attributes' do
+        it "shouldn't update a user's information" do
+          expect {
+              put :update, :id => user.id, :user => { :name => ""}
+            }.to_not change{ user.reload.name }.to ("")
+        end
+      end
+    end
+
+    context "#destroy" do
+      it 'should be redirect' do
         delete :destroy, id: user
-        }.to change { User.count }.by(-1)
+        expect(response).to be_redirect
+      end
+
+      it 'should decrease User count by one' do
+        expect {
+          delete :destroy, id: user
+          }.to change { User.count }.by(-1)
+      end
+    end
+
+    context '#goals' do
+      it 'should be a success' do
+        get :goals, id: user
+        expect(response).to be_success
+      end
     end
   end
 end
