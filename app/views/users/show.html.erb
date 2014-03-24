@@ -21,12 +21,7 @@
         </ul>
     </header>
 
-    <% if @user.image %>
-      <img class="user_profile_img" src="<%= @user.image %>" >
-    <% else %>
-      <img class="user_profile_img-default" src="/assets/default_user_image.svg">
-    <% end %>
-
+      <img class="user_profile_img" src="<%= @image_url %>" >
 
     <p class="user_profile_bio">
         <%= @user.bio %></label>
