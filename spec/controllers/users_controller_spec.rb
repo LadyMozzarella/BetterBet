@@ -14,7 +14,7 @@ describe UsersController do
 
     it 'should assign @user to new user' do
       get :new
-      expect(assigns(:user)).to be_a_new User
+      expect( assigns :user ).to be_a_new User
     end
   end
 
@@ -41,7 +41,7 @@ describe UsersController do
       it 'should increase User count by one' do
         expect {
           post :create, user: attribs, stripeToken: token
-        }.to change{ User.count }.by(1)
+        }.to change{ User.count }.by 1
       end
     end
 
@@ -59,25 +59,25 @@ describe UsersController do
 
     context '#show' do
       it 'should be a success' do
-        get :show, id: user.id
+        get :show, id: user
         expect(response).to be_success
       end
 
       it 'should find a specific user' do
-        get :show, id: user.id
-        expect(assigns(:user)).to eq user
+        get :show, id: user
+        expect( assigns :user ).to eq user
       end
     end
 
     context '#edit' do
       it 'should be a success' do
-        get :edit, id: user.id
+        get :edit, id: user
         expect(response).to be_success
       end
 
       it 'should have a form' do
-        get :edit, id: user.id
-        expect(response.body).to include('form')
+        get :edit, id: user
+        expect(response.body).to include 'form'
       end
     end
 
@@ -85,16 +85,16 @@ describe UsersController do
       context 'valid attributes' do
         it "should update a user's information" do
           expect {
-              put :update, :id => user.id, :user => { :bio => "New Bio"}
-            }.to change{ user.reload.bio }.to ("New Bio")
+              put :update, id: user, user: { bio: "New Bio" }
+            }.to change{ user.reload.bio }.to "New Bio"
         end
       end
 
       context 'invalid attributes' do
         it "shouldn't update a user's information" do
           expect {
-              put :update, :id => user.id, :user => { :name => ""}
-            }.to_not change{ user.reload.name }.to ("")
+              put :update, id: user, user: { name: "" }
+            }.to_not change{ user.reload.name }.to ""
         end
       end
     end
@@ -108,7 +108,7 @@ describe UsersController do
       it 'should decrease User count by one' do
         expect {
           delete :destroy, id: user
-          }.to change { User.count }.by(-1)
+          }.to change{ User.count }.by -1
       end
     end
 
@@ -120,7 +120,7 @@ describe UsersController do
 
       it 'should find goals for a specific user' do
          get :goals, id: user
-         expect(assigns(:goals)).to eq user.goals
+         expect( assigns :goals ).to eq user.goals
       end
     end
   end
