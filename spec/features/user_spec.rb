@@ -42,13 +42,7 @@ describe "User", :js => true do
     end
 
     describe "can view all users" do
-<<<<<<< HEAD
       it "by visiting the users index page"
-=======
-      it "by visiting the users index page" do
-        # visit users_path
-      end
->>>>>>> f577f2ac740d79a82598bbdc234a7568c7c32810
     end
 
     describe "can edit their own account" do
