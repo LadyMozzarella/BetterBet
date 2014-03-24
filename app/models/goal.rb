@@ -21,4 +21,8 @@ class Goal < ActiveRecord::Base
     self.started? ? self.time_remaining : self.duration
   end
 
+  def belongs_to(user)
+    self.owner == user
+  end
+
 end

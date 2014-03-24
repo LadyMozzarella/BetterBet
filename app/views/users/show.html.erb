@@ -1,9 +1,15 @@
 <article class="user_profile">
   <div class="friend_status"></div>
-  <%= link_to "Add Friend", "#", class: 'user_add-friend_button', data: {id: "#{@user.id}"} %>
-  <%= link_to "Delete Friend", "#", class: 'user_remove-friend_button', data: {friend: "#{@user.id}", user: current_user.id}%><br>
+    <% unless current_user.is_user?(@user) %>
+      <% if current_user.has_friend?(@user)  %>
+        <%= link_to "Delete Friend", "#", class: 'delete_friend', data: {friend: "#{@user.id}", user: current_user.id}%><br>
+      <% else  %>
+        <%= link_to "Add Friend", "#", class: 'add_friend', data: {id: "#{@user.id}"} %>
+      <% end %>
+    <% end %>
     <header class="user_profile_header">
         <h2><%= @user.name %></h2>
+          <% if current_user.is_user?(@user) %>
           <ul class="user_profile_buttons">
             <li class="user_edit-button">
               <%= link_to image_tag('pencil.svg'), edit_user_path(@user) %>
@@ -11,10 +17,11 @@
             <li class="user_delete-button" >
               <%= link_to image_tag('times.svg'), user_path(@user), method: :delete, confirm: 'Are you sure you want to delete your account?' %>
             </li>
+          <% end %>
         </ul>
     </header>
 
-    <% if @user.image  %>
+    <% if @user.image %>
       <img class="user_profile_img" src="<%= @user.image %>" >
     <% else %>
       <img class="user_profile_img-default" src="/assets/default_user_image.svg">
