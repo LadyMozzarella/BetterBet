@@ -1,15 +1,17 @@
 class UserMailer < ActionMailer::Base
-  default from: "betterbetapp@gmail.com"
+  DEFAULT_EMAIL = "betterbetapp@gmail.com"
+
+  default from: DEFAULT_EMAIL
    def welcome_email(user)
     @user = user
-    @url  = 'http://localhost:3000/login'
+    @url  = "#{Rails.root}/login"
     mail(to: @user.email, subject: 'Welcome to BetterBet')
   end
 
    def new_friend(user, friend)
     @user = user
     @friend = friend
-    @url  = 'http://localhost:3000/login'
+    @url  = "#{Rails.root}/login" #find out how to get root path from Rails
     mail(to: @friend.email, subject: 'Welcome to BetterBet')
   end
 end

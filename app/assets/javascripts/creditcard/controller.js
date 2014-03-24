@@ -1,12 +1,12 @@
-CreditCard.Controller = function(view, selectors) {
+CreditCard.Controller = function(view) {
   this.view = view;
-  this.selectors = selectors;
+  this.selectors = view.selectors;
 }
 
 CreditCard.Controller.prototype = {
   validate: function(form, number) {
-    var valid = $.payment.validateCardNumber(number);
-    if ( !valid ) {
+    // personal preference, I like this more.
+    if ( !$.payment.validateCardNumber(number) ) {
       this.view.alertInvalid();
     } else {
       this.view.disableSubmit();
@@ -14,7 +14,6 @@ CreditCard.Controller.prototype = {
     }
   },
   stripeResponseHandler: function(status, response) {
-    var $form = $(this.selectors.ccForm);
     if (response.error) {
       this.view.displayError(response.error.message);
       this.view.disableSubmit();

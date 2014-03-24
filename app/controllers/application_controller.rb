@@ -1,9 +1,10 @@
 class ApplicationController < ActionController::Base
-  include ApplicationHelper
+  include AuthenticationHelpers
   protect_from_forgery
 
-  private
+  helper_method :current_user, :logged_in?
 
+  private
   def authorize
     redirect_to login_path unless logged_in?
   end

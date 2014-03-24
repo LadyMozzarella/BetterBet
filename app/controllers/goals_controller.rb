@@ -2,6 +2,7 @@ class GoalsController < ApplicationController
   before_filter :goal, except: [:new, :create, :goal, :index]
   before_filter :authorize
 
+  # this is better than the goal action on user, make sure you pass the user's id and not default to current_user
   def index
     @goals = current_user.goals
   end

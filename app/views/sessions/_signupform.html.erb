@@ -1,5 +1,7 @@
+<!-- rails convention don't use parens in form/view helpers -->
+<!-- bad file name, use _ to separate signup_form -->
 <%= form_tag sessions_path do %>
-  <%= label_tag(:email, "Email") %>
+  <%= label_tag :email, "Email" %>
   <%= text_field_tag :email %>
   <%= label_tag(:password, "Password") %>
   <%= password_field_tag :password %>

@@ -1,5 +1,6 @@
 <article class="user_profile">
   <div class="friend_status"></div>
+    <!-- this smells bad -->
     <% unless current_user.is_user?(@user) %>
       <% if current_user.has_friend?(@user)  %>
         <%= link_to "Delete Friend", "#", class: 'delete_friend', data: {friend: "#{@user.id}", user: current_user.id}%><br>

@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :friends, through: :friendships
   has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
   has_many :inverse_friends, :through => :inverse_friendships, :source => :user
-  validates_presence_of :name, :email, :password_digest
+  validates :name, :email, :password_digest, presence: true
   validates :email, uniqueness: true
   after_save :add_to_soulmate
   before_destroy :remove_from_soulmate
@@ -30,13 +30,14 @@ class User < ActiveRecord::Base
   end
 
   def has_friends?
-    (self.friends + self.inverse_friends).length > 0
+    self.all_friends.present?
   end
 
   def latest_goal
-    self.goals.where('completed = false').order("updated_at DESC").limit(1)
+    self.goals.map(&:incomplete?).first
   end
 
+  # this logic is confusing and doesn't belong in the model.
   def is_user?(user)
     self.id == user.id
   end
@@ -75,6 +76,10 @@ class User < ActiveRecord::Base
   def generate_md5
     email = self.email.strip.downcase
     Digest::MD5.hexdigest(email)
+  end
+
+  def unfriend(friend)
+    self.friends.delete(@friend)
   end
 
   private

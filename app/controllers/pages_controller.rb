@@ -1,9 +1,7 @@
 class PagesController < ApplicationController
   before_filter :authorize
 
-  def stylemaster
-  end
-
+  # move this to a separate controller
   def dashboard
     @friends = current_user.friend_goals
     @goal = current_user.latest_goal

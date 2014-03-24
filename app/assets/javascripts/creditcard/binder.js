@@ -1,8 +1,8 @@
 var CreditCard = {};
 
-CreditCard.Binder = function(controller, selectors) {
+CreditCard.Binder = function(controller) {
   this.controller = controller;
-  this.selectors = selectors;
+  this.selectors = controller.selectors;
 }
 
 CreditCard.Binder.prototype = {

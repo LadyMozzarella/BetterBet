@@ -25,4 +25,8 @@ class Goal < ActiveRecord::Base
     self.owner == user
   end
 
+  def incomplete?
+    !complete?
+  end
+
 end

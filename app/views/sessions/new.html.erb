@@ -1,4 +1,5 @@
 <div class="new-session-form">
+  <!-- this is duplicate code with the navbar, why? control this on the controller leve,  no one should see singup form if they are logged in.-->
   <% if logged_in? %>
     <h3>You are already logged in.</h3>
     <%= link_to "Sign out", logout_path, class: "signout_link" %>

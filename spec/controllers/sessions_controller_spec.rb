@@ -12,6 +12,7 @@ describe SessionsController do
 
   context "#destroy" do
     it "should clear a session" do
+      # stub the current_user method on the controller instead of modifying session. If you're not sure how, ask shadi.
       session[:user_id] = user.id
       post :destroy
       expect(session[:user_id]).to be_nil

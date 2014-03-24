@@ -1,5 +1,13 @@
-CreditCard.View = function(selectors) {
-  this.selectors = selectors;
+CreditCard.View = function(options) {
+  // use logic on line 3 or 4.
+  this.selectors = this.options.selectors || {
+    ccForm: options.selectors.ccForm || '.new_user',
+    ccNum: 'input.cc-num',
+    ccExp: 'input.cc-exp',
+    ccCVC: 'input.cc-cvc',
+    errorsContainer: '.errors',
+    stripeInput: '<input type="hidden" name="stripeToken" />'
+  };;
 }
 
 CreditCard.View.prototype = {

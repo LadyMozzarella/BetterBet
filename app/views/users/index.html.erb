@@ -1,8 +1,6 @@
 <% @users.each do |user| %>
-  <% unless current_user.is_user?(user) %>
-    <%= user.name %>
-    <%= link_to "Add Friend", friendships_path(user), :method => :post %><br>
-    <%= link_to "Delete Friend", friendship_path(user), :method => :delete %><br><br>
-
-  <% end %>
+  <%= user.name %>
+  <!-- br tags are hard to style and keep consistent, so avoid using them -->
+  <%= link_to "Add Friend", friendships_path(user), :method => :post %><br>
+  <%= link_to "Delete Friend", friendship_path(user), :method => :delete %><br><br>
 <% end %>

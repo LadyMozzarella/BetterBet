@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   before_filter :user, only: [:show, :edit, :update, :destroy, :goals]
 
   def index
-    @users = User.all
+    # find a clean way to remove the current_user from the list of users.
+    @users = User.all.reject {|user| user == current_user}
   end
 
   def new
@@ -12,18 +13,22 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-    redirect_to new_user_path and return unless @user.save
+    if @user.save
+      login(@user)
+      # move this to an after create in the user model (lines 18-21)
+      UserMailer.welcome_email(@user).deliver
+      # move this to an before create in the user model (lines 19-21)
+      customer = Customer.create(@user, params[:stripeToken])
+      Payment.create(customer.id)
+      @user.update_attribute(:stripe_id, customer.id)
 
-    session[:user_id] = @user.id
-    UserMailer.welcome_email(@user).deliver
-
-    customer = Customer.create(@user, params[:stripeToken])
-    Payment.create(customer.id)
-    @user.update_attribute(:stripe_id, customer.id)
-
-    redirect_to dashboard_path
+      redirect_to dashboard_path
+    else
+      render :new
+    end
   end
 
+  # jquery ui..you suck
   def autocomplete
     render :json => User.search(params[:name])
   end
@@ -46,6 +51,7 @@ class UsersController < ApplicationController
     redirect_to login_path
   end
 
+  # looks like legacy code!
   def search
     user = User.find_by_name(params[:user])
     render :json => user
