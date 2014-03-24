@@ -1,5 +1,5 @@
 class GoalsController < ApplicationController
-  before_filter :goal, except: [:new, :create, :goal, :index]
+  before_filter :goal, except: [:new, :create, :goal, :index, :status]
   before_filter :authorize
 
   def index
@@ -45,6 +45,10 @@ class GoalsController < ApplicationController
   def complete
     @goal.toggle!(:completed)
     redirect_to users_goals_path(current_user)
+  end
+
+  def status
+    render :nothing => true, :status => 200, json: current_user.goals
   end
 
   private
