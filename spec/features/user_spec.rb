@@ -16,7 +16,7 @@ describe "User" do
       fill_in '/', :with => "1016"
       fill_in 'CVC', :with => "898"
       click_button 'Create User'
-      expect(page).to have_content 'Ongoing Goals'
+      expect(page).to have_content 'Ongoing Goalsgit '
     end
   end
 
