@@ -9,6 +9,6 @@ $(document).ready(function() {
   };
 
   CreditCard.view = new CreditCard.View(selectors);
-  CreditCard.controller = new CreditCard.Controller(CreditCard.view);
+  CreditCard.controller = new CreditCard.Controller(CreditCard.view, selectors);
   new CreditCard.Binder(CreditCard.controller, selectors).bind();
 });

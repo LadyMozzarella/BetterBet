@@ -1,5 +1,6 @@
-CreditCard.Controller = function(view) {
+CreditCard.Controller = function(view, selectors) {
   this.view = view;
+  this.selectors = selectors;
 }
 
 CreditCard.Controller.prototype = {
@@ -13,7 +14,7 @@ CreditCard.Controller.prototype = {
     }
   },
   stripeResponseHandler: function(status, response) {
-    var $form = $('form');
+    var $form = $(this.selectors.ccForm);
     if (response.error) {
       this.view.displayError(response.error.message);
       this.view.disableSubmit();
