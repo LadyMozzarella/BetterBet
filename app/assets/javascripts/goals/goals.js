@@ -1,7 +1,7 @@
 $(document).ready(function(){
   var selectors = {
-    deleteGoal: '.delete_goal',
-    editGoal: '.edit_goal'
+    deleteGoal: '.goal_delete-button',
+    editGoal: '.goal_edit-button'
   }
   Goals.view = new Goals.View(selectors);
   Goals.controller = new Goals.Controller(Goals.view);
