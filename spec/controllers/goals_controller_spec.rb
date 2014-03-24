@@ -5,11 +5,8 @@ describe GoalsController do
   let!(:goal) { create :goal }
   let(:goals) { create_list(:goal, 3) }
   let(:attribs) { attributes_for :goal }
+  before(:each) { session[:user_id] = user.id }
   render_views
-
-  before(:each) do
-    session[:user_id] = user.id
-  end
 
   context '#index' do
     it 'should be a success' do
