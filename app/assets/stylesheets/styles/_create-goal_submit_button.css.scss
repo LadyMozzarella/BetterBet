@@ -2,7 +2,7 @@
     @include row;
 }
 .create-goal_submit_button {
-    @include button;
+    @include button(simple, $base-accent-color);
     display: block;
     font-size: 1.3em;
     line-height: 2em;
