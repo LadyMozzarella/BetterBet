@@ -13,7 +13,7 @@ Betterbet::Application.routes.draw do
   resources :sessions, only: [:create]
   resources :friendships, only: [:create, :destroy]
   resources :users
-  resources :goals
+  resources :goals, except: [:index]
 
   put '/goals/:id/complete', to: 'goals#complete', as: 'complete_goal'
 

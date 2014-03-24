@@ -3,9 +3,8 @@ require 'spec_helper'
 describe UsersController do
   let(:user) { create :user }
   let(:attribs) { attributes_for :user }
+  let!(:goal) { create :goal }
   render_views
-
-
 
   context '#new' do
     it 'should be a success' do
@@ -68,11 +67,6 @@ describe UsersController do
         get :show, id: user.id
         expect(assigns(:user)).to eq user
       end
-
-      it 'should find goals for a specific user' do
-         get :show, id: user.id
-         expect(assigns(:goals)).to eq user.goals
-      end
     end
 
     context '#edit' do
@@ -122,6 +116,11 @@ describe UsersController do
       it 'should be a success' do
         get :goals, id: user
         expect(response).to be_success
+      end
+
+      it 'should find goals for a specific user' do
+         get :goals, id: user
+         expect(assigns(:goals)).to eq user.goals
       end
     end
   end
