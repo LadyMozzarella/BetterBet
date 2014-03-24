@@ -26,10 +26,5 @@
     </p>
 
     <h2 class="goals_header">Goals</h2>
+    <%= link_to "View Goals", users_goals_path(@user) %>
 </article>
-
-<section class="goals">
-  <% @user.goals.each do |goal| %>
-    <%= render partial: 'shared/goal', :locals => {:goal => goal} %>
-  <% end %>
-</section>

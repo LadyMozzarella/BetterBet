@@ -29,7 +29,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @goals = @user.goals
   end
 
   def edit
