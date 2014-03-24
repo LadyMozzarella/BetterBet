@@ -11,7 +11,7 @@ Betterbet::Application.routes.draw do
   resources :users
   resources :goals
 
-  get '/search', to: 'users#search', as: 'search'
+  post '/search', to: 'users#search', as: 'search'
   put '/goals/:id/complete', to: 'goals#complete', as: 'complete_goal'
 
   mount Soulmate::Server, :at => '/sm'

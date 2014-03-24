@@ -7,5 +7,9 @@ Search.View.prototype = {
     $(this.selectors.search).autocomplete({
       source: results
     })
+  },
+
+  showError: function(xhr){
+    $(this.selectors.search_form).append(xhr.responseText);
   }
 }

@@ -41,10 +41,10 @@ class UsersController < ApplicationController
     redirect_to login_path
   end
 
-  # def search
-  #   @users = User.search(params[:friend])
-  #   render '/shared/friend_results'
-  # end
+  def search
+    user = User.find_by_name(params[:user])
+    render :json => user
+  end
 
   private
 
