@@ -31,14 +31,11 @@
     Against:
   </p>
   <div class="goal_buddy_box">
-    <% if goal.buddy && goal.buddy.image %>
-      <img src="<%= goal.buddy.image %>" alt="placeholder" class="goal_buddy_image">
-    <% end %>
     <% if goal.buddy %>
-      <h3 class="goal_buddy"><%= link_to goal.buddy.name, user_path(goal.buddy) %></h3>
+        <img class="user_profile_img" src="<%= goal.buddy.image %>" >
+        <h3 class="goal_buddy"><%= link_to goal.buddy.name, user_path(goal.buddy) %></h3>
     <% end %>
   </div>
-
 
   <%= link_to "Completed", complete_goal_path(goal), method: 'put' %>
 
