@@ -13,17 +13,9 @@ Search.Binder.prototype = {
 
   bindKeydown: function(){
     var controller = this.controller;
-    $(this.selectors.search).on("keydown", function(e){
+    $(this.selectors.search).on("keyup", function(e){
       var searchTerm = $(this).val();
       controller.completeTerm(searchTerm);
     });
-  },
-
-  bindClick: function(){
-    var controller = this.controller
-    $('body').on("click", ".ui-menu-item a", function(e){
-      var id = $(this).data("id")
-      controller.searchTerm(id);
-    })
   }
 }
