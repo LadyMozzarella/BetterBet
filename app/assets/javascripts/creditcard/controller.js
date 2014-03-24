@@ -9,12 +9,11 @@ CreditCard.Controller.prototype = {
       this.view.alertInvalid();
     } else {
       this.view.disableSubmit();
-      Stripe.card.createToken(form, stripeResponseHandler);
+      Stripe.card.createToken(form, this.stripeResponseHandler.bind(this));
     }
   },
   stripeResponseHandler: function(status, response) {
     var $form = $('form');
-
     if (response.error) {
       this.view.displayError(response.error.message);
       this.view.disableSubmit();
