@@ -10,25 +10,23 @@
         <%= render partial: 'shared/goal', :locals => {:goal => goal} %>
       <% end %>
     </section>
-    
+
     <%= render partial: '/shared/search' %>
-    
 
     <section class="friends-timeline">
       <h2 class="friends-timeline_header">Friends Timeline</h2>
-          <% @friends.each do |friend| %>
-            <% unless friend.goals.empty? %>
-              <% friend.goals.each do |goal| %>
+        <% @friends.each do |name, goals| %>
+            <% goals.each do |goal| %>
               <article class="friends-timeline_friend-activity">
-                <img src="#" alt="placeholder" class="friends-timeline_buddy_image">
+              <img src="#" alt="placeholder" class="friends-timeline_buddy_image">
+                <p class="friends-timeline_action">
                   <h4 class="friends-timeline_buddy-name">
-                    <%= friend.name %>
+                    <%= name %>
                   </h4>
                   <%= goal.title %><br>
-                  betted $<%= goal.bet_amount %> | <%= format_days(goal.countdown) %>
-                  days remaining 
+                  <%= format_days(goal.countdown) %> days remaining
+                </p>
               </article>
-              <% end %>
             <% end %>
           <% end %>
     </section>
