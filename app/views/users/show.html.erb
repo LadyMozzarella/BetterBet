@@ -1,4 +1,5 @@
 <article class="user_profile">
+  <div class="friend_status"></div>
   <%= link_to "Add Friend", "#", class: 'add_friend', data: {id: "#{@user.id}"} %>
   <%= link_to "Delete Friend", "#", class: 'delete_friend', data: {friend: "#{@user.id}", user: current_user.id}%><br>
     <header class="user_profile_header">
