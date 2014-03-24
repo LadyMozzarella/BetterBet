@@ -64,6 +64,19 @@ class User < ActiveRecord::Base
     self.goals.where("completed = false").order("updated_at DESC")
   end
 
+  def get_image_url
+    self.gravatar? ? "http://www.gravatar.com/avatar/" + generate_md5 + "?s=300" : "/assets/default_user_image.svg"
+  end
+
+  def gravatar?
+    self.image == "1"
+  end
+
+  def generate_md5
+    email = self.email.strip.downcase
+    Digest::MD5.hexdigest(email)
+  end
+
   private
 
   def add_to_soulmate
