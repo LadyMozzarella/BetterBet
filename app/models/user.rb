@@ -34,16 +34,16 @@ class User < ActiveRecord::Base
   end
 
   def latest_goal
-    self.goals.last
+    self.goals.where('completed = false').order("updated_at DESC").limit(1)
   end
 
-  def is_current_user?(current_user)
-    self.id == current_user.id
+  def is_user?(user)
+    self.id == user.id
   end
 
   def self.search(name)
     users = Soulmate::Matcher.new("user").matches_for_term(name)
-    users.collect{ |c| {"id" => c["id"], "name" => c["term"], "email" => c["data"]["email"] } }
+    users.collect{ |c| {"id" => c["id"], "name" => c["term"] } }
   end
 
   def friend_goals
@@ -56,11 +56,19 @@ class User < ActiveRecord::Base
     friends_info
   end
 
+  def has_friend?(friend)
+    self.friends.exists?(friend)
+  end
+
+  def active_goals
+    self.goals.where("completed = false").order("updated_at DESC")
+  end
+
   private
 
   def add_to_soulmate
     loader = Soulmate::Loader.new("user")
-    loader.add("term" => name, "id" => self.id, "data" => {"email" => email})
+    loader.add("term" => name, "id" => self.id)
   end
 
   def remove_from_soulmate

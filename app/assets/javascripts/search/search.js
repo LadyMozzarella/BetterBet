@@ -3,8 +3,7 @@ $(document).ready(function(){
     search: '#search',
     form: '.search_form'
   }
-  Search.view = new Search.View(selectors);
-  Search.controller = new Search.Controller(Search.view);
+  Search.controller = new Search.Controller(selectors);
   Search.binder = new Search.Binder(Search.controller, selectors);
   Search.binder.bindEvents();
 })
