@@ -43,7 +43,7 @@ class User < ActiveRecord::Base
 
   def self.search(name)
     users = Soulmate::Matcher.new("user").matches_for_term(name)
-    users.collect{ |c| {"id" => c["id"], "name" => c["term"], "email" => c["data"]["email"] } }
+    users.collect{ |c| {"id" => c["id"], "name" => c["term"] } }
   end
 
   def friend_goals
@@ -60,7 +60,7 @@ class User < ActiveRecord::Base
 
   def add_to_soulmate
     loader = Soulmate::Loader.new("user")
-    loader.add("term" => name, "id" => self.id, "data" => {"email" => email})
+    loader.add("term" => name, "id" => self.id)
   end
 
   def remove_from_soulmate

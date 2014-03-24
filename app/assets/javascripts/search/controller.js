@@ -1,5 +1,5 @@
-Search.Controller = function(view){
-  this.view = view
+Search.Controller = function(selectors){
+  this.selectors = selectors
 }
 
 Search.Controller.prototype = {
@@ -10,20 +10,30 @@ Search.Controller.prototype = {
       context: this,
       data: {name: searchTerm}
     }).done(function(response){
+      console.log(response)
       var results = []
       for (var i = 0; i < response.length; i++){
-        results.push(response[i].name)
+        results[i] = {
+          "label": response[i].name,
+          "value": response[i].id
+        }
       }
-      this.view.showResults(results)
-      this.searchTerm(response)
+      this.findResults(results);
     }).fail(function(xhr){
-      this.view.showError(xhr);
+      $(this.selectors.search_form).append(xhr.responseText);
     });
   },
 
-  searchTerm: function(response){
-    var id = response[0].id
-    window.location.href = "/users/" + id
-  },
+  findResults: function(results){
+    $(this.selectors.search).autocomplete({
+      source: results,
+      select: function(event, ui) {
+        var url = ui.item.value;
+        if(url != '#') {
+          location.href = '/users/' + url
+        }
+      }
+    }
+  )}
 
 }
