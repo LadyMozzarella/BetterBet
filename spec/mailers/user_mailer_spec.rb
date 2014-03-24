@@ -8,7 +8,7 @@ describe UserMailer do
   context 'sending an email' do
     before(:each) { mail.deliver! }
     it 'should increase the storage count by one' do
-      expect(ActionMailer::Base.deliveries.last.to.first).to eq(user.email)
+      expect(UserMailer.deliveries.last.to.first).to eq(user.email)
     end
 
     it 'should contain the apps email address' do
