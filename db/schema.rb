@@ -13,7 +13,6 @@
 
 
 ActiveRecord::Schema.define(:version => 20140324011959) do
-lines of
 
   create_table "friendships", :force => true do |t|
     t.integer "user_id"
