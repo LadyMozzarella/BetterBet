@@ -18,5 +18,7 @@ Betterbet::Application.routes.draw do
   resources :goals, except: [:show, :index]
   put '/goals/:id/complete', to: 'goals#complete', as: 'complete_goal'
 
+  post '/goals/status', to: 'goals#status'
+
   mount Soulmate::Server, :at => '/sm'
 end
