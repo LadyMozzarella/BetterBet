@@ -10,13 +10,6 @@
         <%= link_to "Sign in with Facebook", "/auth/facebook", class: "facebook_signin_link" %>
     </div>
 
-  <%= link_to "Sign up", new_user_path %>
-
-    <div class="signup_form">
-        <h3>Or signup to start betting</h3>
-        <%= render 'shared/flash_errors' %>
-        <%= render 'signupform' %>
-        <%= link_to "Sign up with Facebook", "/auth/facebook", class: "facebook_signin_link" %>
-     </div>
+    <%= link_to "Sign up", new_user_path %>
   <% end %>
 </div>
