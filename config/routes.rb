@@ -1,4 +1,6 @@
 Betterbet::Application.routes.draw do
+
+  root to: "pages#dashboard"
   get '/dashboard', to: 'pages#dashboard'
   get '/stylemaster', to: 'pages#stylemaster'
   get 'users/autocomplete', to: 'users#autocomplete', as: 'autocomplete_users'
