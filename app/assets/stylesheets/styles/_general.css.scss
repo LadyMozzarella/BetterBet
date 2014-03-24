@@ -5,6 +5,10 @@ section {
     padding-bottom: $base-line-height;
 }
 
+.page-content {
+    @include outer-container;
+}
+
 .goals_header {
     @include span-columns(12);
     font-size: $base-font-size;
