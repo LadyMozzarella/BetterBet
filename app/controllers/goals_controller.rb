@@ -41,7 +41,8 @@ class GoalsController < ApplicationController
   end
 
   def status
-    render :nothing => true, :status => 200, json: current_user.goals
+    goals = Goal.expired_goals_by_user(current_user)
+    render :nothing => true, :status => 200, json: goals
   end
 
   private
