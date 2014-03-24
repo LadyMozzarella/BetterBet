@@ -1,7 +1,6 @@
 <section class="search">
-    <%= form_tag("/search", method: "get") do %>
-      <%= label_tag(:friends, "Find Friends:") %>
-      <%= text_field_tag(:friend) %>
-      <%= submit_tag("Search") %>
-    <% end %>
+  <%= form_tag("#", class: 'search_form') do %>
+    <%= label_tag(:friends, "Find Friends:") %>
+    <%= text_field_tag "search", "", :autocomplete => "off", :id => "search", :class=>"ui-autocomplete-input" %>
+  <% end %>
 </section>

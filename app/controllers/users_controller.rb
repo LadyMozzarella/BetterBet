@@ -24,6 +24,10 @@ class UsersController < ApplicationController
     redirect_to dashboard_path
   end
 
+  def autocomplete
+    render :json => User.search(params[:name])
+  end
+
   def show
     @goals = @user.goals
   end
@@ -43,8 +47,8 @@ class UsersController < ApplicationController
   end
 
   def search
-    @users = User.search(params[:friend])
-    render '/shared/friend_results'
+    user = User.find_by_name(params[:user])
+    render :json => user
   end
 
   private

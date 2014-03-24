@@ -7,6 +7,8 @@ gem 'rails', '3.2.14'
 gem 'pg'
 gem 'pry'
 gem 'omniauth-facebook'
+gem 'rack-contrib'
+gem 'soulmate', :require => 'soulmate/server'
 gem 'stripe'
 
 group :development, :test do
