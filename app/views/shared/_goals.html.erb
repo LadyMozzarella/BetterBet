@@ -8,6 +8,8 @@
     <label>Accountability Buddy:</label> <%= goal.buddy.name %>
   <% end %>
 
-  <%= link_to "Edit", edit_goal_path(goal) %>
-  <%= link_to "Delete", "#", class: 'delete_goal', data: {goal: goal.id, user: current_user.id}%>
+  <% if goal.belongs_to(current_user) %>
+    <%= link_to "Edit", edit_goal_path(goal) %>
+    <%= link_to "Delete", "#", class: 'delete_goal', data: {goal: goal.id, user: current_user.id}%>
+  <% end %>
 </div>

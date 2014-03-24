@@ -39,7 +39,8 @@
     <% end %>
   </div>
 
-
-  <%= link_to "Completed", complete_goal_path(goal), method: 'put' %>
+  <% unless goal.completed? %>
+    <%= button_to "Completed", complete_goal_path(goal), method: 'put' %>
+  <% end %>
 
 </article>
