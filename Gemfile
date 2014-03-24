@@ -23,6 +23,8 @@ group :test do
   gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'stripe-ruby-mock', '~> 1.10.1.5'
+  gem 'capybara'
+  gem 'selenium-webdriver'
 end
 
 # Gems used only for assets and not required
