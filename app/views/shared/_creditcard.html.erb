@@ -1,0 +1,24 @@
+<div class="form-row">
+  <label>
+    <span>Card Number</span>
+    <input class="cc-num" type="text" size="19" data-stripe="number"/>
+  </label>
+</div>
+<div class="form-row">
+  <label>
+    <span>Expiration (MM/YYYY)</span>
+    <input class="cc-exp" type="text" size="2" data-stripe="exp-month"/>
+  </label>
+  <span> / </span>
+  <input type="text" size="4" data-stripe="exp-year"/>
+</div>
+<div class="form-row">
+  <label>
+    <span>CVC</span>
+    <input class="cc-cvc" type="text" size="4" data-stripe="cvc" />
+  </label>
+</div>
+
+<script type="text/javascript">
+  Stripe.setPublishableKey("<%= ENV['PUBLISHABLE_KEY']%>");
+</script>

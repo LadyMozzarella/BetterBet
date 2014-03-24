@@ -1,4 +1,5 @@
 <div class="new-user-form">
+  <div class="errors"></div>
   <h1>Create an account</h1>
   <%= form_for @user do |f| %>
     <%= f.label :name %>
@@ -11,6 +12,7 @@
     <%= f.password_field :password_confirmation, :required => true  %>
     <%= f.label :bio %>
     <%= f.text_area :bio %>
+    <%= render "shared/creditcard" %>
     <%= f.submit %>
   <% end %>
 </div>

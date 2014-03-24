@@ -11,6 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+
 ActiveRecord::Schema.define(:version => 20140323191348) do
 
   create_table "friendships", :force => true do |t|
@@ -47,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20140323191348) do
     t.datetime "expires_at"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "stripe_id"
   end
 
 end

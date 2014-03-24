@@ -5,6 +5,7 @@ FactoryGirl.define do
     password '1234'
     password_confirmation '1234'
     bio Faker::Lorem.paragraph
+    stripe_id Faker::Lorem.word
   end
 
   factory :goal do
