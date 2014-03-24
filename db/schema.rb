@@ -12,7 +12,8 @@
 # It's strongly recommended to check this file into your version control system.
 
 
-ActiveRecord::Schema.define(:version => 20140323191348) do
+ActiveRecord::Schema.define(:version => 20140324011959) do
+lines of
 
   create_table "friendships", :force => true do |t|
     t.integer "user_id"
@@ -31,6 +32,8 @@ ActiveRecord::Schema.define(:version => 20140323191348) do
     t.integer  "owner_id"
     t.integer  "buddy_id"
     t.boolean  "completed",   :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "goals", ["buddy_id"], :name => "index_goals_on_buddy_id"
