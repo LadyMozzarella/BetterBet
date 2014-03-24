@@ -11,28 +11,27 @@
 }
 
 .friends-timeline_friend-activity {
+    @include row;
+    @include span-columns(12);
     margin-top: 1em;
 }
 
 .friends-timeline_buddy_image {
-    float: left;
-    vertical-align: center;
-    margin: 0;
-    padding-left: .5em;
-    width: 60px;
-    height: 60px;
+    @include span-columns(2 of 12);
 }
 
 .friends-timeline_buddy-name {
+    text-align: left;
     font-weight: 100;
     font-size: 1.2em;
 }
 
 .friends-timeline_action {
-    padding-left: 1em;
-    border-bottom: 1px solid $light-gray;
+    @include span-columns(10 of 12);
+    @include omega;
+    
 }
 
-.friends-timeline_friend-activity {
-}
+// .friends-timeline_friend-activity {
+// }
 

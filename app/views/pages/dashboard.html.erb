@@ -20,20 +20,21 @@
           <% @friends.each do |friend| %>
             <% unless friend.goals.empty? %>
               <% friend.goals.each do |goal| %>
-              <img src="#" alt="placeholder" class="friends-timeline_buddy_image">
+              <!-- <img src="#" alt="placeholder" class="friends-timeline_buddy_image"> -->
               <p class="friends-timeline_action">
                 <h4 class="friends-timeline_buddy-name">
                   <%= friend.name %>
                 </h4>
                 <%= goal.title %><br>
-                <%= format_days(goal.countdown) %>
-                remaining
+                betted $<%= goal.bet_amount %> | <%= format_days(goal.countdown) %>
+                days remaining 
               </p>
               <% end %>
             <% end %>
           <% end %>
         </article>
     </section>
+
     <section class="friend_list">
       <h1>4.Friend List</h1>
     </section>
