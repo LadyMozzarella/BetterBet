@@ -36,7 +36,8 @@ class GoalsController < ApplicationController
 
   def complete
     @goal.update_attributes(completed: true, terminated_at: Time.now)
-    redirect_to goal_path(@goal)
+    notify_buddy(@goal)
+    redirect_to dashboard_path
   end
 
   def status
@@ -46,6 +47,7 @@ class GoalsController < ApplicationController
 
   def terminate
     @goal.update_attributes(completed: params[:complete], terminated_at: Time.now)
+
     render :nothing => true, :status => 200
   end
 
@@ -53,5 +55,10 @@ class GoalsController < ApplicationController
 
   def goal
     @goal = Goal.find(params[:id])
+  end
+
+  def notify_buddy(goal)
+    buddy = User.find(goal.buddy_id)
+      UserMailer.goal_end_email(buddy, current_user, goal).deliver
   end
 end
