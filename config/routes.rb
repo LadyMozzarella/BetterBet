@@ -17,6 +17,7 @@ Betterbet::Application.routes.draw do
 
   resources :goals, except: [:show, :index]
   put '/goals/:id/complete', to: 'goals#complete', as: 'complete_goal'
+  put '/goals/:id/terminate', to: 'goals#terminate', as: 'terminate_goal'
 
   post '/goals/status', to: 'goals#status'
 

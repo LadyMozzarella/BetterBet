@@ -5,8 +5,10 @@ Alert.View = function(selectors) {
 }
 
 Alert.View.prototype = {
-  renderGoals: function(goals) {
-    alert(goals);
+  renderGoal: function(goal) {
+    $(document).foundation();
+    $(this.selectors.goal).append(goal.title);
+    $(this.selectors.modal).foundation('reveal', 'open');
   }
 };
 
@@ -19,14 +21,27 @@ Alert.Controller.prototype = {
     $.ajax({
       url: '/goals/status',
       type: 'POST',
-      datatype: 'json',
+      dataType: 'json',
       context: this
     }).success(function(response) {
-      if (response.length > 0) {
-        this.view.renderGoals(response);
+      if (response) {
+        this.goal = response[0];
+        this.view.renderGoal(this.goal);
       }
     }).fail(function(xhr){
       console.log(xhr.responseText);
+    })
+  },
+  updateStatus: function(complete) {
+    $.ajax({
+      url: '/goals/'+ this.goal.id +'/terminate',
+      type: 'PUT',
+      data: {complete: complete},
+      context: this
+    }).success(function(){
+      console.log("I updated")
+    }).fail(function(){
+      console.log("I cannot find what you need")
     })
   }
 };
@@ -39,12 +54,23 @@ Alert.Binder = function(controller, selectors) {
 Alert.Binder.prototype = {
   bind: function() {
     this.controller.getStatus();
+    this.bindGoalComplete();
+  },
+  bindGoalComplete: function() {
+    $(this.selectors.buttonComplete).on('click', function(){
+      this.controller.updateStatus(true);
+    }.bind(this));
   }
 };
 
 $(document).ready(function() {
-	if (window.location.pathname === '/dashboard'){
-    var selectors = {};
+	if (window.location.pathname === '/dashboard') {
+    var selectors = {
+      modal: "#goal-alert",
+      goal: '.goal',
+      buttonComplete: '.goal-complete',
+      buttonIncomplete: '.goal-incomplete',
+    };
 
     Alert.view = new Alert.View(selectors);
     Alert.controller = new Alert.Controller(Alert.view);

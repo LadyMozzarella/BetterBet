@@ -41,8 +41,13 @@ class GoalsController < ApplicationController
   end
 
   def status
-    goals = Goal.expired_goals_by_user(current_user)
-    render :nothing => true, :status => 200, json: goals
+    goals = Goal.expired_goal_by_user(current_user)
+    render json: goals.to_json
+  end
+
+  def terminate
+    @goal.update_attributes(completed: params[:complete], terminated_at: Time.now)
+    render :nothing => true, :status => 200
   end
 
   private
