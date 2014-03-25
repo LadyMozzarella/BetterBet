@@ -19,6 +19,13 @@ fieldset {
   padding: $base-line-height;
 }
 
+legend {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: $dictatorship;
+}
+
 input,
 label,
 select {
