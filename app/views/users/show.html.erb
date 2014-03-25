@@ -1,32 +1,31 @@
 <article class="user_profile">
-  <div class="friend_status"></div>
-    <% unless current_user.is_user?(@user) %>
-      <% if current_user.has_friend?(@user)  %>
-        <%= link_to "Delete Friend", "#", class: 'delete_friend', data: {friend: "#{@user.id}", user: current_user.id}%><br>
-      <% else  %>
-        <%= link_to "Add Friend", "#", class: 'add_friend', data: {id: "#{@user.id}"} %>
+  <header class="user_profile_header">
+      <h2><%= @user.name %></h2>
+        <% if current_user.is_user?(@user) %>
+        <ul class="user_profile_buttons">
+          <li class="user_edit-button">
+            <%= link_to image_tag('pencil.svg'), edit_user_path(@user) %>
+          </li>
+          <li class="user_delete-button" >
+            <%= link_to image_tag('times.svg'), user_path(@user), method: :delete, confirm: 'Are you sure you want to delete your account?' %>
+          </li>
+        <div class="friend_status"></div>
+      <% else %>
+        <% if current_user.has_friend?(@user)  %>
+          <%= link_to image_tag('times.svg') , "#", class: 'delete_friend', data: {friend: "#{@user.id}", user: current_user.id}%><br>
+        <% else  %>
+          <%= link_to "Add Friend", "#", class: 'add_friend', data: {id: "#{@user.id}"} %>
+        <% end %>
       <% end %>
-    <% end %>
-    <header class="user_profile_header">
-        <h2><%= @user.name %></h2>
-          <% if current_user.is_user?(@user) %>
-          <ul class="user_profile_buttons">
-            <li class="user_edit-button">
-              <%= link_to image_tag('pencil.svg'), edit_user_path(@user) %>
-            </li>
-            <li class="user_delete-button" >
-              <%= link_to image_tag('times.svg'), user_path(@user), method: :delete, confirm: 'Are you sure you want to delete your account?' %>
-            </li>
-          <% end %>
-        </ul>
-    </header>
+      </ul>
+  </header>
 
-      <img class="user_profile_img" src="<%= @image_url %>" >
+    <img class="user_profile_img" src="<%= @image_url %>" >
 
-    <p class="user_profile_bio">
-        <%= @user.bio %></label>
-    </p>
+  <p class="user_profile_bio">
+      <%= @user.bio %></label>
+  </p>
 
-    <h2 class="goals_header">Goals</h2>
-    <%= render 'goals/index', goals: @user.goals %>
+  <h2 class="goals_header">Goals</h2>
+  <%= render 'goals/index', goals: @user.goals %>
 </article>
