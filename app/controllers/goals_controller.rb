@@ -49,14 +49,6 @@ class GoalsController < ApplicationController
     render :nothing => true, :status => 200
   end
 
-  def status
-    render :nothing => true, :status => 200, json: current_user.goals
-  end
-
-  def status
-    render :nothing => true, :status => 200, json: current_user.goals
-  end
-
   private
 
   def goal
