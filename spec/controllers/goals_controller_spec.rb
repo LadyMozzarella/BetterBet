@@ -73,4 +73,19 @@ describe GoalsController do
       }.to change{ Goal.count }.by -1
     end
   end
+
+  context '#complete' do
+    it 'should mark the goal as completed'
+    it 'should redirect'
+  end
+
+  context '#status' do
+    it 'should assign the expired goal to goals'
+    it 'should render json'
+  end
+
+  context '#terminate' do
+    it 'should update the goal to completed'
+    it 'should not render'
+  end
 end

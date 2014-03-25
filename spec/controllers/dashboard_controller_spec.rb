@@ -15,5 +15,7 @@ describe DashboardController do
       get :index
       expect(assigns :goals).to eq goals
     end
+
+    it "should assign the user's friend's active goals to @friends"
   end
 end
