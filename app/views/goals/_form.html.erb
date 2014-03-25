@@ -1,22 +1,19 @@
-<div class="new-goal-form">
-  <h1>Start a new goal</h1>
-  <%= form_for goal do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title, :required => true %>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-    <%= f.label :bet %>
-    <%= f.number_field :bet_amount %>
-    <%= f.label :start_date %>
-    <%= f.date_select :start_date, :required => true, :order => [:month, :day, :year]  %>
-    <%= f.label :end_date %>
-    <%= f.date_select :end_date, :required => true, :order => [:month, :day, :year] %>
-    <% if current_user.has_friends? %>
-      <%= f.label :buddy %>
-      <%= f.collection_select :buddy_id, current_user.friends, :id, :name %>
-    <% else %>
-      (None)
-    <% end %>
-    <%= f.submit class: 'submit' %>
+<%= form_for goal do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title, :required => true %>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  <%= f.label :bet %>
+  <%= f.number_field :bet_amount %>
+  <%= f.label :start_date %>
+  <%= f.date_select :start_date, :required => true, :order => [:month, :day, :year]  %>
+  <%= f.label :end_date %>
+  <%= f.date_select :end_date, :required => true, :order => [:month, :day, :year] %>
+  <% if current_user.has_friends? %>
+    <%= f.label :buddy %>
+    <%= f.collection_select :buddy_id, current_user.friends, :id, :name %>
+  <% else %>
+    (None)
   <% end %>
-</div>
+  <%= f.submit class: 'submit' %>
+<% end %>

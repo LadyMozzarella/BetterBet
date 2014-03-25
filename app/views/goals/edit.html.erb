@@ -1,1 +1,5 @@
-<%= render partial: 'form', :locals => {:goal => @goal} %>
+<section class="edit-goal-form">
+  <h1>Edit your goal</h1>
+  <%= render 'shared/errors', object: @goal %>
+  <%= render 'form', goal: @goal %>
+</section>
