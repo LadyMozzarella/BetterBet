@@ -47,7 +47,7 @@ class GoalsController < ApplicationController
 
   def terminate
     @goal.update_attributes(completed: params[:complete], terminated_at: Time.now)
-
+    notify_buddy(@goal)
     render :nothing => true, :status => 200
   end
 
