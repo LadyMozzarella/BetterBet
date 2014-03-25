@@ -20,8 +20,8 @@ describe SessionsController do
 
   context "#create" do
     it "should create a session" do
-      post :create, :email => user.email, :password => user.password
-      expect(session[:user_id]).to eq(user.id)
+      post :create, email: user.email, password: user.password
+      expect(session[:user_id]).to eq user.id
     end
   end
 end
