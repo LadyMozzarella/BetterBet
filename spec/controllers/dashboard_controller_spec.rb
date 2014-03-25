@@ -18,4 +18,11 @@ describe DashboardController do
 
     it "should assign the user's friend's active goals to @friends"
   end
+
+  context '#landing' do
+    it "should be okay" do
+      get :landing
+      expect(response).to be_ok
+    end
+  end
 end
