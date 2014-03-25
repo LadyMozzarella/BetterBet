@@ -5,10 +5,13 @@ Alert.View = function(selectors) {
 }
 
 Alert.View.prototype = {
-  renderGoal: function(goal) {
+  showModal: function(goal) {
     $(document).foundation();
-    $(this.selectors.goal).append(goal.title);
+    $(this.selectors.goal).html(goal.title);
     $(this.selectors.modal).foundation('reveal', 'open');
+  },
+  hideModal: function() {
+    $(this.selectors.modal).foundation('reveal', 'close');
   }
 };
 
@@ -24,9 +27,9 @@ Alert.Controller.prototype = {
       dataType: 'json',
       context: this
     }).success(function(response) {
-      if (response) {
+      if (response.length > 0) {
         this.goal = response[0];
-        this.view.renderGoal(this.goal);
+        this.view.showModal(this.goal);
       }
     }).fail(function(xhr){
       console.log(xhr.responseText);
@@ -39,9 +42,9 @@ Alert.Controller.prototype = {
       data: {complete: complete},
       context: this
     }).success(function(){
-      console.log("I updated")
-    }).fail(function(){
-      console.log("I cannot find what you need")
+      this.view.hideModal()
+    }).fail(function(xhr){
+      console.log(xhr.responseText)
     })
   }
 };
@@ -55,12 +58,25 @@ Alert.Binder.prototype = {
   bind: function() {
     this.controller.getStatus();
     this.bindGoalComplete();
+    this.bindGoalIncomplete();
+    this.bindGoalTerminate();
   },
   bindGoalComplete: function() {
     $(this.selectors.buttonComplete).on('click', function(){
       this.controller.updateStatus(true);
     }.bind(this));
+  },
+  bindGoalIncomplete: function() {
+    $(this.selectors.buttonIncomplete).on('click', function(){
+      this.controller.updateStatus(false);
+    }.bind(this));
+  },
+  bindGoalTerminate: function() {
+    $(document).on('closed', '[data-reveal]', function () {
+      this.controller.getStatus();
+    }.bind(this));
   }
+
 };
 
 $(document).ready(function() {

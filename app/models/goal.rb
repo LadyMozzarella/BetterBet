@@ -26,7 +26,7 @@ class Goal < ActiveRecord::Base
   end
 
   def self.expired_goal_by_user(user)
-    Goal.where('owner_id = ? AND DATE(end_date) <= ? ', user.id, Time.now).limit(1)
+    Goal.where('owner_id = ? AND DATE(end_date) <= ? AND terminated_at IS NULL', user.id, Time.now).limit(1)
   end
 
 end
