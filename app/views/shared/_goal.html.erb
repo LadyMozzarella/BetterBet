@@ -1,14 +1,16 @@
 <article class="goal goal-state_ongoing">
   <header class="goal_header">
     <h2><%= goal.title %></h2>
+    <% if goal.belongs_to(current_user) %>
       <ul class="goal_edit_buttons">
         <li class="goal_edit-button">
           <%= link_to image_tag('pencil.svg'), edit_goal_path(goal) %>
         </li>
         <li>
-          <%= link_to image_tag('times.svg'), goal_path(goal), method: :delete, class: "goal_delete-button" %>
+          <%= link_to image_tag('times.svg'), class: "goal_delete-button", data: {goal: goal.id, user: current_user.id} %>
         </li>
-    </ul>
+      </ul>
+    <% end %>
   </header>
 
   <p class="goal_description"><%= goal.description %></p>
@@ -41,3 +43,5 @@
     <%= button_to "Completed", complete_goal_path(goal), method: 'put' %>
   <% end %>
 </article>
+
+
