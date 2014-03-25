@@ -43,8 +43,6 @@ class GoalsController < ApplicationController
   private
 
   def goal
-    p '*'*80
-    p params
     @goal = Goal.find(params[:id])
   end
 end
