@@ -1,1 +1,2 @@
-ENV["REDIS_URL"] ||= 'redis://127.0.0.1:6379/1'
+ENV["REDIS_URL"] = ENV["REDISTOGO_URL"] || 'redis://127.0.0.1:6379/1'
+
