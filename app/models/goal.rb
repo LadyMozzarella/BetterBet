@@ -29,4 +29,13 @@ class Goal < ActiveRecord::Base
     Goal.where('owner_id = ? AND DATE(end_date) <= ? AND terminated_at IS NULL', user.id, Time.now).limit(1)
   end
 
+  def bet_in_cents
+    self.bet_amount * 100
+  end
+
+  def find_recipient
+    buddy = User.find(self.buddy_id)
+    buddy.recipient_id
+  end
+
 end
