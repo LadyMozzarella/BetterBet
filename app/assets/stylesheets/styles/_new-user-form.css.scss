@@ -25,3 +25,23 @@
     height: $base-line-height * 6;
 }
 
+
+.new-user-form h3 {
+    @include span-columns(12);
+    margin-top: $base-line-height/2;
+}
+
+#expiration-month {
+    @include span-columns(2);
+}
+
+#expiration-year {
+    @include span-columns(2);
+}
+
+.expiration_year_label {
+
+}
+
+
+

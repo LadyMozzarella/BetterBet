@@ -5,12 +5,10 @@
 <div class="form-row">
   <label for="expiration-month">Expiration (MM/YYYY)</label>
     <input id="expiration-month" class="card-expiry-month" type="text" size="2" maxlength="2" data-stripe="exp-month"/>
-  <label for="expiration-year"> / </label>
+  <!-- <label for="expiration-year" class="expiration_year_label"> / </label> -->
   <input id="expiration-year" class="cc-year" type="text" size="4" maxLength="4" data-stripe="exp-year"/>
-</div>
-<div class="form-row">
-    <label for="cvc">CVC</label>
-    <input id="cvc" class="cc-cvc" type="text" size="4" data-stripe="cvc" />
+  <label for="cvc">CVC</label>
+  <input id="cvc" class="cc-cvc" type="text" size="4" data-stripe="cvc" />
 </div>
 <script type="text/javascript">
   Stripe.setPublishableKey("<%= ENV['PUBLISHABLE_KEY']%>");
