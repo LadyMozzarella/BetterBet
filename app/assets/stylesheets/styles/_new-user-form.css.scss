@@ -25,23 +25,31 @@
     height: $base-line-height * 6;
 }
 
-
 .new-user-form h3 {
     @include span-columns(12);
     margin-top: $base-line-height/2;
 }
 
+.credit-card-confirmation {
+    @include row;
+    @include span-columns(6);
+}
+
 #expiration-month {
-    @include span-columns(2);
+    @include span-columns(2 of 6);
 }
 
 #expiration-year {
-    @include span-columns(2);
+    @include span-columns(3 of 6);
 }
 
-.expiration_year_label {
-
+#cvc-block {
+    @include span-columns(3);
 }
+
+
+
+
 
 
 
