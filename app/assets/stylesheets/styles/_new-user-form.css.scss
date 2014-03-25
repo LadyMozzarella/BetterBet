@@ -1,4 +1,12 @@
 .new-user-form {
+    @include media($medium-screen) {
+        @include span-columns(8);
+        @include shift(2);
+    }
+    @include media($large-screen) {
+        @include span-columns(6);
+        @include shift(3);
+    }
     @include row;
     padding: 1em;
 }
@@ -11,5 +19,9 @@
 .new-user-form input[type=submit] {
     @include span-columns(10);
     @include shift(1);
+}
+
+.new-user-form textarea {
+    height: $base-line-height * 6;
 }
 
