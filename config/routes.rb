@@ -15,7 +15,10 @@ Betterbet::Application.routes.draw do
   resources :users
   get '/signup', to: 'users#new'
 
-  resources :goals, except: [:show, :index]
+  resources :goals, except: [:show, :index] do
+    resources :charges, only: [:new, :create]
+  end
+
   put '/goals/:id/complete', to: 'goals#complete', as: 'complete_goal'
   put '/goals/:id/terminate', to: 'goals#terminate', as: 'terminate_goal'
 
