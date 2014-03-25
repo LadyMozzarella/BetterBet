@@ -44,9 +44,9 @@ describe "User", js: true do
 
     describe "can add a friend" do
       it "by visiting the users index page" do
-        # visit users_path
-        # click_link 'Add friend'
-        # create friendship route broken
+        visit user_path friend
+        click_link 'Add Friend'
+        expect(page).to have_content 'Added friend'
       end
     end
 
@@ -60,7 +60,10 @@ describe "User", js: true do
     end
 
     describe "can view a user's profile" do
-      it "by viewing the user show page"
+      it "by viewing the user show page" do
+        visit user_path friend
+        expect(page).to have_content friend.name
+      end
     end
   end
 end
