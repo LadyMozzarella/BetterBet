@@ -21,10 +21,8 @@ BankAccount.Controller.prototype = {
   stripeResponseHandler: function(status, response) {
     var $form = $(this.selectors.bankForm);
     if (response.error) {
-      console.log('errorssssss')
       this.view.displayError(response.error.message);
     } else {
-      console.log('got here')
       this.view.addStripeToken(response.id);
       this.view.submitForm();
     }
