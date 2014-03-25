@@ -91,5 +91,5 @@ $(document).ready(function() {
     Alert.view = new Alert.View(selectors);
     Alert.controller = new Alert.Controller(Alert.view);
     new Alert.Binder(Alert.controller, selectors).bind();
-	}
+  }
 });
