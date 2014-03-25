@@ -1,8 +1,9 @@
 require 'spec_helper'
 
 describe DashboardController do
-  let!(:goal) { create :goal }
-  before(:each) { session[:user_id] = goal.owner_id }
+  let!(:user) { create :user }
+  let(:goals) { create_list(:goal, 1, owner_id: user.id ) }
+  before(:each) { session[:user_id] = user }
 
   context '#index' do
     it "should be okay" do
@@ -12,7 +13,7 @@ describe DashboardController do
 
     it "should assign the user's latest_goal to @goal" do
       get :index
-      expect(assigns :goal).to eq [goal]
+      expect(assigns :goals).to eq goals
     end
   end
 end
