@@ -1,5 +1,4 @@
  <div id="page">
-
     <section id="create-goal">
       <%= link_to "Create a new goal", new_goal_path, class: "create-goal_submit_button" %>
     </section>
@@ -7,28 +6,28 @@
     <section class="ongoing-goals">
       <h2 class="goals_header">Ongoing Goals</h2>
       <% current_user.active_goals.each do |goal| %>
-        <%= render partial: 'shared/goal', :locals => {:goal => goal} %>
+        <%= render partial: 'goals/show', :locals => {:goal => goal} %>
       <% end %>
     </section>
 
-    <%= render partial: '/shared/search' %>
+    <%= render partial: 'shared/friend_search' %>
 
     <section class="friends-timeline">
       <h2 class="friends-timeline_header">Friends Timeline</h2>
-        <% @friends.each do |name, goals| %>
-            <% goals.each do |goal| %>
-              <article class="friends-timeline_friend-activity">
-              <img src="/assets/default_user_image.svg" alt="placeholder" class="friends-timeline_buddy_image">
-                <p class="friends-timeline_action">
-                  <h4 class="friends-timeline_buddy-name">
-                    <%= name %>
-                  </h4>
-                  <%= goal.title %><br>
-                  <%= format_days(goal.countdown) %> days remaining
-                </p>
-              </article>
-            <% end %>
-          <% end %>
+      <% @friends.each do |name, goals| %>
+        <% goals.each do |goal| %>
+          <article class="friends-timeline_friend-activity">
+          <img src="/assets/default_user_image.svg" alt="placeholder" class="friends-timeline_buddy_image">
+          <p class="friends-timeline_action">
+            <h4 class="friends-timeline_buddy-name">
+              <%= name %>
+            </h4>
+            <%= goal.title %><br>
+            <%= format_days(goal.countdown) %> days remaining
+          </p>
+          </article>
+        <% end %>
+      <% end %>
     </section>
 
     <section class="friend_list">
