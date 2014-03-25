@@ -43,8 +43,14 @@
     @include span-columns(3 of 6);
 }
 
-#cvc-block {
+.cvc-block {
     @include span-columns(3);
+    @include omega;
+    margin-top: $base-line-height;
+}
+
+#cvc {
+    @include span-columns(3 of 3);
 }
 
 
