@@ -1,20 +1,26 @@
 Betterbet::Application.routes.draw do
 
-  root to: "pages#dashboard"
-  get '/dashboard', to: 'pages#dashboard'
-  get '/stylemaster', to: 'pages#stylemaster'
+  root to: "dashboard#index"
+  get '/dashboard', to: 'dashboard#index'
+
   get '/users/autocomplete', to: 'users#autocomplete', as: 'autocomplete_users'
+  get '/auth/:provider/callback', to: 'sessions#facebook_signup'
+
+  # CHANGE
   get '/users/:id/goals', to: 'users#goals', as: 'users_goals'
 
-  get '/auth/:provider/callback', to: 'sessions#facebook_signup'
+  resources :sessions, only: [:create]
   get '/logout', to: 'sessions#destroy'
   get '/login', to: 'sessions#new'
-  get '/signup', to: 'users#new'
-  resources :sessions, only: [:create]
-  resources :friendships, only: [:create, :destroy]
-  resources :users
-  resources :goals, except: [:index, :show]
 
+  # UPDATED - GOOD!
+  resources :friendships, only: [:create, :destroy]
+
+  resources :users
+  get '/signup', to: 'users#new'
+
+  # UPDATED - GOOD!
+  resources :goals, except: [:index, :show]
   put '/goals/:id/complete', to: 'goals#complete', as: 'complete_goal'
 
   mount Soulmate::Server, :at => '/sm'
