@@ -80,7 +80,7 @@ Alert.Binder.prototype = {
 };
 
 $(document).ready(function() {
-	if (window.location.pathname === '/dashboard') {
+  if (window.location.pathname === '/dashboard') {
     var selectors = {
       modal: "#goal-alert",
       goal: '.goal',
