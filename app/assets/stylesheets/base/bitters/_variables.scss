@@ -16,8 +16,22 @@ $base-border-radius: em(3);
 // Colors
 ///////////////////////////////////////////////////////////////////////////////
 
-$blue: #477DCA;
-$light-blue: hsla(200,50,85,1);
+// Green palette
+$love-greenix: #A7CD2C;
+
+// Orange palette
+$dictatorship: #FC580C;
+$solid-orange: #FFA927;
+$meditation: #FDCA49;
+$light-blue: #69D2E7;
+$lighter-blue: #A7DBD8;
+
+
+$blue: $solid-orange;
+// $blue: #477DCA;
+
+
+// $light-blue: hsla(200,50,85,1);
 $grapefruit: #DA4453;
 $light-grapefruit: tint($grapefruit, 50%);
 // $light-blue: #FFCE54;
@@ -33,14 +47,14 @@ $base-body-color: $light-blue;
 
 //  Font Colors
 $base-font-color: $dark-gray;
-$base-accent-color: $blue;
+$base-accent-color: $dictatorship;
 
 //  Text Link Colors
 $base-link-color: $base-accent-color;
-$hover-link-color: darken($base-accent-color, 15);
+$hover-link-color: darken($base-accent-color, 30);
 
 // Border color
-$base-border-color: $light-gray;
+$base-border-color: $meditation;
 
 // Flash Colors
 $error-color: $light-red;

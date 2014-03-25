@@ -62,7 +62,7 @@
 }
 
 .goal-state_ongoing .goal_money {
-    background: $light-green;
+    background: $meditation;
 }
 
 .goal-state_failed .goal_money {
@@ -74,17 +74,21 @@
 }
 
 .goal_date {
-    background: $light-blue;
+    background: $lighter-blue;
 }
 
 .goal_buddy_box {
     @include span-columns(12);
-    background: $light-blue;
+    background: $lighter-blue;
     padding: .5em 0;
 }
 
 .goal_buddy {
     margin: 0 3em;
+}
+
+.goal_buddy a {
+    color: shade($light-blue, 50);
 }
 
 .goal_buddy_image {
