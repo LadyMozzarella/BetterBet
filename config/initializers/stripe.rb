@@ -1,4 +1,4 @@
-if development?
+if Rails.development?
 	env_config = YAML.load_file(APP_ROOT.join( 'stripe.yml'))
 
 	env_config.each do |key,value|
