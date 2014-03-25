@@ -1,4 +1,4 @@
-<article class="goal goal-state_ongoing">
+<article class="goal goal-state_ongoing" data-id = "<%= goal.id %>">
   <header class="goal_header">
     <h2><%= goal.title %></h2>
     <% if goal.belongs_to(current_user) %>
@@ -7,7 +7,7 @@
           <%= link_to image_tag('pencil.svg'), edit_goal_path(goal) %>
         </li>
         <li>
-          <%= link_to image_tag('times.svg'), class: "goal_delete-button", data: {goal: goal.id, user: current_user.id} %>
+          <%= link_to image_tag('times.svg'), goal_path(goal), method: :delete, class: "goal_delete-button" %>
         </li>
       </ul>
     <% end %>
@@ -33,15 +33,13 @@
     Against:
   </p>
   <div class="goal_buddy_box">
+    <% if goal.buddy && goal.buddy.image %>
+      <img src="<%= goal.buddy.image %>" alt="placeholder" class="goal_buddy_image">
+    <% end %>
     <% if goal.buddy %>
-        <img class="user_profile_img" src="<%= goal.buddy.image %>" >
-        <h3 class="goal_buddy"><%= link_to goal.buddy.name, user_path(goal.buddy) %></h3>
+      <h3 class="goal_buddy"><%= link_to goal.buddy.name, user_path(goal.buddy) %></h3>
     <% end %>
   </div>
 
-  <% unless goal.completed? %>
-    <%= button_to "Completed", complete_goal_path(goal), method: 'put' %>
-  <% end %>
+  <%= link_to "Completed", complete_goal_path(goal), method: 'put' %>
 </article>
-
-
