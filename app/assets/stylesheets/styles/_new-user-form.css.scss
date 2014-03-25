@@ -12,8 +12,13 @@
 }
 
 .new-user-form h1 {
+    @include row;
     font-weight: 100;
     margin-bottom: $base-line-height/4 ;
+}
+
+.facebook_signup {
+    @include row;
 }
 
 .new-user-form input[type=submit] {
