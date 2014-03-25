@@ -10,9 +10,6 @@ class GoalsController < ApplicationController
     @goal = Goal.new
   end
 
-  def show
-  end
-
   def create
     user = current_user
     goal = user.goals.new(params[:goal])
