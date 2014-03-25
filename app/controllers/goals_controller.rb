@@ -1,5 +1,5 @@
 class GoalsController < ApplicationController
-  before_filter :goal, except: [:new, :create, :goal]
+  before_filter :goal, except: [:new, :create, :goal, :status]
   before_filter :authorize
 
   def new
@@ -34,10 +34,19 @@ class GoalsController < ApplicationController
     end
   end
 
-
   def complete
-    @goal.toggle!(:completed)
-    redirect_to dashboard_path
+    @goal.update_attributes(completed: true, terminated_at: Time.now)
+    redirect_to goal_path(@goal)
+  end
+
+  def status
+    goals = Goal.expired_goal_by_user(current_user)
+    render json: goals.to_json
+  end
+
+  def terminate
+    @goal.update_attributes(completed: params[:complete], terminated_at: Time.now)
+    render :nothing => true, :status => 200
   end
 
   private

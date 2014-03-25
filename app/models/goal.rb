@@ -1,5 +1,5 @@
 class Goal < ActiveRecord::Base
-  attr_accessible :title, :description, :bet_amount, :start_date, :end_date, :owner_id, :buddy_id
+  attr_accessible :title, :description, :bet_amount, :start_date, :end_date, :owner_id, :buddy_id, :terminated_at, :completed
   belongs_to :owner, foreign_key: "owner_id", class_name: "User"
   belongs_to :buddy, foreign_key: "buddy_id", class_name: "User"
   validates_presence_of :title, :bet_amount, :start_date, :end_date, :owner_id
@@ -23,6 +23,10 @@ class Goal < ActiveRecord::Base
 
   def belongs_to(user)
     self.owner == user
+  end
+
+  def self.expired_goal_by_user(user)
+    Goal.where('owner_id = ? AND DATE(end_date) <= ? AND terminated_at IS NULL', user.id, Time.now).limit(1)
   end
 
 end
