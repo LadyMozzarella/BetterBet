@@ -39,7 +39,11 @@
 
 .user_profile_img,
 .user_profile_img-default {
+    @include media($medium-screen) {
+        @include span-columns(3);
+    }
     @include span-columns(4);
+    opacity: 0.6;
 }
 
 .user_profile_img-default {
@@ -47,6 +51,9 @@
 }
 
 .user_profile_bio {
+    @include media($medium-screen) {
+        @include span-columns(6);
+    }
     @include span-columns(8);
     @include omega;
     margin-top: $base-line-height/4;
@@ -56,10 +63,16 @@
 
 }
 
-.user_remove-friend_button {
-    
+.delete_friend img {
+    @include span-columns(1);
+    height: 40px;
+    margin-top: .4em;
+    opacity: 0.3;
 }
 
+.delete_friend:hover img {
+    opacity: 0.3;
+}
 
 
 

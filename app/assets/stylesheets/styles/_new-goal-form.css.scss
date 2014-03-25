@@ -1,4 +1,8 @@
 .new-goal-form {
+    @include media($medium-screen) {
+        @include span-columns(8);
+        @include shift(2);
+    }
     @include row;
     padding: 1em;
 }
@@ -19,4 +23,8 @@
 .new-goal-form input[type=submit] {
     @include span-columns(10);
     @include shift(1);
+}
+
+.new-goal-form textarea {
+    height: $base-line-height * 6;
 }
