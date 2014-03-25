@@ -34,10 +34,9 @@ class GoalsController < ApplicationController
     end
   end
 
-
   def complete
-    @goal.toggle!(:completed)
-    redirect_to dashboard_path
+    @goal.update_attributes(completed: true, terminated_at: Time.now)
+    redirect_to goal_path(@goal)
   end
 
   def status
