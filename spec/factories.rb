@@ -20,4 +20,9 @@ FactoryGirl.define do
     association :owner, factory: :user
     association :buddy, factory: :user
    end
+
+   factory :friendship do
+    association :user, factory: :user
+    association :friend, factory: :user
+   end
 end
