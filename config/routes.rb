@@ -2,6 +2,7 @@ Betterbet::Application.routes.draw do
 
   root to: "dashboard#index"
   get '/dashboard', to: 'dashboard#index'
+  get '/landing', to: 'dashboard#landing'
 
   get '/users/autocomplete', to: 'users#autocomplete', as: 'autocomplete_users'
   get '/auth/:provider/callback', to: 'sessions#facebook_signup'
@@ -18,10 +19,8 @@ Betterbet::Application.routes.draw do
   resources :goals, except: [:show, :index] do
     resources :charges, only: [:new, :create]
   end
-
   put '/goals/:id/complete', to: 'goals#complete', as: 'complete_goal'
   put '/goals/:id/terminate', to: 'goals#terminate', as: 'terminate_goal'
-
   post '/goals/status', to: 'goals#status'
 
   resources :recipients, only: [:new, :create]
