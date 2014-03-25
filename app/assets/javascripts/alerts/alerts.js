@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	if (window.location.pathname === '/dashboard') {
+  if (window.location.pathname === '/dashboard') {
     var selectors = {
       modal: "#goal-alert",
       goal: '.goal-alert-msg',
@@ -10,5 +10,5 @@ $(document).ready(function() {
     Alert.view = new Alert.View(selectors);
     Alert.controller = new Alert.Controller(Alert.view);
     new Alert.Binder(Alert.controller, selectors).bind();
-	}
+  }
 });
