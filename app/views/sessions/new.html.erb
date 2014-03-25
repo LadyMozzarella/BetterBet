@@ -1,15 +1,9 @@
 <div class="new-session-form">
-  <% if logged_in? %>
-    <h3>You are already logged in.</h3>
-    <%= link_to "Sign out", logout_path, class: "signout_link" %>
-  <% else %>
     <div class="login_form">
         <h3>Log in and be awesome</h3>
         <%= render 'shared/flash_errors' %>
         <%= render 'loginform' %>
         <%= link_to "Sign in with Facebook", "/auth/facebook", class: "facebook_signin_link" %>
     </div>
-
     <%= link_to "Sign up", new_user_path %>
-  <% end %>
 </div>
