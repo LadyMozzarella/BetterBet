@@ -75,6 +75,11 @@
 
 .goal_date {
     background: $lighter-blue;
+    color: $dark-blue;
+}
+
+.goal_money {
+    color: $dark-gray;
 }
 
 .goal_buddy_box {
@@ -88,7 +93,7 @@
 }
 
 .goal_buddy a {
-    color: shade($light-blue, 50);
+    color: $dark-blue;
 }
 
 .goal_buddy_image {

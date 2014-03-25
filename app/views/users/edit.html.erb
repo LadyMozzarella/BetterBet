@@ -1,3 +1,5 @@
-<%= render 'shared/errors', :object => @user  %>
-<img src="<%= @user.image %>">
-<%= render 'form', :user => @user %>
+<section class="edit_user_form">
+    <%= render 'shared/errors', :object => @user  %>
+    <img src="<%= @user.image %>">
+    <%= render 'form', :user => @user %>
+</section>

@@ -25,16 +25,8 @@ $solid-orange: #FFA927;
 $meditation: #FDCA49;
 $light-blue: #69D2E7;
 $lighter-blue: #A7DBD8;
+$dark-blue: shade($light-blue, 50);
 
-
-$blue: $solid-orange;
-// $blue: #477DCA;
-
-
-// $light-blue: hsla(200,50,85,1);
-$grapefruit: #DA4453;
-$light-grapefruit: tint($grapefruit, 50%);
-// $light-blue: #FFCE54;
 $dark-gray: #555;
 $medium-gray: #999;
 $light-gray: #DDD;
@@ -43,10 +35,10 @@ $light-yellow: #FFF6BF;
 $light-green: #E6EFC2;
 
 // Body Color
-$base-body-color: $light-blue;
+$base-body-color: $dark-gray;
 
 //  Font Colors
-$base-font-color: $dark-gray;
+$base-font-color: $light-gray;
 $base-accent-color: $dictatorship;
 
 //  Text Link Colors
