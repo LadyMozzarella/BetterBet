@@ -13,9 +13,11 @@
     <%= f.password_field :password_confirmation, :required => true  %>
     <%= f.label :bio %>
     <%= f.text_area :bio %>
+    <div class="gravatar_form_block">
+      <%= f.label :use_gravatar %>
+      <%= f.check_box :image %>
+    </div>
     <%= render "shared/credit_card" %>
-    <%= f.label :use_gravatar %>
-    <%= f.check_box :image %>
     <%= f.submit %>
   <% end %>
   <%= link_to "Sign up with Facebook", "/auth/facebook", class: "facebook_signup_link" %>

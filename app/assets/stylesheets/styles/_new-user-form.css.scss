@@ -30,6 +30,16 @@
     margin-top: $base-line-height/2;
 }
 
+.gravatar_form_block {
+    @include span-columns(12);
+    padding: $base-line-height/4 0 $base-line-height/2;
+    border-bottom: 1px solid $meditation;
+}
+
+.gravatar_form_block label{
+    display: inline;
+}
+
 
 
 
