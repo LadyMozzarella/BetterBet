@@ -28,5 +28,6 @@
     </p>
 
     <h2 class="goals_header">Goals</h2>
-    <%= link_to "View Goals", users_goals_path(@user) %>
+    <%= render 'goals/index', goals: @user.goals %>
+    <%= link_to "View Goals", goals_path, user: @user %>
 </article>
