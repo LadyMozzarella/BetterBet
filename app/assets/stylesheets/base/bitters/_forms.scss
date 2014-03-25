@@ -15,8 +15,15 @@ form {
 fieldset {
   background: lighten($base-border-color, 10);
   border: 1px solid $base-border-color;
-  margin: 0 0 ($base-line-height / 2) 0;
+  margin: ($base-line-height *3) 0 $base-line-height;
   padding: $base-line-height;
+}
+
+legend {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: $dictatorship;
 }
 
 input,

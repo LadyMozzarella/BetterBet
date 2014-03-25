@@ -12,8 +12,13 @@
 }
 
 .new-user-form h1 {
+    @include row;
     font-weight: 100;
     margin-bottom: $base-line-height/4 ;
+}
+
+.facebook_signup {
+    @include row;
 }
 
 .new-user-form input[type=submit] {
@@ -24,4 +29,25 @@
 .new-user-form textarea {
     height: $base-line-height * 6;
 }
+
+.new-user-form h3 {
+    @include span-columns(12);
+    margin-top: $base-line-height/2;
+}
+
+.gravatar_form_block {
+    @include span-columns(12);
+    padding: $base-line-height/4 0 $base-line-height/2;
+    border-bottom: 1px solid $meditation;
+}
+
+.gravatar_form_block label{
+    display: inline;
+}
+
+
+
+
+
+
 

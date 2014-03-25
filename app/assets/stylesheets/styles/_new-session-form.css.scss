@@ -23,8 +23,3 @@
   @include span-columns(4);
   @include shift(1);
 }
-
-.signup_form h3 {
-    @include span-columns(12);
-    margin-top: $base-line-height/2;
-}
