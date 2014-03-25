@@ -16,12 +16,20 @@ describe SessionsController do
       post :destroy
       expect(session[:user_id]).to be_nil
     end
+
+    it "should redirect"
   end
 
   context "#create" do
-    it "should create a session" do
-      post :create, email: user.email, password: user.password
-      expect(session[:user_id]).to eq user.id
+    context 'with valid attributes' do
+      it "should create a session" do
+        post :create, email: user.email, password: user.password
+        expect(session[:user_id]).to eq user.id
+      end
+    end
+
+    context 'with invalid attributes' do
+      it "shouldn't create a session"
     end
   end
 end

@@ -54,8 +54,17 @@ describe UsersController do
     end
   end
 
+  context '#autocomplete' do
+    it 'should render json'
+  end
+
   context "logged in" do
     before(:each) { session[:user_id] = user.id }
+
+    context '#index' do
+      it 'should be a success'
+      it 'should assign all users to @user'
+    end
 
     context '#show' do
       it 'should be a success' do
@@ -67,6 +76,8 @@ describe UsersController do
         get :show, id: user
         expect(assigns :user).to eq user
       end
+
+      it 'should assign user\'s image to @image_url'
     end
 
     context '#edit' do

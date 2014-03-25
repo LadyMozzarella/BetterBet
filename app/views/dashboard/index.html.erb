@@ -6,7 +6,7 @@
 
   <section class="ongoing-goals">
     <h2 class="goals_header">Ongoing Goals</h2>
-    <% current_user.active_goals.each do |goal| %>
+    <% @goals.each do |goal| %>
       <%= render 'goals/show', goal: goal %>
     <% end %>
     <!-- Add button showing the goals -->
@@ -14,5 +14,5 @@
 
   <%= render 'shared/friend_search' %>
   <%= render 'friendships/index' %>
-  
+
 </div>

@@ -51,10 +51,6 @@ class UsersController < ApplicationController
     render :json => user
   end
 
-  def goals
-    @goals = @user.goals
-  end
-
   private
 
   def user
