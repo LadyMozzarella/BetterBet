@@ -93,4 +93,3 @@ $(document).ready(function() {
     new Alert.Binder(Alert.controller, selectors).bind();
 	}
 });
-
