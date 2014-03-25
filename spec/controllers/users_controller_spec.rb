@@ -111,17 +111,5 @@ describe UsersController do
           }.to change{ User.count }.by -1
       end
     end
-
-    context '#goals' do
-      it 'should be a success' do
-        get :goals, id: user
-        expect(response).to be_success
-      end
-
-      it 'should find goals for a specific user' do
-         get :goals, id: user
-         expect(assigns :goals).to eq user.goals
-      end
-    end
   end
 end
