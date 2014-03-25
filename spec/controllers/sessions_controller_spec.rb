@@ -11,13 +11,16 @@ describe SessionsController do
   end
 
   context "#destroy" do
+    before(:each) { session[:user_id] = user.id }
     it "should clear a session" do
-      session[:user_id] = user.id
       post :destroy
       expect(session[:user_id]).to be_nil
     end
 
-    it "should redirect"
+    it "should redirect" do
+      post :destroy
+      expect(response).to be_redirect
+    end
   end
 
   context "#create" do
@@ -29,7 +32,10 @@ describe SessionsController do
     end
 
     context 'with invalid attributes' do
-      it "shouldn't create a session"
+      it "shouldn't create a session" do
+        post :create, email: user.email, password: ""
+        expect(session[:user_id]).to eq nil
+      end
     end
   end
 end
