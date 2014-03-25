@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe "User", js: true do
   let!(:user) { create :user }
+  let!(:friend) { create :user }
   let(:new_user) { create :user }
 
   describe "sign up or log in" do
@@ -41,12 +42,21 @@ describe "User", js: true do
       click_button 'Login'
     end
 
-    describe "can view all users" do
-      it "by visiting the users index page"
+    describe "can add a friend" do
+      it "by visiting the users index page" do
+        # visit users_path
+        # click_link 'Add friend'
+        # create friendship route broken
+      end
     end
 
     describe "can edit their own account" do
-      it "by visiting their own user edit page"
+      it "by visiting their own user edit page" do
+        visit edit_user_path user
+        fill_in 'Name', with: 'New Name'
+        click_button 'Submit'
+        expect(page).to have_content 'New Name'
+      end
     end
 
     describe "can view a user's profile" do
