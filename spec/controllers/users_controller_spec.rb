@@ -14,7 +14,7 @@ describe UsersController do
 
     it 'should assign @user to new user' do
       get :new
-      expect( assigns :user ).to be_a_new User
+      expect(assigns :user).to be_a_new User
     end
   end
 
@@ -65,7 +65,7 @@ describe UsersController do
 
       it 'should find a specific user' do
         get :show, id: user
-        expect( assigns :user ).to eq user
+        expect(assigns :user).to eq user
       end
     end
 
@@ -120,7 +120,7 @@ describe UsersController do
 
       it 'should find goals for a specific user' do
          get :goals, id: user
-         expect( assigns :goals ).to eq user.goals
+         expect(assigns :goals).to eq user.goals
       end
     end
   end

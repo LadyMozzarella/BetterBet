@@ -16,7 +16,7 @@ describe GoalsController do
 
     it 'should assign @goal to new goal' do
       get :new
-      expect(assigns(:goal)).to be_a_new Goal
+      expect(assigns :goal).to be_a_new Goal
     end
   end
 
@@ -43,7 +43,7 @@ describe GoalsController do
 
     it 'should assign goal to @goal' do
       get :show, id: goal
-      expect(assigns(:goal)).to eq goal
+      expect(assigns :goal).to eq goal
     end
   end
 
@@ -55,7 +55,7 @@ describe GoalsController do
 
     it 'should assign @goal to new goal' do
       get :edit, id: goal
-      expect(assigns(:goal)).to eq goal
+      expect(assigns :goal).to eq goal
     end
   end
 
@@ -82,7 +82,7 @@ describe GoalsController do
     it 'should delete a goal' do
       expect {
         delete :destroy, id: goal
-      }.to change { Goal.count }.by(-1)
+      }.to change{ Goal.count }.by -1
     end
   end
 end
