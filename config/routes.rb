@@ -24,5 +24,7 @@ Betterbet::Application.routes.draw do
 
   post '/goals/status', to: 'goals#status'
 
+  resources :recipients, only: [:new, :create]
+
   mount Soulmate::Server, :at => '/sm'
 end
