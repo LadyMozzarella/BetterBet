@@ -1,8 +1,7 @@
 nav {
     @include row;
-    position: realtive;
-    background: $blue;
-    color: $light-blue;
+    background: $solid-orange;
+    color: $dictatorship;
     padding: .3em;
     margin-bottom: $base-line-height/2 ;
 }
@@ -32,6 +31,6 @@ nav {
 }
 
 .log_buttons a:hover {
-    color: shade($blue, 60%);
+    color: $dictatorship;
 }
 
