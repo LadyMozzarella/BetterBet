@@ -1,7 +1,9 @@
-env_config = YAML.load_file(APP_ROOT.join( 'stripe.yml'))
+if development?
+	env_config = YAML.load_file(APP_ROOT.join( 'stripe.yml'))
 
-env_config.each do |key,value|
-  ENV[key] = value
+	env_config.each do |key,value|
+	  ENV[key] = value
+	end
 end
 
 Rails.configuration.stripe = {
