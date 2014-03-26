@@ -8,7 +8,7 @@ Search.Binder = function(controller, selectors){
 Search.Binder.prototype = {
 
   bindEvents: function(){
-    this.bindKeydown();
+    this.bindKeyup();
   },
 
   bindKeyup: function(){

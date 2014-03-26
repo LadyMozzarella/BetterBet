@@ -38,6 +38,11 @@ Search.Controller.prototype = {
         if(url != '#') {
           location.href = '/users/' + url
         }
+      },
+      focus: function(event, ui){
+        event.preventDefault();
+        $(".ui-helper-hidden-accessible").hide();
+        $(selectors.search).val(ui.item.label)
       }
     })
   }
