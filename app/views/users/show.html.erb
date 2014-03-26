@@ -26,8 +26,8 @@
   <p class="user_profile_bio">
       <%= @user.bio %></label>
   </p>
-  <% if current_user.is_user?(@user) %>
-    <%= link_to "Become a Buddy", new_recipient_path %>
+  <% if current_user.is_user?(@user) && !current_user.has_bank_info? %>
+    <%= link_to "Link Bank Account", new_recipient_path %>
   <% end %>
 
   <h2 class="goals_header">Goals</h2>

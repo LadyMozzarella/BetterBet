@@ -83,6 +83,10 @@ class User < ActiveRecord::Base
     self.goals.reject{ |goal| goal.completed? }
   end
 
+  def has_bank_info?
+    self.recipient_id
+  end
+
   private
 
   def add_to_soulmate

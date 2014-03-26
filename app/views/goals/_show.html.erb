@@ -36,15 +36,15 @@
     </p>
   </div>
 
-  <p class="goal_label">
-    Against:
-  </p>
+  <% if goal.buddy %>
+    <p class="goal_label">
+      Against:
+    </p>
   <div class="goal_buddy_box">
-    <% if goal.buddy && goal.buddy.image %>
+    <% if goal.buddy.image %>
       <img src="<%= goal.buddy.image %>" alt="placeholder" class="goal_buddy_image">
     <% end %>
-    <% if goal.buddy %>
-      <h3 class="goal_buddy"><%= link_to goal.buddy.name, user_path(goal.buddy) %></h3>
-    <% end %>
+    <h3 class="goal_buddy"><%= link_to goal.buddy.name, user_path(goal.buddy) %></h3>
   </div>
+  <% end %>
 </article>
