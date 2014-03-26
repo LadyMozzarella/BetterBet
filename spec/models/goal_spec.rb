@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Goal do
   let!(:goal) { create :goal }
-
+  let!(:user) { create :user }
 
   describe 'validations' do
     it { should validate_presence_of :title }
@@ -76,12 +76,18 @@ describe Goal do
   end
 
   describe '#belongs_to' do
-    context 'if user is itself' do
-      it 'should return true'
+    context 'if user is the owner of the goal' do
+      it 'should return true' do
+        goal.stub(:owner).and_return(user)
+        expect(goal.belongs_to(user)).to eq true
+      end
     end
 
-    context 'if user isn\t itself' do
-      it 'should return false'
+    context 'if user isn\'t the owner of the goal' do
+      it 'should return false' do
+        goal.stub(:owner).and_return(create :user)
+        expect(goal.belongs_to(user)).to eq false
+      end
     end
   end
 
