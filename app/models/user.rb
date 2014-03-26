@@ -84,7 +84,7 @@ class User < ActiveRecord::Base
   end
 
   def has_bank_info?
-    self.recipient_id != nil
+    self.recipient_id
   end
 
   private
