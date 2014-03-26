@@ -77,6 +77,15 @@ class User < ActiveRecord::Base
     Digest::MD5.hexdigest(email)
   end
 
+  def get_buddies
+    buddies = []
+    friends = self.friends
+    friends.each do |friend|
+      buddies << friend if friend.recipient_id
+    end
+    buddies
+  end
+
   private
 
   def add_to_soulmate
