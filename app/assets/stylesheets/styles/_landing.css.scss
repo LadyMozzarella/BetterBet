@@ -1,0 +1,22 @@
+.login_link_nonav {
+    @include media($medium-screen) {
+        @include span-columns(6);
+        @include shift(5);
+        margin-top: -$base-line-height * 3;
+        font-size: 1.2em;
+    }
+    @include row;
+    @include span-columns(8);
+    @include shift(3);
+    margin-top: -$base-line-height * 4;
+}
+
+.marketing {
+    @include media($medium-screen) {
+        @include span-columns(4);
+        @include shift(4);
+    }
+    @include row;
+    @include span-columns(8);
+    @include shift(2);
+}
