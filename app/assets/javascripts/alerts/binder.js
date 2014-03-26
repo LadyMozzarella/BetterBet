@@ -1,11 +1,9 @@
-var Alert = {};
-
-Alert.Binder = function(controller, selectors) {
+BetterBet.Alert.Binder = function(controller, selectors) {
   this.controller = controller;
   this.selectors = selectors;
 }
 
-Alert.Binder.prototype = {
+BetterBet.Alert.Binder.prototype = {
   bind: function() {
     this.controller.getStatus();
     this.bindGoalComplete();

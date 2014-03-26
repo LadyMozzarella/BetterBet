@@ -1,8 +1,8 @@
-CreditCard.View = function(selectors) {
+BetterBet.CreditCard.View = function(selectors) {
   this.selectors = selectors;
 }
 
-CreditCard.View.prototype = {
+BetterBet.CreditCard.View.prototype = {
   alertInvalid: function() {
     alert('Credit card number is not valid.');
     return false;

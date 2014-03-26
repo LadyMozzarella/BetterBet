@@ -1,8 +1,8 @@
-Confirmation.Controller = function(view) {
+BetterBet.Confirmation.Controller = function(view) {
   this.view = view;
 }
 
-Confirmation.Controller.prototype = {
+BetterBet.Confirmation.Controller.prototype = {
   getStatus: function() {
     $.ajax({
       url: '/goals/buddy_status',

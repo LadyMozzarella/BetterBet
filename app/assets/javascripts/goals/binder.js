@@ -1,11 +1,9 @@
-var Goals = {};
-
-Goals.Binder = function(controller, selectors){
+BetterBet.Goals.Binder = function(controller, selectors){
   this.controller = controller;
   this.selectors = selectors;
 }
 
-Goals.Binder.prototype = {
+BetterBet.Goals.Binder.prototype = {
   bindEvents: function(){
     this.bindDelete();
   },

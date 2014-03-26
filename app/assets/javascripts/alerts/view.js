@@ -1,8 +1,8 @@
-Alert.View = function(selectors) {
+BetterBet.Alert.View = function(selectors) {
   this.selectors = selectors;
 }
 
-Alert.View.prototype = {
+BetterBet.Alert.View.prototype = {
   showModal: function(goal) {
     $(document).foundation();
     $(this.selectors.goal).html(goal.title);

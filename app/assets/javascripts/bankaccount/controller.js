@@ -1,9 +1,9 @@
-BankAccount.Controller = function(view, selectors){
+BetterBet.BankAccount.Controller = function(view, selectors){
   this.view = view;
   this.selectors = selectors;
 }
 
-BankAccount.Controller.prototype = {
+BetterBet.BankAccount.Controller.prototype = {
   validate: function(routeNum, acctNum, country){
     var validRoute = Stripe.bankAccount.validateRoutingNumber(routeNum, country)
     var validAcct = Stripe.bankAccount.validateAccountNumber(acctNum, country)

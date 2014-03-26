@@ -3,8 +3,7 @@ $(document).ready(function(){
     deleteGoal: '.goal_delete-button',
     editGoal: '.goal_edit-button'
   }
-  Goals.view = new Goals.View(selectors);
-  Goals.controller = new Goals.Controller(Goals.view);
-  Goals.binder = new Goals.Binder(Goals.controller, selectors);
-  Goals.binder.bindEvents();
+  BetterBet.Goals.view = new BetterBet.Goals.View(selectors);
+  BetterBet.Goals.controller = new BetterBet.Goals.Controller(BetterBet.Goals.view);
+  new BetterBet.Goals.Binder(BetterBet.Goals.controller, selectors).bindEvents();
 })

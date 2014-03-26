@@ -1,8 +1,8 @@
-Friends.Controller = function(view){
+BetterBet.Friends.Controller = function(view){
   this.view = view
 }
 
-Friends.Controller.prototype = {
+BetterBet.Friends.Controller.prototype = {
   addFriend: function(friendId){
     $.ajax({
       url: '/friendships',

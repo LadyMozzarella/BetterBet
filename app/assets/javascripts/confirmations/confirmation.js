@@ -9,8 +9,8 @@ $(document).ready(function() {
     };
 
 
-    Confirmation.view = new Confirmation.View(selectors);
-    Confirmation.controller = new Confirmation.Controller(Confirmation.view);
-    new Confirmation.Binder(Confirmation.controller, selectors).bind();
+    BetterBet.Confirmation.view = new BetterBet.Confirmation.View(selectors);
+    BetterBet.Confirmation.controller = new BetterBet.Confirmation.Controller(BetterBet.Confirmation.view);
+    new BetterBet.Confirmation.Binder(BetterBet.Confirmation.controller, selectors).bind();
   }
 });

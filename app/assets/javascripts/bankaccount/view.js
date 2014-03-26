@@ -1,8 +1,8 @@
-BankAccount.View = function(selectors) {
+BetterBet.BankAccount.View = function(selectors) {
   this.selectors = selectors;
 }
 
-BankAccount.View.prototype = {
+BetterBet.BankAccount.View.prototype = {
   alertInvalid: function() {
     alert('Bank account information is not valid.');
     return false;

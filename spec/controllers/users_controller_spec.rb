@@ -4,6 +4,7 @@ describe UsersController do
   let(:user) { create :user }
   let(:attribs) { attributes_for :user }
   let!(:goal) { create :goal }
+  let(:users) {create_list :user, 2}
   render_views
 
   context '#new' do
@@ -31,9 +32,9 @@ describe UsersController do
     end
 
     context 'with invalid attributes' do
-      it 'should be redirect' do
+      it 'should not be redirect' do
         post :create
-        expect(response).to be_redirect
+        expect(response).to_not be_redirect
       end
     end
 
@@ -54,16 +55,16 @@ describe UsersController do
     end
   end
 
-  context '#autocomplete' do
-    it 'should render json'
-  end
-
-  context '#search' do
-    it 'should render json'
-  end
-
   context "logged in" do
     before(:each) { session[:user_id] = user.id }
+
+    context '#autocomplete' do
+      it 'should return a json object' do
+        User.stub(:search){ users }
+        get :autocomplete
+        expect(response.body).to eq users.to_json
+      end
+    end
 
     context '#index' do
       it 'should be a success' do
@@ -71,9 +72,9 @@ describe UsersController do
         expect(response).to be_ok
       end
 
-      it 'should assign all users to @user' do
+      it 'should assign all users besides the current user to @user' do
         get :index
-        expect(assigns :users).to eq User.all
+        expect(assigns :users).to eq User.all - [user]
       end
     end
 

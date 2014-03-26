@@ -1,11 +1,9 @@
-var BankAccount = {};
-
-BankAccount.Binder = function(controller, selectors) {
+BetterBet.BankAccount.Binder = function(controller, selectors) {
   this.controller = controller;
   this.selectors = selectors;
 }
 
-BankAccount.Binder.prototype = {
+BetterBet.BankAccount.Binder.prototype = {
   bindEvents: function() {
     this.bindSubmit();
   },
