@@ -30,7 +30,7 @@ Confirmation.Controller.prototype = {
         this.redirectToPayment(this.goal)
       };
     }).fail(function(xhr){
-      console.log(xhr.responseText)
+      console.log("I am getting fails")
     })
   },
   redirectToPayment: function(goal) {
