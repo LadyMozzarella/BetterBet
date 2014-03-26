@@ -1,6 +1,6 @@
 <article class="user_profile">
   <header class="user_profile_header">
-      <h2><%= @user.name %></h2>
+    <h2><%= @user.name %></h2>
       <ul class="user_profile_buttons">
         <% if current_user.is_user?(@user) %>
           <li class="user_edit-button">
@@ -12,11 +12,9 @@
         <% else %>
           <div class="friend_div"></div>
           <% if current_user.has_friend?(@user)  %>
-            <%= link_to "Add Friend", "#", {style: 'display:none'}, class: 'add_friend friend', data: {id: "#{@user.id}"} %>
             <%= link_to image_tag('times.svg') , "#", class: 'delete_friend friend', data: {friend: "#{@user.id}", user: current_user.id}%><br>
           <% else  %>
             <%= link_to "Add Friend", "#", class: 'add_friend friend', data: {id: "#{@user.id}"} %><br>
-            <%= link_to image_tag('times.svg') , "#", {style: 'display:none'}, class: 'delete_friend friend', data: {friend: "#{@user.id}", user: current_user.id}%><br>
           <% end %>
         <% end %>
       </ul>
