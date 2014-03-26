@@ -4,6 +4,7 @@ describe UsersController do
   let(:user) { create :user }
   let(:attribs) { attributes_for :user }
   let!(:goal) { create :goal }
+  let(:users) {create_list :user, 2}
   render_views
 
   context '#new' do
@@ -54,16 +55,16 @@ describe UsersController do
     end
   end
 
-  context '#autocomplete' do
-    it 'should render json'
-  end
-
-  context '#search' do
-    it 'should render json'
-  end
-
   context "logged in" do
     before(:each) { session[:user_id] = user.id }
+
+    context '#autocomplete' do
+      it 'should return a json object' do
+        User.stub(:search){ users }
+        get :autocomplete
+        expect(response.body).to eq users.to_json
+      end
+    end
 
     context '#index' do
       it 'should be a success' do
