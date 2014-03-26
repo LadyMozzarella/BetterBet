@@ -1,18 +1,19 @@
 class ChargesController < ApplicationController
   def create
-    amount = Goal.find(params[:id]).bet_in_cents
-    recipient = Goal.find(params[:id]).find_recipient
-    transfer = Stripe::Transfer.new(
+    goal = Goal.find(params[:goal_id])
+    amount = goal.bet_in_cents
+    recipient = goal.find_recipient
+    transfer = Stripe::Transfer.create(
       :amount => amount,
       :currency => "usd",
       :recipient => recipient,
       :description => "Better Bet money transfer"
     )
 
-    if transfer.save
-      redirect_to root_path
-    else
-      redirect_to goal_path(params[:id])
-    end
+    goal.update_attributes(transfer_id: transfer.id)
+
+    flash[:notice] = "Money successfully transferred!"
+    redirect_to root_path
+
   end
 end
