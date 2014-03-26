@@ -39,9 +39,7 @@ Confirmation.Controller.prototype = {
       type: 'POST',
       data: {goal_id: goal.id},
       context: this
-    }).success(function(){
-      console.log("I have a successful redirect");
-    }).fail(function(xhr){
+    }).success(function(){}).fail(function(xhr){
       console.log(xhr.responseText);
     })
   }

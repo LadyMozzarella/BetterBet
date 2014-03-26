@@ -5,7 +5,7 @@ Confirmation.View = function(selectors) {
 Confirmation.View.prototype = {
   showModal: function(goal, friend) {
     $(document).foundation();
-    $('.buddy-name').append(friend)
+    $(this.selectors.buddyname).append(friend)
     $(this.selectors.goal).html(goal.title);
     $(this.selectors.modal).foundation('reveal', 'open');
   },
