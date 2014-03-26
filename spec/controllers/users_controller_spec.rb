@@ -72,9 +72,9 @@ describe UsersController do
         expect(response).to be_ok
       end
 
-      it 'should assign all users to @user' do
+      it 'should assign all users besides the current user to @user' do
         get :index
-        expect(assigns :users).to eq User.all
+        expect(assigns :users).to eq User.all - [user]
       end
     end
 
