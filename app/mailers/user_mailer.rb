@@ -1,15 +1,17 @@
 class UserMailer < ActionMailer::Base
+  DEFAULT_EMAIL = "betterbetapp@gmail.com"
+  
   default from: "betterbetapp@gmail.com"
    def welcome_email(user)
     @user = user
-    @url  = 'http://localhost:3000/login'
+    @url  = user_url(@user.id)
     mail(to: @user.email, subject: 'Welcome to BetterBet')
   end
 
    def new_friend(user, friend)
     @user = user
     @friend = friend
-    @url  = 'http://localhost:3000/login'
+    @url  = user_url(@user.id)
     mail(to: @friend.email, subject: 'New Friend at BetterBet')
   end
 
@@ -17,7 +19,7 @@ class UserMailer < ActionMailer::Base
     @friend = friend
     @user = user
     @goal = goal
-    @url  = 'http://localhost:3000/login'
+    @url  = login_url
     mail(to: @friend.email, subject: 'Goal Complete BetterBet')
   end
 end
