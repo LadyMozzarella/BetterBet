@@ -6,6 +6,7 @@ FactoryGirl.define do
   factory :user do
     email
     name Faker::Lorem.word
+    image "/assets/default_user_image.svg"
     password '1234'
     password_confirmation '1234'
     bio Faker::Lorem.paragraph
