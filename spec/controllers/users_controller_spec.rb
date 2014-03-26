@@ -62,8 +62,15 @@ describe UsersController do
     before(:each) { session[:user_id] = user.id }
 
     context '#index' do
-      it 'should be a success'
-      it 'should assign all users to @user'
+      it 'should be a success' do
+        get :index
+        expect(response).to be_ok
+      end
+
+      it 'should assign all users to @user' do
+        get :index
+        expect(assigns :users).to eq User.all
+      end
     end
 
     context '#show' do
@@ -77,7 +84,10 @@ describe UsersController do
         expect(assigns :user).to eq user
       end
 
-      it 'should assign user\'s image to @image_url'
+      it 'should assign a user\'s image path to @image_url' do
+        get :show, id: user
+        expect(assigns :image_url).to_not eq nil
+      end
     end
 
     context '#edit' do
