@@ -11,11 +11,11 @@ Search.Binder.prototype = {
     this.bindKeydown();
   },
 
-  bindKeydown: function(){
+  bindKeyup: function(){
     var controller = this.controller;
     $(this.selectors.search).on("keyup", function(e){
       var searchTerm = $(this).val();
       controller.completeTerm(searchTerm);
-    });
+    })
   }
 }
