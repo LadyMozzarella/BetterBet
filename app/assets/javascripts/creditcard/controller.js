@@ -5,8 +5,7 @@ BetterBet.CreditCard.Controller = function(view, selectors) {
 
 BetterBet.CreditCard.Controller.prototype = {
   validate: function(form, number) {
-    var valid = $.payment.validateCardNumber(number);
-    if ( !valid ) {
+    if ( !$.payment.validateCardNumber(number) ) {
       this.view.alertInvalid();
     } else {
       this.view.disableSubmit();
