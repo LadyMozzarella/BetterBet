@@ -1,8 +1,5 @@
 <div class="new-user-form">
   <div class="errors"></div>
-  <div class="facebook_signup">
-    <%= link_to "Sign up with Facebook", "/auth/facebook", class: "facebook_signup_link" %>
-  </div>
   <h1>Create an account</h1>
   <%= render 'shared/flash_errors' %>
   <%= form_for @user do |f| %>
