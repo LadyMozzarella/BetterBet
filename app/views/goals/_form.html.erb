@@ -11,7 +11,7 @@
   <%= f.date_select :end_date, :required => true, :order => [:month, :day, :year] %>
   <% if current_user.has_friends? %>
     <%= f.label :buddy %>
-    <%= f.collection_select :buddy_id, current_user.friends, :id, :name %>
+    <%= f.collection_select :buddy_id, current_user.get_buddies, :id, :name %>
   <% else %>
     (None)
   <% end %>

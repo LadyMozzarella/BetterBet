@@ -24,15 +24,22 @@ Search.Controller.prototype = {
   },
 
   findResults: function(results){
+    selectors = this.selectors
     $(this.selectors.search).autocomplete({
       source: results,
+      messages: {
+        noResults: '',
+        results: function(){}
+      },
       select: function(event, ui) {
+        event.preventDefault();
+        $(selectors.search).val(ui.item.label)
         var url = ui.item.value;
         if(url != '#') {
           location.href = '/users/' + url
         }
       }
-    }
-  )}
+    })
+  }
 
 }

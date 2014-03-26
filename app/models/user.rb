@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_secure_password
-  attr_accessible :email, :name, :password, :password_confirmation, :bio, :image, :stripe_id
+  attr_accessible :email, :name, :password, :password_confirmation, :bio, :image, :stripe_id, :recipient_id
   has_many :goals, foreign_key: "owner_id"
   has_many :friendships
   has_many :friends, through: :friendships
@@ -75,6 +75,15 @@ class User < ActiveRecord::Base
   def generate_md5
     email = self.email.strip.downcase
     Digest::MD5.hexdigest(email)
+  end
+
+  def get_buddies
+    buddies = []
+    friends = self.friends
+    friends.each do |friend|
+      buddies << friend if friend.recipient_id
+    end
+    buddies
   end
 
   private

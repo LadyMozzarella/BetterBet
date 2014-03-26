@@ -1,0 +1,21 @@
+.credit-card-confirmation {
+    @include row;
+    @include span-columns(6);
+}
+
+#expiration-month {
+    @include span-columns(2 of 6);
+}
+
+#expiration-year {
+    @include span-columns(3 of 6);
+}
+
+.cvc-block {
+    @include span-columns(3);
+    @include omega;
+}
+
+#cvc {
+    @include span-columns(3 of 3);
+}

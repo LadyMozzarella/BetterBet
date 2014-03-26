@@ -1,0 +1,11 @@
+Hello, <%= @friend.name %>!
+  <% if @goal.completed %>
+    <%= render 'goal_success' %>
+  <% else %>
+    <%= render 'goal_failure' %>
+  <% end %>
+
+You can Log in to the site by following the link below:
+  <%= @url %></a>
+
+Thanks for your support and have a great day!

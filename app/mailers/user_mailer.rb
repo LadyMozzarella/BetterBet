@@ -10,6 +10,14 @@ class UserMailer < ActionMailer::Base
     @user = user
     @friend = friend
     @url  = 'http://localhost:3000/login'
-    mail(to: @friend.email, subject: 'Welcome to BetterBet')
+    mail(to: @friend.email, subject: 'New Friend at BetterBet')
+  end
+
+  def goal_end_email(friend, user, goal)
+    @friend = friend
+    @user = user
+    @goal = goal
+    @url  = 'http://localhost:3000/login'
+    mail(to: @friend.email, subject: 'Goal Complete BetterBet')
   end
 end

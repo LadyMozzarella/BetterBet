@@ -1,0 +1,19 @@
+<!Doctype html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hello, <%= @friend.name %>!</h1>
+      <% if @goal.completed %>
+        <%= render 'goal_success' %>
+      <% else %>
+        <%= render 'goal_failure' %>
+      <% end %>
+
+    <p>You can Log in to the site by following the link below: </p>
+    <a href="http://localhost:3000/login"><%= @url %></a>
+
+    <p>Thanks for your support and have a great day!</p>
+  </body>
+</html>

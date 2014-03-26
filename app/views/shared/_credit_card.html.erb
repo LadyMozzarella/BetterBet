@@ -1,17 +1,18 @@
-<div class="form-row">
-  <label for="card-number">Card Number</label>
-  <input id="card-number" class="cc-num" type="text" size="19" data-stripe="number"/>
-</div>
-<div class="form-row">
-  <label for="expiration-month">Expiration (MM/YYYY)</label>
-    <input id="expiration-month" class="card-expiry-month" type="text" size="2" maxlength="2" data-stripe="exp-month"/>
-  <label for="expiration-year"> / </label>
-  <input id="expiration-year" class="cc-year" type="text" size="4" maxLength="4" data-stripe="exp-year"/>
-</div>
-<div class="form-row">
-    <label for="cvc">CVC</label>
-    <input id="cvc" class="cc-cvc" type="text" size="4" data-stripe="cvc" />
-</div>
+<fieldset>
+    <legend>Credit card info</legend>
+    <label for="card-number">Card Number</label>
+    <input id="card-number" class="cc-num" type="text" size="19" data-stripe="number"/>
+    <div class="credit-card-confirmation">
+        <label for="expiration-month">Exp (MM/YYYY)</label>
+            <input id="expiration-month" class="card-expiry-month" type="text" size="2" maxlength="2" data-stripe="exp-month"/>
+            <!-- <label for="expiration-year" class="expiration_year_label"> / </label> -->
+            <input id="expiration-year" class="cc-year" type="text" size="4" maxLength="4" data-stripe="exp-year"/>
+    </div>
+    <div class="cvc-block">
+        <label for="cvc" class="cvc-label">CVC</label>
+        <input id="cvc" class="cc-cvc" type="text" size="4" data-stripe="cvc" />
+    </div>
+    </fieldset>
 <script type="text/javascript">
-  Stripe.setPublishableKey("<%= ENV['PUBLISHABLE_KEY']%>");
+    Stripe.setPublishableKey("<%= ENV['PUBLISHABLE_KEY']%>");
 </script>
