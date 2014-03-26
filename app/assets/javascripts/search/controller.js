@@ -41,7 +41,7 @@ Search.Controller.prototype = {
       },
       focus: function(event, ui){
         event.preventDefault();
-        $(".ui-helper-hidden-accessible").hide();
+        $(selectors.uiHelper).hide();
         $(selectors.search).val(ui.item.label)
       }
     })
