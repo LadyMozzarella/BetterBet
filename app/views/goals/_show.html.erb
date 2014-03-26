@@ -3,6 +3,9 @@
     <h2><%= goal.title %></h2>
     <% if goal.belongs_to(current_user) %>
       <ul class="goal_edit_buttons">
+        <li class="goal_complete_button">
+          <%= link_to image_tag('check-square-o.svg'), complete_goal_path(goal), method: 'put' %>
+        </li>
         <li class="goal_edit-button">
           <%= link_to image_tag('pencil.svg'), edit_goal_path(goal) %>
         </li>
@@ -41,5 +44,4 @@
     <% end %>
   </div>
 
-  <%= link_to "Completed", complete_goal_path(goal), method: 'put' %>
 </article>
