@@ -1,5 +1,5 @@
 class GoalsController < ApplicationController
-  before_filter :goal, except: [:new, :create, :goal, :status]
+  before_filter :goal, except: [:new, :create, :goal, :status, :buddy_status]
   before_filter :authorize
 
   def new
@@ -48,6 +48,16 @@ class GoalsController < ApplicationController
   def terminate
     @goal.update_attributes(completed: params[:complete], terminated_at: Time.now)
     notify_buddy(@goal)
+    render :nothing => true, :status => 200
+  end
+
+  def buddy_status
+    goal = Goal.expired_goal_by_buddy(current_user)[0]
+    render json: {goal: goal, friend: goal.owner.name}.to_json
+  end
+
+  def confirm
+    @goal.update_attribute(status_confirmed: params[:complete])
     render :nothing => true, :status => 200
   end
 

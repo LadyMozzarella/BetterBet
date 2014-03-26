@@ -38,4 +38,8 @@ class Goal < ActiveRecord::Base
     buddy.recipient_id
   end
 
+  def self.expired_goal_by_buddy(buddy)
+    Goal.where('buddy_id = ? AND terminated_at IS NOT NULL AND status_confirmed = false', buddy.id).limit(1)
+  end
+
 end
