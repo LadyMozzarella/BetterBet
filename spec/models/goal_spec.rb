@@ -62,12 +62,16 @@ describe Goal do
       it 'should return the time remaining' do
         goal.stub(:started?).and_return(true)
         goal.stub(:time_remaining).and_return(1)
-        expect(goal.time_remaining).to be 1
+        expect(goal.countdown).to be 1
       end
     end
 
-    context 'if after the goal is completed' do
-      it 'should return the goal length'
+    context 'if before the goal is started' do
+      it 'should return the goal length' do
+        goal.stub(:started?).and_return(false)
+        goal.stub(:duration).and_return(1)
+        expect(goal.countdown).to be 1
+      end
     end
   end
 
