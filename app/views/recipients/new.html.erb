@@ -1,30 +1,32 @@
-<form method = "POST" action="/recipients" id ="bank_form">
-  <div class="form-row">
-    <label>
-      <span>Full Name</span>
-      <input class="full_name" type="text" name="full_name"/>
-    </label>
-  </div>
-  <div class="form-row">
-    <label>
-      <span>Country</span>
-      <input class="country" type="text" size="2" maxlength ="2" data-stripe="country"/>
-    </label>
-  </div>
-  <div class="form-row">
-    <label>
-      <span>Account Number</span>
-      <input class="account_number" type="text" data-stripe="accountNumber"/>
-    </label>
-  </div>
-  <div class="form-row">
-    <label>
-      <span>Routing Number</span>
-      <input class="routing_number" type="text" size="4" data-stripe="routingNumber" />
-    </label>
-  </div>
-  <button type="submit">Submit Bank Information</button>
-</form>
-<script type="text/javascript">
-  Stripe.setPublishableKey("<%= ENV['PUBLISHABLE_KEY']%>");
-</script>
+<section class="recipient_form">
+  <form method = "POST" action="/recipients" id ="bank_form">
+    <div class="form-row">
+      <label>
+        <span>Full Name</span>
+        <input class="full_name" type="text" name="full_name"/>
+      </label>
+    </div>
+    <div class="form-row">
+      <label>
+        <span>Country</span>
+        <input class="country" type="text" size="2" maxlength ="2" data-stripe="country"/>
+      </label>
+    </div>
+    <div class="form-row">
+      <label>
+        <span>Account Number</span>
+        <input class="account_number" type="text" data-stripe="accountNumber"/>
+      </label>
+    </div>
+    <div class="form-row">
+      <label>
+        <span>Routing Number</span>
+        <input class="routing_number" type="text" size="4" data-stripe="routingNumber" />
+      </label>
+    </div>
+    <button type="submit">Submit Bank Information</button>
+  </form>
+  <script type="text/javascript">
+    Stripe.setPublishableKey("<%= ENV['PUBLISHABLE_KEY']%>");
+  </script>
+</section>
