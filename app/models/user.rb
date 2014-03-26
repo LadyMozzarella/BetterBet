@@ -42,7 +42,12 @@ class User < ActiveRecord::Base
   end
 
   def self.search(name)
-    users = Soulmate::Matcher.new("user").matches_for_term(name)
+    users = Soulmate::Matcher.new("user").matches_for_term(name).tap do |collection_of_users|
+      # Due to a bug in the caching algorithm of Soulmate::Matcher.matches_for_term,
+      # it is possible for a user who no longer exists in OUR database to exist, cached, in
+      # the Redis database.  SoulMate sucks.
+      collection_of_users.select{|h| User.exists?(h["id"])}
+    end
     users.collect{ |c| {"id" => c["id"], "name" => c["term"] } }
   end
 
