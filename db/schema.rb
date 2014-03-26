@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140326002605) do
+ActiveRecord::Schema.define(:version => 20140326031536) do
 
   create_table "friendships", :force => true do |t|
     t.integer "user_id"
