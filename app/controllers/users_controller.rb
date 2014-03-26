@@ -29,6 +29,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    binding.pry
     @image_url = @user.image
   end
 
