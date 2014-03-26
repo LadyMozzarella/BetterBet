@@ -4,8 +4,6 @@ class DashboardController < ApplicationController
   def index
     render(:landing) && return unless logged_in?
     @friends = current_user.friend_goals
-    p "THESE ARE MY FRIENDS GOALS"
-    p current_user.friend_goals
     @goals = current_user.active_goals
   end
 
