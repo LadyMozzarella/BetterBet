@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140325222738) do
+ActiveRecord::Schema.define(:version => 20140326002605) do
 
   create_table "friendships", :force => true do |t|
     t.integer "user_id"
@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(:version => 20140325222738) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "terminated_at"
-    t.string   "transfer_id"
     t.boolean  "status_confirmed", :default => false
+    t.string   "transfer_id"
   end
 
   add_index "goals", ["buddy_id"], :name => "index_goals_on_buddy_id"
