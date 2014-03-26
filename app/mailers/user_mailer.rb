@@ -11,7 +11,7 @@ class UserMailer < ActionMailer::Base
    def new_friend(user, friend)
     @user = user
     @friend = friend
-    @url  = user_url(@user.id)
+    @url  = login_url
     mail(to: @friend.email, subject: 'New Friend at BetterBet')
   end
 
