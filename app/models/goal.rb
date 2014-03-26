@@ -25,10 +25,6 @@ class Goal < ActiveRecord::Base
     self.owner == user
   end
 
-  def self.expired_goal_by_user(user)
-    Goal.where('owner_id = ? AND DATE(end_date) <= ? AND terminated_at IS NULL', user.id, Time.now).limit(1)
-  end
-
   def bet_in_cents
     self.bet_amount * 100
   end
@@ -36,6 +32,10 @@ class Goal < ActiveRecord::Base
   def find_recipient
     buddy = User.find(self.buddy_id)
     buddy.recipient_id
+  end
+
+  def self.expired_goal_by_user(user)
+    Goal.where('owner_id = ? AND DATE(end_date) <= ? AND terminated_at IS NULL', user.id, Time.now).limit(1)
   end
 
   def self.expired_goal_by_buddy(buddy)

@@ -91,12 +91,19 @@ describe Goal do
     end
   end
 
-  describe '#expired_goal_by_user' do
-    it 'should show an expired and status unconfirmed goal'
+  describe '#bet_in_cents' do
+    it 'converts the bet amount to cents' do
+      goal.stub(:bet_amount).and_return(1)
+      expect(goal.bet_in_cents).to be 100
+    end
   end
 
-  describe '#bet_in_cents' do
-    it 'converts the bet amount to cents'
+  describe '#find_recipient' do
+    it 'should find recipient'
+  end
+
+  describe '#expired_goal_by_user' do
+    it 'should show an expired and status unconfirmed goal'
   end
 
   describe '#find_recipient' do
