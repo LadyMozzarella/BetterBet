@@ -64,12 +64,10 @@ class User < ActiveRecord::Base
     self.goals.where("completed = false").order("updated_at DESC")
   end
 
-  def get_image_url
-    self.gravatar? ? "http://www.gravatar.com/avatar/" + generate_md5 + "?s=300" : "/assets/default_user_image.svg"
-  end
-
-  def gravatar?
-    self.image == "1"
+  def image=(img_path)
+    return write_attribute(:image, img_path) if img_path.length > 1
+    img_path = (img_path == "1") ? "http://www.gravatar.com/avatar/" + generate_md5 + "?s=300" : "/assets/default_user_image.svg"
+    write_attribute(:image, img_path)
   end
 
   def generate_md5
