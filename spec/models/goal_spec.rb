@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Goal do
   let!(:goal) { create :goal }
-  let!(:user) { create :user }
+  let!(:user) { create :user, recipient_id: 1 }
 
   describe 'validations' do
     it { should validate_presence_of :title }
@@ -99,7 +99,10 @@ describe Goal do
   end
 
   describe '#find_recipient' do
-    it 'should find recipient'
+    it 'should find recipient' do
+      goal.stub(:buddy_id).and_return(user.id)
+      expect(goal.find_recipient).to eq "1"
+    end
   end
 
   describe '#expired_goal_by_user' do
