@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
   after_save :add_to_soulmate
   before_destroy :remove_from_soulmate
+  after_create :send_welcome
 
   def all_friends
     self.friends + self.inverse_friends
@@ -90,6 +91,10 @@ class User < ActiveRecord::Base
 
   def has_bank_info?
     self.recipient_id
+  end
+
+  def send_welcome
+    UserMailer.welcome_email(self).deliver
   end
 
   private
