@@ -106,10 +106,15 @@ describe Goal do
   end
 
   describe '#expired_goal_by_user' do
-    it 'should show an expired and status unconfirmed goal'
+    let!(:goal) { create_list(:goal, 1, owner_id: user.id, end_date: "2013-01-01 00:00:01 -0600") }
+
+    it 'should show an expired and status unconfirmed goal' do
+      Time.stub(:now).and_return(Time.parse("2013-02-01 00:00:01 -0600"))
+      expect(Goal.expired_goal_by_user(user)).to eq goal
+    end
   end
 
-  describe '#find_recipient' do
-    it 'finds the user\'s buddy\'s recipient id'
+  describe '#expired_goal_by_buddy' do
+    it 'should show an expired and status unconfirmed goal'
   end
 end
