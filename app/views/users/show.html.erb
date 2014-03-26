@@ -27,6 +27,6 @@
   <%= link_to "Become a Buddy", new_recipient_path %>
 
   <h2 class="goals_header">Goals</h2>
-  <%= render 'goals/index', goals: @user.goals %>
+  <%= render 'goals/index', goals: @user.incomplete_goals %>
 
 </article>

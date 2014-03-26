@@ -78,12 +78,11 @@ class User < ActiveRecord::Base
   end
 
   def get_buddies
-    buddies = []
-    friends = self.friends
-    friends.each do |friend|
-      buddies << friend if friend.recipient_id
-    end
-    buddies
+    self.friends.select{ |friend| friend.recipient_id }
+  end
+
+  def incomplete_goals
+    self.goals.reject{ |goal| goal.completed? }
   end
 
   private
