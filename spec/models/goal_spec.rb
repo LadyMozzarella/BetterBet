@@ -30,12 +30,20 @@ describe Goal do
   end
 
   describe '#started?' do
+    let!(:goal) { create :goal, start_date: "2013-01-31 00:00:01 -0600" }
+
     context 'before start date' do
-      it 'should return true'
+      it 'should return false' do
+        Time.stub(:now).and_return(Time.parse("2013-01-30 00:00:01 -0600"))
+        expect(goal.started?).to eq false
+      end
     end
 
     context 'after start date' do
-      it 'should return false'
+      it 'should return true' do
+        Time.stub(:now).and_return(Time.parse("2013-02-01 00:00:01 -0600"))
+        expect(goal.started?).to eq true
+      end
     end
   end
 
