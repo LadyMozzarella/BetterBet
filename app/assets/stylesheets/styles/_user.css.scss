@@ -42,6 +42,8 @@
         @include span-columns(3);
     }
     @include span-columns(4);
+    margin-top: $base-line-height/2;
+    margin-bottom: $base-line-height/2;
 }
 
 .user_profile_bio {
