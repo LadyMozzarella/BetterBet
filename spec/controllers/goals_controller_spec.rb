@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe GoalsController do
-  let(:user) { create :user }
+  let!(:user) { create :user }
   let!(:goal) { create :goal }
   let(:goals) { create_list(:goal, 3) }
   let(:attribs) { attributes_for :goal }
@@ -75,13 +75,30 @@ describe GoalsController do
   end
 
   context '#complete' do
-    it 'should mark the goal as completed'
-    it 'should redirect'
+    it 'should mark the goal as completed' do
+      expect {
+        post :complete, id: goal
+      }.to change{ goal.reload.completed }.to true
+    end
+
+    it 'should redirect' do
+      post :complete, id: goal
+      expect(response).to be_redirect
+    end
   end
 
   context '#status' do
-    it 'should assign the expired goal to goals'
-    it 'should render json'
+    let!(:expired_goal) { create_list(:goal, 1, owner: user, start_date: Time.now - 100000, end_date: Time.now - 500) }
+
+    it 'should assign the expired goal to goals and convert to json' do
+      post :status, id: goal
+      expect(response.body).to eq expired_goal.to_json
+    end
+
+    it 'should not redirect' do
+      post :status
+      expect(response).to_not be_redirect
+    end
   end
 
   context '#terminate' do
