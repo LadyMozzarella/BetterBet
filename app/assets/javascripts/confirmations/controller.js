@@ -25,10 +25,24 @@ Confirmation.Controller.prototype = {
       data: {complete: complete},
       context: this
     }).success(function(response){
-      debugger
       this.view.hideModal()
+      if (response === 'false') {
+        this.redirectToPayment(this.goal)
+      };
     }).fail(function(xhr){
       console.log("I am getting fails")
+    })
+  },
+  redirectToPayment: function(goal) {
+    $.ajax({
+      url: '/goals/' + goal.id + '/charges',
+      type: 'POST',
+      data: {goal_id: goal.id},
+      context: this
+    }).success(function(){
+      console.log("I have a successful redirect");
+    }).fail(function(xhr){
+      console.log(xhr.responseText);
     })
   }
 };
