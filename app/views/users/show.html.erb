@@ -11,9 +11,9 @@
           </li>
         <% else %>
           <% if current_user.has_friend?(@user)  %>
-            <%= link_to image_tag('times.svg') , "#", class: 'delete_friend', data: {friend: "#{@user.id}", user: current_user.id}%><br>
+            <%= link_to image_tag('minus.svg') , "#", class: 'delete_friend', data: {friend: "#{@user.id}", user: current_user.id}%><br>
           <% else  %>
-            <%= link_to "Add Friend", "#", class: 'add_friend', data: {id: "#{@user.id}"} %>
+            <%= link_to image_tag('plus.svg'), "#", class: 'add_friend', data: {id: "#{@user.id}"} %>
           <% end %>
         <% end %>
       </ul>
