@@ -2,7 +2,7 @@ class Goal < ActiveRecord::Base
   attr_accessible :title, :description, :bet_amount, :start_date, :end_date, :owner_id, :buddy_id, :terminated_at, :completed, :transfer_id
   belongs_to :owner, foreign_key: "owner_id", class_name: "User"
   belongs_to :buddy, foreign_key: "buddy_id", class_name: "User"
-  validates_presence_of :title, :bet_amount, :start_date, :end_date, :owner_id
+  validates :title, :bet_amount, :start_date, :end_date, :owner_id, presence: true
 
   def duration
     self.end_date - self.start_date

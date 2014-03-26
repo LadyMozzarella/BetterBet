@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   before_filter :authorize, except: [:new, :create]
-  before_filter :user, only: [:show, :edit, :update, :destroy, :goals]
+  before_filter :load_user, only: [:show, :edit, :update, :destroy, :goals]
 
   def index
-    @users = User.all
+    @users = User.all - [current_user]
   end
 
   def new
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
 
   private
 
-  def user
+  def load_user
     @user = User.find(params[:id])
   end
 
