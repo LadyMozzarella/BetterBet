@@ -1,5 +1,4 @@
 module AuthenticationHelper
-
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
@@ -12,4 +11,7 @@ module AuthenticationHelper
     session[:user_id] = user.id
   end
 
+  def is_authorized(user)
+    current_user == user
+  end
 end
