@@ -22,24 +22,48 @@ describe Goal do
   end
 
   describe '#started?' do
-    describe 'before start date' do
-
+    context 'before start date' do
+      it 'should return true'
     end
 
-    describe 'after start date' do
-
+    context 'after start date' do
+      it 'should return false'
     end
   end
 
   describe '#countdown' do
+    context 'if no time remaining' do
+      it 'should return 0'
+    end
 
+    context 'if during the goal time remaining' do
+      it 'it should return the time remaining'
+    end
+
+    context 'if after the goal is completed' do
+      it 'it should return the goal length'
+    end
   end
 
   describe '#belongs_to' do
+    context 'if user is itself' do
+      it 'should return true'
+    end
 
+    context 'if user isn\t itself' do
+      it 'should return false'
+    end
   end
 
   describe '#expired_goal_by_user' do
+    it 'sorts something?? '
+  end
 
+  describe '#bet_in_cents' do
+    it 'converts the bet amount to cents'
+  end
+
+  describe '#find_recipient' do
+    it 'finds the user\'s buddy\'s recipient id'
   end
 end
