@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
-  include ApplicationHelper
+  include AuthenticationHelper
   protect_from_forgery
+
+  helper_method :current_user, :logged_in?
 
   private
 
