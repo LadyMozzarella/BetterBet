@@ -2,7 +2,7 @@ Betterbet::Application.routes.draw do
 
   root to: "dashboard#index"
   get '/dashboard', to: 'dashboard#index'
-  get '/landing', to: 'dashboard#landing'
+  get '/landing', to: 'dashboard#landing', as: ''
 
   get '/users/autocomplete', to: 'users#autocomplete', as: 'autocomplete_users'
   get '/auth/:provider/callback', to: 'sessions#facebook_signup'

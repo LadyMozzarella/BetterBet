@@ -1,0 +1,32 @@
+.marketing_copy article {
+    @include media($medium-screen) {
+        padding: 2em;
+    }
+}
+.signup_facebook {
+    @include media($medium-screen) {
+        @include span-columns(6);
+        @include shift(3);
+    }
+    @include row;
+    @include span-columns(8);
+    @include shift(2);
+}
+.signup_facebook h4{
+    margin-top: $base-line-height *2.1;
+    color: $facebook-blue;
+}
+
+.signup_facebook h4:hover{
+    color: shade($facebook-blue, 50);
+}
+
+.facebook-square {
+    @include span-columns(4);
+    fill: $facebook-blue;
+}
+
+.facebook-square:hover {
+    fill: shade($facebook-blue, 50);
+}
+
