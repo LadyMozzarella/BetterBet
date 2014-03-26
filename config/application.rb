@@ -75,6 +75,6 @@ module Betterbet
         end if File.exists?(env_file)
     end
 
-    config.assets.initialize_on_precompile = true
+    config.assets.initialize_on_precompile = false
   end
 end
