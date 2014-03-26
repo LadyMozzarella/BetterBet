@@ -24,7 +24,9 @@
   <p class="user_profile_bio">
       <%= @user.bio %></label>
   </p>
+  <%= link_to "Become a Buddy", new_recipient_path %>
 
   <h2 class="goals_header">Goals</h2>
   <%= render 'goals/index', goals: @user.goals %>
+
 </article>
