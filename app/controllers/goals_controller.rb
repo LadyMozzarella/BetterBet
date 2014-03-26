@@ -69,7 +69,7 @@ class GoalsController < ApplicationController
   end
 
   def notify_buddy(goal)
-    buddy = User.find(goal.buddy_id)
+    buddy = User.find(goal.buddy_id) 
     UserMailer.goal_end_email(buddy, current_user, goal).deliver
   end
 end
