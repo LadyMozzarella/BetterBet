@@ -14,7 +14,11 @@ describe Goal do
   end
 
   describe '#duration' do
-    it 'should return the difference between times'
+    let!(:goal) { create :goal, start_date: "2020-11-19 08:22:21 -0600", end_date: "2020-11-19 08:22:22 -0600" }
+
+    it 'should return the difference between times' do
+      expect(goal.duration.to_i).to be 1
+    end
   end
 
   describe '#time_remaining' do
