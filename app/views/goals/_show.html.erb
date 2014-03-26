@@ -40,6 +40,7 @@
       <h3 class="goal_buddy"><%= link_to goal.buddy.name, user_path(goal.buddy) %></h3>
     <% end %>
   </div>
-
-  <%= link_to "Completed", complete_goal_path(goal), method: 'put' %>
+  <% if goal.belongs_to(current_user) %>
+    <%= link_to "Completed", complete_goal_path(goal), method: 'put' %>
+  <% end %>
 </article>
