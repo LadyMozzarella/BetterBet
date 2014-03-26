@@ -19,7 +19,9 @@
     @include span-columns(6);
 }
 
-.facebook_signin_link {
-  @include span-columns(4);
-  @include shift(1);
+.session-form_signup {
+    @include span-columns(3);
+    @include shift(2);
+    margin-top: $base-line-height / 4;
 }
+
