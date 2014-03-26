@@ -102,7 +102,15 @@ describe GoalsController do
   end
 
   context '#terminate' do
-    it 'should update the goal to completed'
-    it 'should not render'
+    it 'should update the goal with a terminated time' do
+      expect {
+        put :terminate, id: goal
+      }.to_not change{ goal.reload.terminated_at }.to nil
+    end
+
+    it 'should redirect' do
+      put :terminate, id: goal
+      expect(response).to_not be_redirect
+    end
   end
 end
