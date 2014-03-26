@@ -15,10 +15,10 @@ describe "User", js: true do
         fill_in 'Password confirmation', with: '123'
         fill_in 'Bio', with: new_user.bio
         fill_in 'Card Number', with: "4242424242424242"
-        fill_in 'Expiration (MM/YYYY)', with: "09"
-        fill_in '/', with: "2016"
+        fill_in 'Exp (MM/YYYY)', with: "09"
+        find(:css, 'input[id$="expiration-year"]').set("2016")
         fill_in 'CVC', with: "898"
-        click_button 'Create User'
+        click_on 'Create User'
         expect(page).to have_content 'Ongoing Goals'
       end
     end
