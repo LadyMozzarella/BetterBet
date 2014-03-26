@@ -22,7 +22,11 @@ describe Goal do
   end
 
   describe '#time_remaining' do
-    it 'should return the amount of time left until now'
+    let!(:goal) { create :goal, end_date: "2020-11-20 08:22:01 -0600" }
+    it 'should return the amount of time left until now' do
+      Time.stub(:now).and_return(Time.parse("2020-11-20 08:22:00 -0600"))
+      expect(goal.time_remaining.to_i).to be 1
+    end
   end
 
   describe '#started?' do
