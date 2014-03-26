@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   include AuthenticationHelper
   protect_from_forgery
 
-  helper_method :current_user, :logged_in?
+  helper_method :current_user, :logged_in?, :is_authorized
 
   private
 

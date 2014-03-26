@@ -1,7 +1,7 @@
 <div class="new-user-form">
   <div class="errors"></div>
   <h1>Create an account</h1>
-  <%= render 'shared/flash_errors' %>
+  <%= render 'shared/errors', object: @user %>
   <%= form_for @user do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name, :required => true %>

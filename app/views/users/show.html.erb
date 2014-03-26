@@ -2,7 +2,7 @@
   <header class="user_profile_header">
     <h2><%= @user.name %></h2>
       <ul class="user_profile_buttons">
-        <% if current_user.is_user?(@user) %>
+        <% if is_authorized(@user) %>
           <li class="user_edit-button">
             <%= link_to image_tag('pencil.svg'), edit_user_path(@user) %>
           </li>
@@ -26,7 +26,7 @@
   <p class="user_profile_bio">
       <%= @user.bio %></label>
   </p>
-  <% if current_user.is_user?(@user) && !current_user.has_bank_info? %>
+  <% if is_authorized(@user) && !current_user.has_bank_info? %>
     <%= link_to "Link Bank Account", new_recipient_path %>
   <% end %>
 

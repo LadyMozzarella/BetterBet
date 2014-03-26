@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   def new
     redirect_to dashboard_path if logged_in?
+    @user = User.new
   end
 
   def facebook_signup
@@ -12,11 +13,10 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_by_email(params[:email])
     if @user && @user.authenticate(params[:password])
-      login(@user)
+      login @user
       redirect_to dashboard_path
     else
-      flash[:error] = "Invalid email or password"
-      redirect_to login_path
+      render :new
     end
   end
 
