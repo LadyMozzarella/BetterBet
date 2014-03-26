@@ -3,6 +3,7 @@ require 'spec_helper'
 describe DashboardController do
   let!(:user) { create :user }
   let(:goals) { create_list(:goal, 1, owner_id: user.id) }
+  let(:friends_goal) { create :goal }
   before(:each) { session[:user_id] = user }
 
   context '#index' do
