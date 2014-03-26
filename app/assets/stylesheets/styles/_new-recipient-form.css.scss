@@ -1,0 +1,8 @@
+.recipient_form {
+    @include media($medium-screen) {
+        @include span-columns(8);
+        @include shift(2);
+    }
+    @include row;
+    padding: 1em;
+}
