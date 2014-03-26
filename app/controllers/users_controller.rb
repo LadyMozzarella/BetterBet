@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @image_url = @user.get_image_url
+    @image_url = @user.image
   end
 
   def edit
