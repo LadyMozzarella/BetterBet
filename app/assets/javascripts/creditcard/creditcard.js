@@ -8,7 +8,7 @@ $(document).ready(function() {
     stripeInput: '<input type="hidden" name="stripeToken" />'
   };
 
-  CreditCard.view = new CreditCard.View(selectors);
-  CreditCard.controller = new CreditCard.Controller(CreditCard.view, selectors);
-  new CreditCard.Binder(CreditCard.controller, selectors).bind();
+  BetterBet.CreditCard.view = new BetterBet.CreditCard.View(selectors);
+  BetterBet.CreditCard.controller = new BetterBet.CreditCard.Controller(BetterBet.CreditCard.view, selectors);
+  new BetterBet.CreditCard.Binder(BetterBet.CreditCard.controller, selectors).bind();
 });

@@ -7,8 +7,8 @@ $(document).ready(function() {
       buttonIncomplete: '.goal-incomplete',
     };
 
-    Alert.view = new Alert.View(selectors);
-    Alert.controller = new Alert.Controller(Alert.view);
-    new Alert.Binder(Alert.controller, selectors).bind();
+    BetterBet.Alert.view = new BetterBet.Alert.View(selectors);
+    BetterBet.Alert.controller = new BetterBet.Alert.Controller(BetterBet.Alert.view);
+    new BetterBet.Alert.Binder(BetterBet.Alert.controller, selectors).bind();
   }
 });

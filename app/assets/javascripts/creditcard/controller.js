@@ -1,9 +1,9 @@
-CreditCard.Controller = function(view, selectors) {
+BetterBet.CreditCard.Controller = function(view, selectors) {
   this.view = view;
   this.selectors = selectors;
 }
 
-CreditCard.Controller.prototype = {
+BetterBet.CreditCard.Controller.prototype = {
   validate: function(form, number) {
     var valid = $.payment.validateCardNumber(number);
     if ( !valid ) {

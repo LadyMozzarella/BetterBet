@@ -1,11 +1,9 @@
-var Confirmation = {};
-
-Confirmation.Binder = function(controller, selectors) {
+BetterBet.Confirmation.Binder = function(controller, selectors) {
   this.controller = controller;
   this.selectors = selectors;
 }
 
-Confirmation.Binder.prototype = {
+BetterBet.Confirmation.Binder.prototype = {
   bind: function() {
     this.controller.getStatus();
     this.bindGoalComplete();

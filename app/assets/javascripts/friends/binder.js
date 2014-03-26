@@ -1,11 +1,9 @@
-var Friends = {};
-
-Friends.Binder = function(controller, selectors){
+BetterBet.Friends.Binder = function(controller, selectors){
   this.controller = controller
   this.selectors = selectors
 }
 
-Friends.Binder.prototype = {
+BetterBet.Friends.Binder.prototype = {
 
   bindEvents: function(){
     this.bindAddFriend();

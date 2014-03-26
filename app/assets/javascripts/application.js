@@ -12,5 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require betterbet
 //= require_tree .
 //= require_tree ../../../vendor/assets/javascripts/.

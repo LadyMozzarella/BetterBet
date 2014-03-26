@@ -7,7 +7,7 @@ $(document).ready(function() {
     stripeInput: '<input type="hidden" name="stripeToken" />'
   };
 
-  BankAccount.view = new BankAccount.View(selectors);
-  BankAccount.controller = new BankAccount.Controller(BankAccount.view, selectors);
-  new BankAccount.Binder(BankAccount.controller, selectors).bindEvents();
+  BetterBet.BankAccount.view = new BetterBet.BankAccount.View(selectors);
+  BetterBet.BankAccount.controller = new BetterBet.BankAccount.Controller(BetterBet.BankAccount.view, selectors);
+  new BetterBet.BankAccount.Binder(BetterBet.BankAccount.controller, selectors).bindEvents();
 });
