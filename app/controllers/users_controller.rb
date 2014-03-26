@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     redirect_to new_user_path and return unless @user.save
 
-    session[:user_id] = @user.id
+    login(@user)
     UserMailer.welcome_email(@user).deliver
 
     customer = Customer.create(@user, params[:stripeToken])
