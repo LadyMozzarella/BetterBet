@@ -37,11 +37,11 @@ describe Goal do
     end
 
     context 'if during the goal time remaining' do
-      it 'it should return the time remaining'
+      it 'should return the time remaining'
     end
 
     context 'if after the goal is completed' do
-      it 'it should return the goal length'
+      it 'should return the goal length'
     end
   end
 
