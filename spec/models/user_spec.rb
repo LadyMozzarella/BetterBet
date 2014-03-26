@@ -34,16 +34,6 @@ describe User do
     it "should grab the latest goal"
   end
 
-  context "#is_user?" do
-    context "if user is itself" do
-      it "should return true"
-    end
-
-    context "if user isn't itself" do
-      it "should return false"
-    end
-  end
-
   context "#search" do
     context 'with matching string' do
       it 'should return the user\'s name'

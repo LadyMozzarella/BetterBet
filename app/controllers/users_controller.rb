@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    binding.pry
+    @is_user = ( @user.id == current_user.id )
     @image_url = @user.image
   end
 
