@@ -55,6 +55,7 @@ class GoalsController < ApplicationController
   end
 
   def confirm
+    binding.pry
     @goal.update_attribute(status_confirmed: params[:complete])
     render :nothing => true, :status => 200
   end
