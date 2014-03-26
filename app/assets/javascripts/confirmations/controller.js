@@ -10,16 +10,16 @@ Confirmation.Controller.prototype = {
       dataType: 'json',
       context: this
     }).success(function(response) {
-      debugger
-      if(response.length > 0){
+      if(response.goal !== null ){
         this.goal = response.goal;
-        this.view.showModal(this.goal);
+        this.view.showModal(this.goal, response.friend);
       }
     }).fail(function(xhr){
       console.log(xhr.responseText);
     })
   },
   updateStatus: function(complete) {
+    debugger
     $.ajax({
       url: '/goals/'+ this.goal.id +'/confirm',
       type: 'PUT',
