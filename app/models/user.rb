@@ -4,9 +4,9 @@ class User < ActiveRecord::Base
   has_many :goals, foreign_key: "owner_id"
   has_many :friendships
   has_many :friends, through: :friendships
-  has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
-  has_many :inverse_friends, :through => :inverse_friendships, :source => :user
-  validates_presence_of :name, :email, :password_digest
+  has_many :inverse_friendships, class_name: "Friendship", foreign_key: "friend_id"
+  has_many :inverse_friends, through: :inverse_friendships, source: :user
+  validates :name, :email, :password_digest, presence: true
   validates :email, uniqueness: true
   after_save :add_to_soulmate
   before_destroy :remove_from_soulmate
