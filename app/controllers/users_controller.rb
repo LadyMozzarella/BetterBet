@@ -46,11 +46,6 @@ class UsersController < ApplicationController
     redirect_to login_path
   end
 
-  def search
-    user = User.find_by_name(params[:user])
-    render :json => user
-  end
-
   private
 
   def user
