@@ -115,6 +115,9 @@ describe Goal do
   end
 
   describe '#expired_goal_by_buddy' do
-    it 'should show an expired and status unconfirmed goal'
+    let!(:goal) { create_list(:goal, 1, buddy_id: user.id, terminated_at: "2013-01-01 00:00:01 -0600", status_confirmed: false) }
+    it 'should show an expired and status unconfirmed goal' do
+      expect(Goal.expired_goal_by_buddy(user)).to eq goal
+    end
   end
 end
