@@ -2,7 +2,8 @@ $(document).ready(function(){
   var selectors = {
     addFriend: '.add_friend',
     deleteFriend: '.delete_friend',
-    friendStatus: '.friend_status'
+    friend: '.friend',
+    friendDiv: '.friend_div'
   }
   Friends.view = new Friends.View(selectors);
   Friends.controller = new Friends.Controller(Friends.view);
