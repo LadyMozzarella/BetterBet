@@ -24,11 +24,10 @@ Confirmation.Controller.prototype = {
       type: 'PUT',
       data: {complete: complete},
       context: this
-    }).success(function(response){
-      debugger
+    }).success(function(){
       this.view.hideModal()
     }).fail(function(xhr){
-      console.log("I am getting fails")
+      console.log(xhr.responseText)
     })
   }
 };
