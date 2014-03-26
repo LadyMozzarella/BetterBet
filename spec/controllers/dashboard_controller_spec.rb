@@ -3,7 +3,6 @@ require 'spec_helper'
 describe DashboardController do
   let!(:user) { create :user }
   let(:goals) { create_list(:goal, 1, owner_id: user.id) }
-  let(:friends_goal) { create :goal }
   before(:each) { session[:user_id] = user }
 
   context '#index' do
@@ -17,7 +16,10 @@ describe DashboardController do
       expect(assigns :goals).to eq goals
     end
 
-    it "should assign the user's friend's active goals to @friends"
+    it "should assign @friends" do
+      get :index
+      expect(assigns :friends).to_not be nil
+    end
   end
 
   context '#landing' do

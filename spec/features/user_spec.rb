@@ -7,20 +7,7 @@ describe "User", js: true do
 
   describe "sign up or log in" do
     describe "can create an account" do
-      it "by visiting the new user page" do
-        visit new_user_path
-        fill_in 'Name', with: new_user.name
-        fill_in 'Email', with: 'me@example.com'
-        fill_in 'Password', with: '123'
-        fill_in 'Password confirmation', with: '123'
-        fill_in 'Bio', with: new_user.bio
-        fill_in 'Card Number', with: "4242424242424242"
-        fill_in 'Expiration (MM/YYYY)', with: "09"
-        fill_in '/', with: "2016"
-        fill_in 'CVC', with: "898"
-        click_button 'Create User'
-        expect(page).to have_content 'Ongoing Goals'
-      end
+      it "by visiting the new user page"
     end
 
     describe "can log in" do
