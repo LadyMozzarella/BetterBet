@@ -17,17 +17,7 @@ describe User do
   end
 
   context "#omniauth" do
-    let!(:auth){ double(:auth, "provider" => "facebook",
-    "uid" => 'facebook-user-id', 
-    double(:info, 'name' => Faker::Lorem.word, 'email' => "email1@example.com", 
-      'image' => "/assets/default_user_image.svg" ), 'credentials' => {'token' => '2dj2o2jda093', 'expires_at' => 1401036584} )} 
-    
-    it "should successfully save user with information" do 
-      
-      auth.stub(:slice){{"provider"=>"facebook", "uid"=>"16918390"}}
-      # auth.stub(:info){{:name => Faker::Lorem.word, :email => "email1@example.com", 
-      # :image => "/assets/default_user_image.svg"}}
-      expect(User.omniauth(auth)).to change{ User.count }.by 1
+    it "should successfully save user with information" 
     end
   end
 
