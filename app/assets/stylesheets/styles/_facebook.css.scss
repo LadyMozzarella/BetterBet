@@ -4,7 +4,7 @@
     }
 }
 .signup_facebook {
-    @include media($medium-screen) {
+    @include media(690px) {
         @include span-columns(6);
         @include shift(3);
     }

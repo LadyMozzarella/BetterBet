@@ -46,7 +46,6 @@ describe "User", js: true do
       it "by visiting the users index page" do
         visit user_path friend
         find(:css, 'img[src*="plus.svg"]').click
-        # click_link 'Add Friend'
         expect(page).to have_content 'Added friend'
       end
     end

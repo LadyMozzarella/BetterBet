@@ -3,7 +3,7 @@
         <h3>Log in and be awesome</h3>
         <%= render 'shared/flash_errors' %>
         <%= render 'loginform' %>
-        <%= link_to "Sign in with Facebook", "/auth/facebook", class: "facebook_signin_link" %>
+        <%= link_to "Sign up", new_user_path, class: "session-form_signup" %>
     </div>
-    <%= link_to "Sign up", new_user_path %>
+    <%= render 'shared/facebook' %>
 </div>
