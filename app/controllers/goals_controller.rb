@@ -53,14 +53,14 @@ class GoalsController < ApplicationController
   end
 
   def buddy_status
-    goal = Goal.expired_goal_by_buddy(current_user)[0]
-    render json: {goal: goal, friend: goal.owner.name}.to_json
+    goal = Goal.expired_goal_by_buddy(current_user)
+    (render :nothing => true, :status =>200) && return if goal.empty?
+    render json: {goal: goal, friend: goal[0].owner.name}.to_json 
   end
 
   def confirm
-    binding.pry
-    @goal.update_attribute(status_confirmed: params[:complete])
-    render :nothing => true, :status => 200
+    @goal.update_attribute(:status_confirmed, true)
+    render json: params[:complete].to_json
   end
 
   private
