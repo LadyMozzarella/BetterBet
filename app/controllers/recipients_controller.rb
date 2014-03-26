@@ -1,5 +1,6 @@
 class RecipientsController < ApplicationController
   skip_filter :verify_authenticity_token, only: :create
+  before_filter :authorize
 
   def new
   end
