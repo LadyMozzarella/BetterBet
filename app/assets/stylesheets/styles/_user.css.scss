@@ -55,10 +55,6 @@
     margin-top: $base-line-height/4;
 }
 
-.user_add-friend_button {
-
-}
-
 .add_friend img,
 .delete_friend img {
     @include span-columns(1);
@@ -71,11 +67,3 @@
 .delete_friend:hover img {
     opacity: 0.6;
 }
-
-
-
-
-
-
-
-

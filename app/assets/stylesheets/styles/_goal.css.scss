@@ -20,7 +20,8 @@
     margin-top: .4em;
 }
 
-.goal_edit-button img{
+.goal_edit-button img,
+.goal_delete-button img{
   height: 40px;
   opacity: 0.3;
 }
@@ -38,11 +39,6 @@
 
 .goal_delete-button {
     @include omega;
-}
-
-.goal_delete-button img {
-    height: 40px;
-    opacity: 0.3;
 }
 
 .goal_description {
