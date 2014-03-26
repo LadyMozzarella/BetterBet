@@ -56,7 +56,7 @@ describe Goal do
   end
 
   describe '#expired_goal_by_user' do
-    it 'sorts something?? '
+    it 'should show an expired and status unconfirmed goal'
   end
 
   describe '#bet_in_cents' do

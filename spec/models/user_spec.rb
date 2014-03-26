@@ -45,7 +45,13 @@ describe User do
   end
 
   context "#search" do
-    it "should do something.. idk wtf"
+    context 'with matching string' do
+      it 'should return the user\'s name'
+    end
+
+    context 'with no matching string' do
+      it 'should return an empty array'
+    end
   end
 
   context "#friend_goals" do
@@ -80,12 +86,12 @@ describe User do
     end
   end
 
-  context "#generarte_md5" do
-    it "should... what? Can we test this?"
+  context "#generate_md5" do
+    it "should generate a hashed string from a user's email"
   end
 
   context "#get_buddies" do
-    it "should do something with recipient id"
+    it "should return a user's friends that have a Stripe recipient id"
   end
 
   context "#incomplete_goals" do
