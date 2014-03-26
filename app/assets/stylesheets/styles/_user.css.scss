@@ -37,17 +37,11 @@
     opacity: 0.3;
 }
 
-.user_profile_img,
-.user_profile_img-default {
+.user_profile_img {
     @include media($medium-screen) {
         @include span-columns(3);
     }
     @include span-columns(4);
-    opacity: 0.6;
-}
-
-.user_profile_img-default {
-    opacity: 0.6;
 }
 
 .user_profile_bio {
