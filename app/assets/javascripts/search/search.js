@@ -4,9 +4,8 @@ $(document).ready(function(){
     form: '.search_friends',
     uiHelper: '.ui-helper-hidden-accessible'
   }
-  Search.controller = new Search.Controller(selectors);
-  Search.binder = new Search.Binder(Search.controller, selectors);
-  Search.binder.bindEvents();
+  BetterBet.Search.controller = new BetterBet.Search.Controller(selectors);
+  new BetterBet.Search.Binder(BetterBet.Search.controller, selectors).bindEvents();
 })
 
 

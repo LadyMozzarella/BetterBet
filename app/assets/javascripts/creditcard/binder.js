@@ -1,11 +1,9 @@
-var CreditCard = {};
-
-CreditCard.Binder = function(controller, selectors) {
+BetterBet.CreditCard.Binder = function(controller, selectors) {
   this.controller = controller;
   this.selectors = selectors;
 }
 
-CreditCard.Binder.prototype = {
+BetterBet.CreditCard.Binder.prototype = {
   bind: function() {
     $(this.selectors.ccNum).payment('formatCardNumber');
     $(this.selectors.ccExp).payment('formatCardExpiry');

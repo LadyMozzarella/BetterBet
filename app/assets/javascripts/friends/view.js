@@ -1,8 +1,8 @@
-Friends.View = function(selectors){
+BetterBet.Friends.View = function(selectors){
   this.selectors = selectors
 }
 
-Friends.View.prototype = {
+BetterBet.Friends.View.prototype = {
 
   toggleFriendButton: function(text){
     $(this.selectors.friend).toggle();

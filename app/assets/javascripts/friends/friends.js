@@ -5,8 +5,7 @@ $(document).ready(function(){
     friend: '.friend',
     friendDiv: '.friend_div'
   }
-  Friends.view = new Friends.View(selectors);
-  Friends.controller = new Friends.Controller(Friends.view);
-  Friends.binder = new Friends.Binder(Friends.controller, selectors);
-  Friends.binder.bindEvents();
+  BetterBet.Friends.view = new BetterBet.Friends.View(selectors);
+  BetterBet.Friends.controller = new BetterBet.Friends.Controller(BetterBet.Friends.view);
+  new BetterBet.Friends.Binder(BetterBet.Friends.controller, selectors).bindEvents();
 })

@@ -1,8 +1,8 @@
-Confirmation.View = function(selectors) {
+BetterBet.Confirmation.View = function(selectors) {
   this.selectors = selectors;
 }
 
-Confirmation.View.prototype = {
+BetterBet.Confirmation.View.prototype = {
   showModal: function(goal, friend) {
     $(document).foundation();
     $(this.selectors.buddyname).append(friend)

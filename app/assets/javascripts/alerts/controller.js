@@ -1,8 +1,8 @@
-Alert.Controller = function(view) {
+BetterBet.Alert.Controller = function(view) {
   this.view = view;
 }
 
-Alert.Controller.prototype = {
+BetterBet.Alert.Controller.prototype = {
   getStatus: function() {
     $.ajax({
       url: '/goals/status',

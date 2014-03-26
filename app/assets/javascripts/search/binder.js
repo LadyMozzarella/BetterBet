@@ -1,11 +1,9 @@
-var Search = {};
-
-Search.Binder = function(controller, selectors){
+BetterBet.Search.Binder = function(controller, selectors){
   this.controller = controller;
   this.selectors = selectors;
 }
 
-Search.Binder.prototype = {
+BetterBet.Search.Binder.prototype = {
 
   bindEvents: function(){
     this.bindKeyup();

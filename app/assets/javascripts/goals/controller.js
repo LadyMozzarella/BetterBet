@@ -1,8 +1,8 @@
-Goals.Controller = function(view){
+BetterBet.Goals.Controller = function(view){
   this.view = view;
 }
 
-Goals.Controller.prototype = {
+BetterBet.Goals.Controller.prototype = {
   deleteGoal: function(goalId){
     $.ajax({
       url: '/goals/' + goalId,

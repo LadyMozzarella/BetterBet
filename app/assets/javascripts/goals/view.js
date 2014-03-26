@@ -1,8 +1,8 @@
-Goals.View = function(selectors){
+BetterBet.Goals.View = function(selectors){
   this.selectors = selectors;
 }
 
-Goals.View.prototype = {
+BetterBet.Goals.View.prototype = {
   removeGoal: function(goalId){
     $("div[data-id =" + goalId + "]").remove();
   },

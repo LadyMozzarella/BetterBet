@@ -1,8 +1,8 @@
-Search.Controller = function(selectors){
+BetterBet.Search.Controller = function(selectors){
   this.selectors = selectors
 }
 
-Search.Controller.prototype = {
+BetterBet.Search.Controller.prototype = {
   completeTerm: function(searchTerm){
     $.ajax({
       url: '/users/autocomplete',
