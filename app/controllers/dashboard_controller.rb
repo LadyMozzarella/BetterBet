@@ -1,5 +1,4 @@
 class DashboardController < ApplicationController
-  # before_filter :authorize
 
   def index
     render(:landing) && return unless logged_in?
