@@ -10,8 +10,8 @@ Confirmation.Controller.prototype = {
       dataType: 'json',
       context: this
     }).success(function(response) {
-      if(response.goal !== null ){
-        this.goal = response.goal;
+      if(response.goal.length > 0 ){
+        this.goal = response.goal[0];
         this.view.showModal(this.goal, response.friend);
       }
     }).fail(function(xhr){
@@ -24,10 +24,11 @@ Confirmation.Controller.prototype = {
       type: 'PUT',
       data: {complete: complete},
       context: this
-    }).success(function(){
+    }).success(function(response){
+      debugger
       this.view.hideModal()
     }).fail(function(xhr){
-      console.log(xhr.responseText)
+      console.log("I am getting fails")
     })
   }
 };
