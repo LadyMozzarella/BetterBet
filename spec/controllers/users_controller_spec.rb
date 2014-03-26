@@ -55,7 +55,10 @@ describe UsersController do
   end
 
   context '#autocomplete' do
-    it 'should render json'
+    it 'should render json' do
+      get :autocomplete
+      expect(response.body).to have_css("body")
+    end
   end
 
   context "logged in" do
