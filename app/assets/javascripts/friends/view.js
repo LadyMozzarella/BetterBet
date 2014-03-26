@@ -4,8 +4,9 @@ Friends.View = function(selectors){
 
 Friends.View.prototype = {
 
-  updateFriendDiv: function(text){
-    $(this.selectors.friendStatus).html(text);
+  toggleFriendButton: function(text){
+    $(this.selectors.friend).toggle();
+    $(this.selectors.friendDiv).html(text)
   },
 
   friendErrorAlert: function(xhr){
