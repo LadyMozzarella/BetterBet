@@ -10,11 +10,12 @@
     margin-bottom: $base-line-height/2;
 }
 .goal_header h2{
-    @include span-columns(10);
+    @include span-columns(9);
 }
 
 .goal_edit-button,
-.goal_delete-button {
+.goal_delete-button,
+.goal_complete_button {
     @include span-columns(1);
     margin-top: .4em;
 }
@@ -24,6 +25,12 @@
   opacity: 0.3;
 }
 
+.goal_complete_button img {
+    height: 45px;
+    opacity: 0.3;
+}
+
+.goal_complete_button:hover img,
 .goal_delete-button:hover img,
 .goal_edit-button:hover img {
     opacity: 0.6;
