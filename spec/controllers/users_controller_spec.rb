@@ -32,9 +32,9 @@ describe UsersController do
     end
 
     context 'with invalid attributes' do
-      it 'should be redirect' do
+      it 'should not be redirect' do
         post :create
-        expect(response).to be_redirect
+        expect(response).to_not be_redirect
       end
     end
 

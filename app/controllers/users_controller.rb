@@ -12,16 +12,16 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-    redirect_to new_user_path and return unless @user.save
 
-    login(@user)
-    UserMailer.welcome_email(@user).deliver
-
-    customer = Customer.create(@user, params[:stripeToken])
-    Payment.create(customer.id)
-    @user.update_attribute(:stripe_id, customer.id)
-
-    redirect_to dashboard_path
+    if @user.save
+      customer = Customer.create(@user, params[:stripeToken])
+      Payment.create(customer.id)
+      @user.update_attribute(:stripe_id, customer.id)
+      login(@user)
+      redirect_to dashboard_path
+    else
+      render :new
+    end
   end
 
   def autocomplete
