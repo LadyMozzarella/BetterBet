@@ -10,7 +10,7 @@ Friends.Controller.prototype = {
       context: this,
       data: {friend_id: friendId}
     }).done(function(){
-      this.view.updateFriendDiv("Added friend")
+      this.view.toggleFriendButton("Friend Added")
     }).fail(function(xhr){
       this.view.friendErrorAlert(xhr)
     });
@@ -23,7 +23,7 @@ Friends.Controller.prototype = {
       context: this,
       data: {friend_id: friendId}
     }).done(function(){
-      this.view.updateFriendDiv("Deleted friend")
+      this.view.toggleFriendButton("Friend Deleted")
     }).fail(function(xhr){
       this.view.friendErrorAlert()
     });
