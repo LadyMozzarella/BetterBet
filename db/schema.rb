@@ -22,17 +22,18 @@ ActiveRecord::Schema.define(:version => 20140326031536) do
   add_index "friendships", ["user_id"], :name => "index_friendships_on_user_id"
 
   create_table "goals", :force => true do |t|
-    t.string   "title",                            :null => false
+    t.string   "title",                               :null => false
     t.text     "description"
-    t.integer  "bet_amount",    :default => 0
-    t.datetime "start_date",                       :null => false
-    t.datetime "end_date",                         :null => false
+    t.integer  "bet_amount",       :default => 0
+    t.datetime "start_date",                          :null => false
+    t.datetime "end_date",                            :null => false
     t.integer  "owner_id"
     t.integer  "buddy_id"
-    t.boolean  "completed",     :default => false
+    t.boolean  "completed",        :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "terminated_at"
+    t.boolean  "status_confirmed", :default => false
     t.string   "transfer_id"
   end
 

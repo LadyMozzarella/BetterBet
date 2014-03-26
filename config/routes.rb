@@ -21,6 +21,10 @@ Betterbet::Application.routes.draw do
   end
   put '/goals/:id/complete', to: 'goals#complete', as: 'complete_goal'
   put '/goals/:id/terminate', to: 'goals#terminate', as: 'terminate_goal'
+
+  post '/goals/buddy_status', to: 'goals#buddy_status'
+  put '/goals/:id/confirm', to: 'goals#confirm', as: 'confirm_goal'
+
   post '/goals/status', to: 'goals#status'
 
   resources :recipients, only: [:new, :create]

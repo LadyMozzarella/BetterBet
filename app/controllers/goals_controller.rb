@@ -1,5 +1,5 @@
 class GoalsController < ApplicationController
-  before_filter :goal, except: [:new, :create, :goal, :status]
+  before_filter :goal, except: [:new, :create, :goal, :status, :buddy_status]
   before_filter :authorize
 
   def new
@@ -37,6 +37,7 @@ class GoalsController < ApplicationController
   def complete
     @goal.update_attributes(completed: true, terminated_at: Time.now)
     notify_buddy(@goal)
+
     redirect_to dashboard_path
   end
 
@@ -51,6 +52,17 @@ class GoalsController < ApplicationController
     render :nothing => true, :status => 200
   end
 
+  def buddy_status
+    goal = Goal.expired_goal_by_buddy(current_user)
+    (render :nothing => true, :status =>200) && return if goal.empty?
+    render json: {goal: goal, friend: goal[0].owner.name}.to_json 
+  end
+
+  def confirm
+    @goal.update_attribute(:status_confirmed, true)
+    render json: params[:complete].to_json
+  end
+
   private
 
   def goal
@@ -58,7 +70,7 @@ class GoalsController < ApplicationController
   end
 
   def notify_buddy(goal)
-    buddy = User.find(goal.buddy_id)
+    buddy = User.find(goal.buddy_id) 
     UserMailer.goal_end_email(buddy, current_user, goal).deliver
   end
 end
