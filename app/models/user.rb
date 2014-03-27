@@ -8,8 +8,6 @@ class User < ActiveRecord::Base
   has_many :inverse_friends, through: :inverse_friendships, source: :user
   validates :name, :email, :password_digest, presence: true
   validates :email, uniqueness: true
-  after_save :add_to_soulmate
-  before_destroy :remove_from_soulmate
   after_create :send_welcome
 
   def self.omniauth(auth)
@@ -35,13 +33,9 @@ class User < ActiveRecord::Base
   end
 
   def self.search(name)
-    users = Soulmate::Matcher.new("user").matches_for_term(name).tap do |collection_of_users|
-      # Due to a bug in the caching algorithm of Soulmate::Matcher.matches_for_term,
-      # it is possible for a user who no longer exists in OUR database to exist, cached, in
-      # the Redis database.  SoulMate sucks.
-      collection_of_users.select{|h| User.exists?(h["id"])}
-    end
-    users.collect{ |c| {"id" => c["id"], "name" => c["term"] } }
+    name = name.downcase
+    name = "%" + name + "%"
+    find(:all, :conditions => ['lower(name) LIKE ?', name])
   end
 
   def friend_goals
@@ -77,18 +71,6 @@ class User < ActiveRecord::Base
 
   def send_welcome
     UserMailer.welcome_email(self).deliver
-  end
-
-  private
-
-  def add_to_soulmate
-    loader = Soulmate::Loader.new("user")
-    loader.add("term" => name, "id" => self.id)
-  end
-
-  def remove_from_soulmate
-    loader = Soulmate::Loader.new("user")
-    loader.remove("id" => self.id)
   end
 
 end
