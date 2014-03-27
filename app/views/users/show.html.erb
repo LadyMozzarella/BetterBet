@@ -10,7 +10,7 @@
             <%= link_to image_tag('times.svg'), user_path(@user), method: :delete, confirm: 'Are you sure you want to delete your account?' %>
           </li>
         <% else %>
-          <div class="friend_div"></div>
+          <div class="friend_status"></div>
           <% if current_user.has_friend?(@user)  %>
             <%= link_to image_tag('minus.svg') , "#", class: 'delete_friend friend', data: {friend: "#{@user.id}", user: current_user.id}%><br>
           <% else  %>
@@ -20,7 +20,6 @@
       </ul>
   </header>
 
-  <div class="friend_status"></div>
   <img class="user_profile_img" src="<%= @image_url %>" >
 
   <p class="user_profile_bio">
