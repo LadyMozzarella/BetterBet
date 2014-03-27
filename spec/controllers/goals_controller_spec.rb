@@ -72,6 +72,10 @@ describe GoalsController do
         delete :destroy, id: goal
       }.to change{ Goal.count }.by -1
     end
+    it 'should delete via an ajax request' do
+      xhr :delete, :destroy, id: goal
+      expect(response).to be_ok
+    end
   end
 
   context '#complete' do
@@ -111,6 +115,22 @@ describe GoalsController do
     it 'should redirect' do
       put :terminate, id: goal
       expect(response).to_not be_redirect
+    end
+  end
+
+  context '#buddy_status' do
+    it "should return the buddy's goals" do
+      session[:user_id] = goal.buddy.id
+      xhr :post, :buddy_status
+      expect(response).to be_ok
+    end
+  end
+
+  context '#confirm' do
+    it "should change the goal's confrimed status" do
+      expect{
+        xhr :put, :confirm, id: goal
+      }.to change{ goal.reload.status_confirmed? }.to eq(true)
     end
   end
 end
