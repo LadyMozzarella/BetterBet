@@ -5,19 +5,13 @@ describe "User", js: true do
   let!(:friend) { create :user }
   let(:new_user) { create :user }
 
-  describe "sign up or log in" do
-    describe "can create an account" do
-      it "by visiting the new user page"
-    end
-
-    describe "can log in" do
-      it "can log in" do
-        visit logout_path
-        fill_in 'Email', with: user.email
-        fill_in 'Password', with: user.password
-        click_button 'Login'
-        expect(page).to have_content 'Friends Timeline'
-      end
+  describe "can log in" do
+    it "can log in" do
+      visit logout_path
+      fill_in 'Email', with: user.email
+      fill_in 'Password', with: user.password
+      click_button 'Login'
+      expect(page).to have_content 'Friends Timeline'
     end
   end
 

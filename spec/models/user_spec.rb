@@ -13,10 +13,6 @@ describe User do
     it { should have_many :goals }
   end
 
-  context "#omniauth" do
-    it "should successfully save user with information"
-  end
-
   context "#has_friends?" do
     context "if user has friends" do
       let(:friend) { create :user }
@@ -52,16 +48,6 @@ describe User do
       it "should return false" do
         expect(user.has_friends?).to eq false
       end
-    end
-  end
-
-  context "#active_goals" do
-    let(:recent_goal) { create :goal, :recent }
-    let(:past_goal) { create :goal }
-    xit "should return a sorted list of goals" do
-      user.stub(:goals) { [recent_goal, past_goal] }
-      expect(user.active_goals).to eq goals
-      expect(user.active_goals.first).to eq recent_goal
     end
   end
 

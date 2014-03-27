@@ -9,9 +9,9 @@ describe GoalsController do
   render_views
 
   context '#new' do
-    it 'should be a success' do
+    it 'should be a ok' do
       get :new
-      expect(response).to be_success
+      expect(response).to be_ok
     end
 
     it 'should assign @goal to new goal' do
@@ -36,9 +36,9 @@ describe GoalsController do
   end
 
   context '#edit' do
-    it 'should be a success' do
+    it 'should be a ok' do
       get :edit, id: goal
-      expect(response).to be_success
+      expect(response).to be_ok
     end
 
     it 'should assign @goal to new goal' do
@@ -72,6 +72,7 @@ describe GoalsController do
         delete :destroy, id: goal
       }.to change{ Goal.count }.by -1
     end
+
     it 'should delete via an ajax request' do
       xhr :delete, :destroy, id: goal
       expect(response).to be_ok

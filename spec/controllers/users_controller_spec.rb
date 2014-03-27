@@ -10,7 +10,7 @@ describe UsersController do
   context '#new' do
     it 'should be a success' do
       get :new
-      expect(response).to be_success
+      expect(response).to be_ok
     end
 
     it 'should assign @user to new user' do
@@ -67,7 +67,7 @@ describe UsersController do
     end
 
     context '#index' do
-      it 'should be a success' do
+      it 'should be a ok' do
         get :index
         expect(response).to be_ok
       end
@@ -79,9 +79,9 @@ describe UsersController do
     end
 
     context '#show' do
-      it 'should be a success' do
+      it 'should be a ok' do
         get :show, id: user
-        expect(response).to be_success
+        expect(response).to be_ok
       end
 
       it 'should find a specific user' do
@@ -91,9 +91,9 @@ describe UsersController do
     end
 
     context '#edit' do
-      it 'should be a success' do
+      it 'should be a ok' do
         get :edit, id: user
-        expect(response).to be_success
+        expect(response).to be_ok
       end
 
       it 'should have a form' do
