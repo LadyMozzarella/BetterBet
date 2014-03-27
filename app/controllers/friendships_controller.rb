@@ -2,19 +2,13 @@ class FriendshipsController < ApplicationController
   before_filter :friend
 
   def create
-    if current_user.friends << @friend
-      render :text => "Friend Added"
-    else
-      render :text => "Something went wrong. Please try again.", :status => :unprocessable_entity
-    end
+    render(text: "Friend Added") && return if current_user.friends << @friend
+    render(text: "Something went wrong. Please try again.", status: :unprocessable_entity)
   end
 
   def destroy
-    if current_user.friends.delete(@friend)
-      render :text => "Friend Deleted"
-    else
-      render :text => "Something went wrong. Please try again.", :status => :unprocessable_entity
-    end
+    render(text: "Friend Deleted") && return if current_user.friends.delete(@friend)
+    render(text: "Something went wrong. Please try again.", status: :unprocessable_entity)
   end
 
   private
