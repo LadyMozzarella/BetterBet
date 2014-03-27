@@ -12,8 +12,6 @@
   <% if current_user.has_friends? %>
     <%= f.label :buddy %>
     <%= f.collection_select :buddy_id, current_user.get_buddies, :id, :name %>
-  <% else %>
-    (None)
   <% end %>
   <%= f.submit class: 'submit' %>
 <% end %>
