@@ -1,0 +1,12 @@
+.friend_status {
+    @include media($medium-screen) {
+        @include span-columns(6);
+        @include shift(3);
+    }
+    @include span-columns(10);
+    @include shift(1);
+    @include flash($solid-orange);
+    margin-top: $base-line-height/2;
+    margin-bottom: $base-line-height/4;
+    color: #FFF;
+}

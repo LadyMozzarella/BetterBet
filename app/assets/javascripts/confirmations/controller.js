@@ -39,7 +39,9 @@ BetterBet.Confirmation.Controller.prototype = {
       type: 'POST',
       data: {goal_id: goal.id},
       context: this
-    }).success(function(){}).fail(function(xhr){
+    }).success(function(){
+        $('#flash-error').append("Money successfully transferred!")
+    }).fail(function(xhr){
       console.log(xhr.responseText);
     })
   }

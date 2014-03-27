@@ -1,5 +1,7 @@
 <%= render 'shared/alerts' %>
 <%= render 'shared/confirmations' %>
+
+<div id="flash-error"></div>
 <div id="page">
   <section class="missing_bank_account">
     <% if !current_user.has_bank_info? %>
