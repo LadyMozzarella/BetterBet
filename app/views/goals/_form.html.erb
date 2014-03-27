@@ -3,7 +3,7 @@
   <%= f.text_field :title, :required => true %>
   <%= f.label :description %>
   <%= f.text_area :description %>
-  <%= f.label :bet %>
+  <%= f.label :bet, "Bet (in $)" %>
   <%= f.number_field :bet_amount, min: 0 %>
   <%= f.label :start_date %>
   <%= f.date_select :start_date, :required => true, :order => [:month, :day, :year]  %>
