@@ -26,9 +26,6 @@
   <p class="user_profile_bio">
       <%= @user.bio %></label>
   </p>
-  <% if is_authorized(@user) && !current_user.has_bank_info? %>
-    <%= link_to "Link Bank Account", new_recipient_path %>
-  <% end %>
 
   <h2 class="goals_header">Goals</h2>
   <%= render 'goals/index', goals: @user.incomplete_goals %>
