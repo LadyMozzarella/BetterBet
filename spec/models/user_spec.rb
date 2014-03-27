@@ -38,11 +38,31 @@ describe User do
       expect(Goal).to receive(:latest_for).with(user) {[]}
       user.latest_goal
     end
+<<<<<<< HEAD
+=======
+  end
+
+  context "#is_user?" do
+    context "if user is itself" do
+      it "should return true" do
+        expect(user.is_user?(user)).to eq true
+      end
+    end
+
+    context "if user isn't itself" do
+      let(:imposter) { create :user }
+      it "should return false" do
+        expect(imposter.is_user?(user)).to eq false
+      end
+    end
+>>>>>>> dd498811d0a89415899c28a9ce50d1f1b7515b77
   end
 
   context "#search" do
     context 'with matching string' do
-      it 'should return the user\'s name'
+      it 'should return the user\'s name' do
+
+      end
     end
 
     context 'with no matching string' do
@@ -76,6 +96,19 @@ describe User do
     end
   end
 
+<<<<<<< HEAD
+=======
+  context "#active_goals" do
+    let(:recent_goal) { create :goal, :recent }
+    let(:past_goal) { create :goal }
+    xit "should return a sorted list of goals" do
+      user.stub(:goals) { [recent_goal, past_goal] }
+      expect(user.active_goals).to eq goals
+      expect(user.active_goals.first).to eq recent_goal
+    end
+  end
+
+>>>>>>> dd498811d0a89415899c28a9ce50d1f1b7515b77
   context "#image=" do
     context "gravatar image" do
       let(:user_gravatar) { create :user, :img_gravatar }
@@ -113,4 +146,14 @@ describe User do
     end
   end
 
+<<<<<<< HEAD
+=======
+  context "#incomplete_goals" do
+    let(:incomplete_goals) { create_list(:goal, 2, :incomplete) }
+    it "should return an array of incomplete goals" do
+      user.stub(:goals) { incomplete_goals }
+      expect(user.incomplete_goals).to eq incomplete_goals
+    end
+  end
+>>>>>>> dd498811d0a89415899c28a9ce50d1f1b7515b77
 end
