@@ -4,16 +4,15 @@
   <title>Betterbet</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= stylesheet_link_tag "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-  <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 </head>
 <body>
 <%= render 'shared/navbar' %>
 <div class="page-content">
     <%= yield %>
 </div>
-
+  <%= javascript_include_tag "application" %>
+  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 </body>
 </html>

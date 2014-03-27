@@ -37,17 +37,13 @@
     opacity: 0.3;
 }
 
-.user_profile_img,
-.user_profile_img-default {
+.user_profile_img {
     @include media($medium-screen) {
         @include span-columns(3);
     }
     @include span-columns(4);
-    opacity: 0.6;
-}
-
-.user_profile_img-default {
-    opacity: 0.6;
+    margin-top: $base-line-height/2;
+    margin-bottom: $base-line-height/2;
 }
 
 .user_profile_bio {
@@ -57,10 +53,6 @@
     @include span-columns(8);
     @include omega;
     margin-top: $base-line-height/4;
-}
-
-.user_add-friend_button {
-
 }
 
 .add_friend img,
@@ -75,11 +67,3 @@
 .delete_friend:hover img {
     opacity: 0.6;
 }
-
-
-
-
-
-
-
-

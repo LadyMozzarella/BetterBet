@@ -1,6 +1,6 @@
 <nav>
   <% if logged_in? %>
-    <a href="<%= dashboard_path %>"><h1 class="logo">BetterBet</h1></a>
+    <a href="<%= dashboard_path %>"><h1 class="logo">betterBet!</h1></a>
     <div class="log_buttons">
         logged in as  <%= link_to current_user.name, user_path(current_user), class: "profile_link" %> |
         <%= link_to "Sign Out", logout_path, class: "signout_link" %>

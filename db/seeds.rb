@@ -1,13 +1,13 @@
-users = [ivan = User.create(email: "thefenry@gmail.com", password: "ivan", password_confirmation: "ivan", name: "Ivan", bio: Faker::Lorem.paragraph),
-brittany = User.create(email: "brittany@example.com", password: "brittany", password_confirmation: "brittany", name: "Brittany", bio: Faker::Lorem.paragraph),
-jose = User.create(email: "jose@example.com", password: "jose", password_confirmation: "jose", name: "Jose", bio: Faker::Lorem.paragraph),
-irene = User.create(email: "irene@example.com", password: "irene", password_confirmation: "irene", name: "Irene", bio: Faker::Lorem.paragraph),
-anne = User.create(email: "anne@example.com", password: "anne", password_confirmation: "anne", name: "Anne", bio: Faker::Lorem.paragraph),
-jamie = User.create(email: "jamie@example.com", password: "jamie", password_confirmation: "jamie", name: "Jamie", bio: Faker::Lorem.paragraph),
-mathilde = User.create(email: "mathilde@example.com", password: "mathilde", password_confirmation: "mathilde", name: "Mathilde", bio: Faker::Lorem.paragraph),
-armando = User.create(email: "armando@example.com", password: "armando", password_confirmation: "armando", name: "Armando", bio: Faker::Lorem.paragraph),
-johnny = User.create(email: "johnny@example.com", password: "johnny", password_confirmation: "johnny", name: "Johnny", bio: Faker::Lorem.paragraph),
-chermaine = User.create(email: "chermaine@example.com", password: "chermaine", password_confirmation: "chermaine", name: "Chermaine", bio: Faker::Lorem.paragraph)]
+users = [ivan = User.create(email: "thefenry@gmail.com", password: "ivan", password_confirmation: "ivan", name: "Ivan", bio: Faker::Lorem.paragraph, image: "http://localhost:3000/assets/default_user_image.svg"),
+brittany = User.create(email: "brittany@example.com", password: "brittany", password_confirmation: "brittany", name: "Brittany", bio: Faker::Lorem.paragraph, image: "http://localhost:3000/assets/default_user_image.svg"),
+jose = User.create(email: "jose@example.com", password: "jose", password_confirmation: "jose", name: "Jose", bio: Faker::Lorem.paragraph, image: "http://localhost:3000/assets/default_user_image.svg"),
+irene = User.create(email: "irene@example.com", password: "irene", password_confirmation: "irene", name: "Irene", bio: Faker::Lorem.paragraph, image: "http://localhost:3000/assets/default_user_image.svg"),
+anne = User.create(email: "anne@example.com", password: "anne", password_confirmation: "anne", name: "Anne", bio: Faker::Lorem.paragraph, image: "http://localhost:3000/assets/default_user_image.svg"),
+jamie = User.create(email: "jamie@example.com", password: "jamie", password_confirmation: "jamie", name: "Jamie", bio: Faker::Lorem.paragraph, image: "http://localhost:3000/assets/default_user_image.svg"),
+mathilde = User.create(email: "mathilde@example.com", password: "mathilde", password_confirmation: "mathilde", name: "Mathilde", bio: Faker::Lorem.paragraph, image: "http://localhost:3000/assets/default_user_image.svg"),
+armando = User.create(email: "armando@example.com", password: "armando", password_confirmation: "armando", name: "Armando", bio: Faker::Lorem.paragraph, image: "http://localhost:3000/assets/default_user_image.svg"),
+johnny = User.create(email: "johnny@example.com", password: "johnny", password_confirmation: "johnny", name: "Johnny", bio: Faker::Lorem.paragraph, image: "http://localhost:3000/assets/default_user_image.svg"),
+chermaine = User.create(email: "chermaine@example.com", password: "chermaine", password_confirmation: "chermaine", name: "Chermaine", bio: Faker::Lorem.paragraph, image: "http://localhost:3000/assets/default_user_image.svg")]
 
 
 users.each do |user|

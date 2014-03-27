@@ -16,9 +16,3 @@ section {
     text-align: center;
     line-height: $base-line-height *1.5 ;
 }
-
-.facebook_signup_link {
-    @include button;
-    @include span-columns(6);
-    margin: $base-line-height;
-}
