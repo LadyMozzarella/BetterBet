@@ -52,10 +52,6 @@ class User < ActiveRecord::Base
     self.friends.exists?(friend)
   end
 
-  def active_goals
-    self.goals.where("completed = false").order("updated_at DESC")
-  end
-
   def image=(img_path)
     return write_attribute(:image, img_path) if img_path.length > 1
     img_path = (img_path == "1") ? "http://www.gravatar.com/avatar/" + generate_md5 + "?s=300" : "/assets/default_user_image.svg"
