@@ -5,7 +5,8 @@ $(document).ready(function() {
       goal: '.goal-confirmation-msg',
       buttonComplete: '.confirm-complete',
       buttonIncomplete: '.confirm-incomplete',
-      buddyname: '.buddy-name'
+      buddyname: '.buddy-name',
+      flashError:'#flash-error'
     };
 
 

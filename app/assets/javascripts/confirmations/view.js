@@ -11,5 +11,8 @@ BetterBet.Confirmation.View.prototype = {
   },
   hideModal: function() {
     $(this.selectors.modal).foundation('reveal', 'close');
+  },
+  showTransfer: function(){
+    $(this.selectors.flashError).append("Money successfully transferred!");
   }
 };
