@@ -34,6 +34,10 @@ class User < ActiveRecord::Base
     Goal.latest_for(self).first
   end
 
+  def is_user?(user)
+    self.id == user.id
+  end
+
   def self.search(name)
     users = Soulmate::Matcher.new("user").matches_for_term(name).tap do |collection_of_users|
       # Due to a bug in the caching algorithm of Soulmate::Matcher.matches_for_term,
