@@ -40,18 +40,6 @@ describe User do
     end
   end
 
-  context "#search" do
-    context 'with matching string' do
-      it 'should return the user\'s name' do
-
-      end
-    end
-
-    context 'with no matching string' do
-      it 'should return an empty array'
-    end
-  end
-
   context "#has_friend?" do
     context "if user has friends" do
       it "should return true" do
