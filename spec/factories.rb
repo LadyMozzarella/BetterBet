@@ -3,14 +3,31 @@ FactoryGirl.define do
     "email#{n}@example.com"
   end
 
-  factory :user do
+  factory :user, :aliases => [:owner, :buddy] do
     email
     name Faker::Lorem.word
-    image "/assets/default_user_image.svg"
     password '1234'
     password_confirmation '1234'
     bio Faker::Lorem.paragraph
+    image "0"
     stripe_id Faker::Lorem.word
+
+    trait :img_default do
+      image "0"
+    end
+
+    trait :img_gravatar do
+      image "1"
+    end
+
+    trait :img_fb do
+      image "http://graph.facebook.com"
+    end
+
+    trait :stripe_recipient do
+      recipient_id Faker::Lorem.word
+    end
+
   end
 
   factory :goal do
@@ -18,8 +35,19 @@ FactoryGirl.define do
     description Faker::Lorem.paragraph
     start_date Time.now
     end_date Time.now + 2.weeks
-    association :owner, factory: :user
-    association :buddy, factory: :user
+    owner
+    buddy
+    trait :incomplete do
+      completed false
+    end
+
+    trait :complete do
+      completed true
+    end
+
+    trait :recent do
+      start_date Time.now + 4.weeks
+    end
    end
 
   factory :friendship do

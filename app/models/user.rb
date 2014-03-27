@@ -12,10 +12,6 @@ class User < ActiveRecord::Base
   before_destroy :remove_from_soulmate
   after_create :send_welcome
 
-  def all_friends
-    self.friends + self.inverse_friends
-  end
-
   def self.omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
       user.provider = auth.provider
@@ -35,7 +31,7 @@ class User < ActiveRecord::Base
   end
 
   def latest_goal
-    self.goals.where('completed = false').order("updated_at DESC").limit(1)
+    Goal.latest_for(self).first
   end
 
   def self.search(name)
@@ -49,21 +45,11 @@ class User < ActiveRecord::Base
   end
 
   def friend_goals
-    friends_info = {}
-    self.friends.each do |friend|
-      unless friend.goals.empty?
-        friends_info[friend.name] = friend.goals.order("updated_at DESC")
-      end
-    end
-    friends_info
+    self.friends.includes(:goals).order("goals.updated_at DESC")
   end
 
   def has_friend?(friend)
     self.friends.exists?(friend)
-  end
-
-  def active_goals
-    self.goals.where("completed = false").order("updated_at DESC")
   end
 
   def image=(img_path)
@@ -82,7 +68,7 @@ class User < ActiveRecord::Base
   end
 
   def incomplete_goals
-    self.goals.reject{ |goal| goal.completed? }
+    self.goals.where("completed = false").order("updated_at DESC")
   end
 
   def has_bank_info?
