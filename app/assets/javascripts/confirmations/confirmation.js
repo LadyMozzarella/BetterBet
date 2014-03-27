@@ -6,7 +6,7 @@ $(document).ready(function() {
       buttonComplete: '.confirm-complete',
       buttonIncomplete: '.confirm-incomplete',
       buddyname: '.buddy-name',
-      flashError:'#flash-error'
+      flashError: '#flash-error'
     };
 
 
