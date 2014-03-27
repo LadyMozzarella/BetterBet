@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe UsersController do
-  let(:user) { create :user }
+  let(:user) { create :user, :img_default }
   let(:attribs) { attributes_for :user }
   let!(:goal) { create :goal }
   let(:users) {create_list :user, 2}
@@ -87,11 +87,6 @@ describe UsersController do
       it 'should find a specific user' do
         get :show, id: user
         expect(assigns :user).to eq user
-      end
-
-      it 'should assign a user\'s image path to @image_url' do
-        get :show, id: user
-        expect(assigns :image_url).to_not eq nil
       end
     end
 

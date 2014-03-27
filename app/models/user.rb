@@ -72,7 +72,7 @@ class User < ActiveRecord::Base
   end
 
   def incomplete_goals
-    self.goals.reject{ |goal| goal.completed? }
+    self.goals.where("completed = false").order("updated_at DESC")
   end
 
   def has_bank_info?

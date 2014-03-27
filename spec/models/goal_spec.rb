@@ -123,9 +123,9 @@ describe Goal do
 
   describe '#latest_for' do
     before(:each) do
-      create :goal, :owner => user, :completed => false
-      @latest = create :goal, :owner => user, :completed => false
-      create :goal, :owner => user, :completed => true
+      create :goal, owner: user, completed: false
+      @latest = create :goal, owner: user, completed: false
+      create :goal, owner: user, completed: true
     end
     it "return the latest incomplete goal" do
       expect(Goal.latest_for(user)).to eq [@latest]

@@ -9,6 +9,7 @@ FactoryGirl.define do
     password '1234'
     password_confirmation '1234'
     bio Faker::Lorem.paragraph
+    image "0"
     stripe_id Faker::Lorem.word
 
     trait :img_default do
