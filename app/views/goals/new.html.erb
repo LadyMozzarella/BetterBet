@@ -1,5 +1,5 @@
 <section class="new-goal-form">
   <h1>Start a new goal</h1>
   <%= render 'shared/flash_errors' %>
-  <%= render partial: 'form', :locals => {:goal => @goal} %>
+  <%= render 'form', goal: @goal %>
 </section>

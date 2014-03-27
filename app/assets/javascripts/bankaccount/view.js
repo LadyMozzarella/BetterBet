@@ -4,18 +4,16 @@ BetterBet.BankAccount.View = function(selectors) {
 
 BetterBet.BankAccount.View.prototype = {
   alertInvalid: function() {
-    alert('Bank account information is not valid.');
-    return false;
+    $(this.selectors.flashError).html('Bank account information is not valid.');
   },
   displayError: function(errorMsg) {
-    $(this.selectors.bankForm).append(errorMsg);
+    $(this.selectors.flashError).html(errorMsg);
   },
   addStripeToken: function(token) {
     $(this.selectors.bankForm).append($(this.selectors.stripeInput).val(token));
   },
   submitForm: function() {
     $form = $(this.selectors.bankForm).off();
-    console.log('about to submit!')
     $form.submit();
   }
 };
