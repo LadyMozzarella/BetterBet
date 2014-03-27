@@ -7,14 +7,11 @@ class GoalsController < ApplicationController
   end
 
   def create
-    user = current_user
-    goal = user.goals.new(params[:goal])
-    if goal.save
-      redirect_to dashboard_path
-    else
-      flash[:error] = "Invalid goal"
-      redirect_to new_goal_path
-    end
+    goal = current_user.goals.new(params[:goal])
+    redirect_to(dashboard_path) && return if goal.save
+
+    flash[:error] = "Invalid goal"
+    redirect_to new_goal_path
   end
 
   def edit
@@ -27,11 +24,8 @@ class GoalsController < ApplicationController
 
   def destroy
     @goal.destroy
-    if request.xhr?
-      render :nothing => true, :status => 200
-    else
-      redirect_to dashboard_path
-    end
+    redirect_to(dashboard_path) && return unless request.xhr?
+    render :nothing => true, :status => :ok
   end
 
   def complete
@@ -49,7 +43,7 @@ class GoalsController < ApplicationController
   def terminate
     @goal.update_attributes(completed: params[:complete], terminated_at: Time.now)
     notify_buddy(@goal) if @goal.buddy_id
-    render :nothing => true, :status => 200
+    render :nothing => true, :status => :ok
   end
 
   def buddy_status
