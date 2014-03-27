@@ -1,6 +1,6 @@
 <section class="friends-timeline">
   <h2 class="friends-timeline_header">Friends Timeline</h2>
-  <% @friends.each do |name, goals| %>
-    <%= render 'friendships/show_friend', name: name, goals: goals %>
+  <% @friends.each do |friend| %>
+    <%= render 'friendships/show_friend', name: friend.name, goals: friend.goals %>
   <% end %>
 </section>

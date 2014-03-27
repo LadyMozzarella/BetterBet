@@ -12,6 +12,10 @@ class Goal < ActiveRecord::Base
     self.end_date - Time.now
   end
 
+  def incomplete?
+    !self.completed
+  end
+
   def started?
     Time.now >= self.start_date
   end
@@ -40,5 +44,9 @@ class Goal < ActiveRecord::Base
 
   def self.expired_goal_by_buddy(buddy)
     Goal.where('buddy_id = ? AND terminated_at IS NOT NULL AND status_confirmed = false', buddy.id).limit(1)
+  end
+
+  def self.latest_for(owner)
+    self.where(["completed = ? AND owner_id = ?", false, owner.id]).order("updated_at DESC").limit(1)
   end
 end
