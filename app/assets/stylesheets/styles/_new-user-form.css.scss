@@ -1,4 +1,5 @@
-.new-user-form {
+.new-user-form,
+.edit_user_form {
     @include media($medium-screen) {
         @include span-columns(8);
         @include shift(2);
