@@ -40,7 +40,7 @@ BetterBet.Confirmation.Controller.prototype = {
       data: {goal_id: goal.id},
       context: this
     }).success(function(){
-        this.view.showTransfer();
+      this.view.showTransfer();
     }).fail(function(xhr){
       console.log(xhr.responseText);
     })
