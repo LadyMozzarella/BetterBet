@@ -1,9 +1,9 @@
-<% goals.each do |goal| %>
+<% friend.goals.each do |goal| %>
   <article class="friends-timeline_friend-activity">
   <img src="<%= goal.owner.image %>" alt="placeholder" class="friends-timeline_buddy_image">
   <p class="friends-timeline_action">
     <h4 class="friends-timeline_buddy-name">
-      <%= name %>
+      <%= link_to friend.name, user_path(friend) %>
     </h4>
     <%= goal.title %><br>
     <%= format_days(goal.countdown) %> days remaining
