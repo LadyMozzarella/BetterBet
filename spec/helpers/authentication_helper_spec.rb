@@ -31,4 +31,20 @@ describe AuthenticationHelper do
       end
     end
   end
+
+  context '#is_authorized' do
+    context 'if user is the current user' do
+      it 'should return true' do
+        session[:user_id] = user.id
+        expect(helper.is_authorized(user)).to eq true
+      end
+    end
+
+    context 'if user is not the current user' do
+      it 'should return false' do
+        session[:user_id] = create(:user).id
+        expect(helper.is_authorized(user)).to eq false
+      end
+    end
+  end
 end
