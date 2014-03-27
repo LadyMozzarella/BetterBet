@@ -9,8 +9,8 @@ BetterBet.Friends.Controller.prototype = {
       type: 'POST',
       context: this,
       data: {friend_id: friendId}
-    }).done(function(){
-      this.view.toggleFriendButton("Friend Added")
+    }).done(function(response){
+      this.view.toggleFriendButton(response);
     }).fail(function(xhr){
       this.view.friendErrorAlert(xhr)
     });
@@ -22,8 +22,8 @@ BetterBet.Friends.Controller.prototype = {
       type: 'DELETE',
       context: this,
       data: {friend_id: friendId}
-    }).done(function(){
-      this.view.toggleFriendButton("Friend Deleted")
+    }).done(function(response){
+      this.view.toggleFriendButton(response)
     }).fail(function(xhr){
       this.view.friendErrorAlert()
     });
