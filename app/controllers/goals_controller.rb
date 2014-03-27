@@ -54,7 +54,7 @@ class GoalsController < ApplicationController
 
   def buddy_status
     goal = Goal.expired_goal_by_buddy(current_user)
-    (render :nothing => true, :status =>200) && return if goal.empty?
+    (render nothing: true, status: 200) && return if goal.empty?
     render json: {goal: goal, friend: goal[0].owner.name}.to_json
   end
 
