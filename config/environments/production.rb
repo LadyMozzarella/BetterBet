@@ -74,4 +74,5 @@ Betterbet::Application.configure do
     password: ENV['PASSWORD']
   }
 
+   config.action_mailer.default_url_options = {:host => "http://betterbet.herokuapp.com"}
 end

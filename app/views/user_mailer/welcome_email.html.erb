@@ -5,9 +5,12 @@
   </head>
   <body>
     <h1>Welcome to BetterBet.com, <%= @user.name %>!</h1>
-    <p>You have successfully signed up to BetterBet.com.</p>
+    <p>You have successfully signed up at BetterBet.com.</p>
     <p>Your username is: <%= @user.email %>.</p>
-    <p>To login to the site, just follow this link: <a href="http://localhost:3000/login"><%= @url %></a>.</p>
+
+    <p>Be sure to link up your bank account on your profile page, so your friends can choose you as their benefactor on their goals.</p>
+
+    <p>To do this, just follow this link to your profile: <a href="<%= @url %>"><%=@url %></a>.</p>
     <p>Thanks for joining and have a great day!</p>
   </body>
 </html>
