@@ -3,7 +3,7 @@
 <div id="page">
   <section class="missing_bank_account">
     <% if !current_user.has_bank_info? %>
-      <%= link_to "Your profile is incomplete, click here to link a Bank Account", new_recipient_path, class: "bank_account_missing_notice" %>
+      <%= link_to "Your profile is incomplete. Add your Bank Account information to receive payments from your friends.", new_recipient_path, class: "bank_account_missing_notice" %>
     <% end %>
   </section>
 
