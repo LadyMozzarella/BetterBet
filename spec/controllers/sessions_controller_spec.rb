@@ -38,4 +38,13 @@ describe SessionsController do
       end
     end
   end
+
+  context "#facebook_signup" do
+    it 'should redirect the user after login' do
+      User.stub(:omniauth){ user }
+      get :facebook_signup , provider: 'facebook'
+      expect(response).to be_redirect
+    end
+  end
+
 end
