@@ -3,7 +3,7 @@ $(document).ready(function(){
     addFriend: '.add_friend',
     deleteFriend: '.delete_friend',
     friend: '.friend',
-    friendDiv: '.friend_div'
+    friendDiv: '.friend_status'
   }
   BetterBet.Friends.view = new BetterBet.Friends.View(selectors);
   BetterBet.Friends.controller = new BetterBet.Friends.Controller(BetterBet.Friends.view);

@@ -6,7 +6,7 @@ BetterBet.Friends.View.prototype = {
 
   toggleFriendButton: function(text){
     $(this.selectors.friend).toggle();
-    $(this.selectors.friendDiv).html(text)
+    $(this.selectors.friendDiv).hide().html(text).fadeIn();
   },
 
   friendErrorAlert: function(xhr){
