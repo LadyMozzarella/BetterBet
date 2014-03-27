@@ -20,6 +20,6 @@ class UserMailer < ActionMailer::Base
     @user = user
     @goal = goal
     @url  = login_url
-    mail(to: @friend.email, subject: 'Goal Complete BetterBet')
+    mail(to: @friend.email, subject: "#{@friend.name}'s BetterBet Goal Has Ended")
   end
 end
