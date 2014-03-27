@@ -72,6 +72,13 @@ describe GoalsController do
         delete :destroy, id: goal
       }.to change{ Goal.count }.by -1
     end
+
+    context 'has xhr' do
+      it 'should not redirect' do
+        ActionDispatch::Request.stub(:xhr) { true }
+        expect(response).to be_ok
+      end
+    end
   end
 
   context '#complete' do
