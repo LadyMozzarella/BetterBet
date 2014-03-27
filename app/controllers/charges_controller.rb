@@ -12,8 +12,7 @@ class ChargesController < ApplicationController
 
     goal.update_attributes(transfer_id: transfer.id)
 
-    flash[:notice] = "Money successfully transferred!"
-    redirect_to root_path
+    redirect_to root_path, flash: {notice: "Money successfully transferred!"}
 
   end
 end
