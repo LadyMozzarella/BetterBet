@@ -52,17 +52,6 @@ describe User do
     end
   end
 
-  context "#friend_goals" do
-    let(:friends) { create_list(:user, 1) }
-    let(:goals) { create_list(:goal, 2) }
-    xit "should return a goals for a user's friend" do
-      friend = friends.first
-      friend.stub(:goals) { goals }
-      user.stub(:friends) { friends }
-      expect(user.friend_goals).to eq friend.goals
-    end
-  end
-
   context "#has_friend?" do
     context "if user has friends" do
       it "should return true" do
