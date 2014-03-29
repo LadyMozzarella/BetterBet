@@ -21,7 +21,7 @@ BetterBet requires a one-time charge of 50 cents to get started. BetterBet will 
 
 # Money Transfers
 
-BetterBet uses the ![Stripe API](https://stripe.com) for handling payments. We never store your credit card or bank account information on our system.
+BetterBet uses the [Stripe API](https://stripe.com) for handling payments. We never store your credit card or bank account information on our system.
 
 # Major Features
 
@@ -52,9 +52,9 @@ BetterBet uses the ![Stripe API](https://stripe.com) for handling payments. We n
 
 # BetterBet Contributors:
 
-- Team Lead: ![Irene Yiu](https://github.com/ireneyiu)
-- Team Member: ![Brittany Mazza](https://github.com/LadyMozzarella)
-- Team Member: ![José Menor](https://github.com/menor)
-- Team Member: ![Ivan Sued](https://github.com/thefenry)
-- Team Member: ![Anne Willborn](https://github.com/awillborn)
+- Team Lead: [Irene Yiu](https://github.com/ireneyiu)
+- Team Member: [Brittany Mazza](https://github.com/LadyMozzarella)
+- Team Member: [José Menor](https://github.com/menor)
+- Team Member: [Ivan Sued](https://github.com/thefenry)
+- Team Member: [Anne Willborn](https://github.com/awillborn)
 
