@@ -16,7 +16,8 @@ class SessionsController < ApplicationController
       login @user
       redirect_to dashboard_path
     else
-      render :new
+      flash[:notice] = "Invalid email or password"
+      redirect_to login_path
     end
   end
 
